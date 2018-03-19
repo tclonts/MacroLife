@@ -8,20 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		BE0B340D20602120003B026E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B340C20602120003B026E /* AppDelegate.swift */; };
-		BE0B340F20602120003B026E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B340E20602120003B026E /* ViewController.swift */; };
 		BE0B341220602120003B026E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0B341020602120003B026E /* Main.storyboard */; };
 		BE0B341420602120003B026E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE0B341320602120003B026E /* Assets.xcassets */; };
 		BE0B341720602120003B026E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0B341520602120003B026E /* LaunchScreen.storyboard */; };
+		BE0B34232060227E003B026E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE0B34222060227E003B026E /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BE0B34092060211F003B026E /* MacroLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0B340C20602120003B026E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BE0B340E20602120003B026E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BE0B341120602120003B026E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE0B341320602120003B026E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE0B341620602120003B026E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE0B341820602120003B026E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE0B342020602277003B026E /* MacroLife.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacroLife.entitlements; sourceTree = "<group>"; };
+		BE0B34222060227E003B026E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE0B34232060227E003B026E /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +42,7 @@
 			children = (
 				BE0B340B2060211F003B026E /* MacroLife */,
 				BE0B340A2060211F003B026E /* Products */,
+				BE0B34212060227E003B026E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +57,38 @@
 		BE0B340B2060211F003B026E /* MacroLife */ = {
 			isa = PBXGroup;
 			children = (
+				BE0B342020602277003B026E /* MacroLife.entitlements */,
+				BE0B341F20602257003B026E /* UI */,
+				BE0B341E2060224C003B026E /* Resources */,
+			);
+			path = MacroLife;
+			sourceTree = "<group>";
+		};
+		BE0B341E2060224C003B026E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				BE0B340C20602120003B026E /* AppDelegate.swift */,
-				BE0B340E20602120003B026E /* ViewController.swift */,
-				BE0B341020602120003B026E /* Main.storyboard */,
 				BE0B341320602120003B026E /* Assets.xcassets */,
 				BE0B341520602120003B026E /* LaunchScreen.storyboard */,
 				BE0B341820602120003B026E /* Info.plist */,
 			);
-			path = MacroLife;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BE0B341F20602257003B026E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BE0B341020602120003B026E /* Main.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		BE0B34212060227E003B026E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE0B34222060227E003B026E /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +124,14 @@
 					BE0B34082060211F003B026E = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -136,7 +171,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE0B340F20602120003B026E /* ViewController.swift in Sources */,
 				BE0B340D20602120003B026E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,9 +308,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MacroLife/MacroLife.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XUF99SR6PQ;
-				INFOPLIST_FILE = MacroLife/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MacroLife/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TylerClonts.MacroLife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -289,9 +324,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MacroLife/MacroLife.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XUF99SR6PQ;
-				INFOPLIST_FILE = MacroLife/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MacroLife/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TylerClonts.MacroLife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
