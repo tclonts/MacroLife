@@ -12,6 +12,10 @@
 		BE0B341420602120003B026E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE0B341320602120003B026E /* Assets.xcassets */; };
 		BE0B341720602120003B026E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0B341520602120003B026E /* LaunchScreen.storyboard */; };
 		BE0B34232060227E003B026E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE0B34222060227E003B026E /* CloudKit.framework */; };
+		BE0B3428206056AF003B026E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B3427206056AF003B026E /* User.swift */; };
+		BE0B342A206056DA003B026E /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B3429206056DA003B026E /* Recipe.swift */; };
+		BE0B342C20605771003B026E /* RecipesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B342B20605771003B026E /* RecipesController.swift */; };
+		BE0B342E20605784003B026E /* UsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B342D20605784003B026E /* UsersController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		BE0B341820602120003B026E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE0B342020602277003B026E /* MacroLife.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacroLife.entitlements; sourceTree = "<group>"; };
 		BE0B34222060227E003B026E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		BE0B3427206056AF003B026E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BE0B3429206056DA003B026E /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		BE0B342B20605771003B026E /* RecipesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesController.swift; sourceTree = "<group>"; };
+		BE0B342D20605784003B026E /* UsersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,9 @@
 			children = (
 				BE0B342020602277003B026E /* MacroLife.entitlements */,
 				BE0B341F20602257003B026E /* UI */,
+				BE0B3426206023A7003B026E /* Model */,
+				BE0B34252060239E003B026E /* ModelControllers */,
+				BE0B34242060238B003B026E /* VIewControllers */,
 				BE0B341E2060224C003B026E /* Resources */,
 			);
 			path = MacroLife;
@@ -89,6 +100,31 @@
 				BE0B34222060227E003B026E /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE0B34242060238B003B026E /* VIewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VIewControllers;
+			sourceTree = "<group>";
+		};
+		BE0B34252060239E003B026E /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE0B342B20605771003B026E /* RecipesController.swift */,
+				BE0B342D20605784003B026E /* UsersController.swift */,
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		BE0B3426206023A7003B026E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE0B3427206056AF003B026E /* User.swift */,
+				BE0B3429206056DA003B026E /* Recipe.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +207,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE0B342A206056DA003B026E /* Recipe.swift in Sources */,
+				BE0B342E20605784003B026E /* UsersController.swift in Sources */,
+				BE0B342C20605771003B026E /* RecipesController.swift in Sources */,
+				BE0B3428206056AF003B026E /* User.swift in Sources */,
 				BE0B340D20602120003B026E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
