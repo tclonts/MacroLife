@@ -7,3 +7,23 @@
 //
 
 import Foundation
+import UIKit
+import CloudKit
+
+class Recipe: CloudKitManager {
+    
+    // CodingKeys
+    static let typeKey = "Recipe"
+    private let recipeImageKey = "recipeImage"
+    private let recipeTextKey = "recipeText"
+    
+    // Properties
+    var recipeImage: UIImage
+    var recipeText: String
+    
+    init(recipeImage: UIImage, recipeText: String) {
+    
+        self.recipeImage = recipeImage
+        self.recipeText = recipeText
+    }
+}

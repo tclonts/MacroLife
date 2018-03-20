@@ -16,6 +16,7 @@
 		BE0B342A206056DA003B026E /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B3429206056DA003B026E /* Recipe.swift */; };
 		BE0B342C20605771003B026E /* RecipesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B342B20605771003B026E /* RecipesController.swift */; };
 		BE0B342E20605784003B026E /* UsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B342D20605784003B026E /* UsersController.swift */; };
+		BE13C7B520609C9E004DB4C7 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE13C7B420609C9E004DB4C7 /* CloudKitManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		BE0B3429206056DA003B026E /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		BE0B342B20605771003B026E /* RecipesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesController.swift; sourceTree = "<group>"; };
 		BE0B342D20605784003B026E /* UsersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersController.swift; sourceTree = "<group>"; };
+		BE13C7B420609C9E004DB4C7 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				BE0B3426206023A7003B026E /* Model */,
 				BE0B34252060239E003B026E /* ModelControllers */,
 				BE0B34242060238B003B026E /* VIewControllers */,
+				BE13C7B320609C78004DB4C7 /* CloudKit */,
 				BE0B341E2060224C003B026E /* Resources */,
 			);
 			path = MacroLife;
@@ -125,6 +128,14 @@
 				BE0B3429206056DA003B026E /* Recipe.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BE13C7B320609C78004DB4C7 /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
+				BE13C7B420609C9E004DB4C7 /* CloudKitManager.swift */,
+			);
+			name = CloudKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +220,7 @@
 			files = (
 				BE0B342A206056DA003B026E /* Recipe.swift in Sources */,
 				BE0B342E20605784003B026E /* UsersController.swift in Sources */,
+				BE13C7B520609C9E004DB4C7 /* CloudKitManager.swift in Sources */,
 				BE0B342C20605771003B026E /* RecipesController.swift in Sources */,
 				BE0B3428206056AF003B026E /* User.swift in Sources */,
 				BE0B340D20602120003B026E /* AppDelegate.swift in Sources */,
