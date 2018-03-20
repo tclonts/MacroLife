@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import UIKit
 import CloudKit
 
-class User: CloudKitManager, Equatable {
+class User: CloudKitManager {
     
     // CodingKeys
     static let typeKey = "User"
+    private let profileImageKey = "profileImage"
     private let usernameKey = "username"
-    private let phoneNumberKey = "phoneNumber"
     private let emailKey = "email"
     private let genderKey = "gender"
     private let bodyWeightKey = "bodyWeight"
@@ -24,8 +25,8 @@ class User: CloudKitManager, Equatable {
     
     
     // Properties
+    var profileImage: Data?
     var username: String
-    var phoneNumber: Int
     var email: String
     var gender: String
     var bodyWeight: Double
@@ -33,33 +34,37 @@ class User: CloudKitManager, Equatable {
     var bodyFatPercentage: Double
     var activityLevel: Int
     var cloudKitRecordID: CKRecordID?
+    var photo: UIImage? {
+        guard let profileImage = self.profileImage else { return nil }
+        return UIImage(data: profileImage)
+    }
     
     
-    init(username: String, phoneNumber: Int, email: String, gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double, activityLevel: Int) {
+    init(profileImage: Data? ,username: String, email: String, gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double, activityLevel: Int) {
         
             self.username = username
-            self.phoneNumber = phoneNumber
             self.email = email
             self.gender = gender
             self.bodyWeight = bodyWeight
             self.leanBodyMass = leanBodyMass
             self.bodyFatPercentage = bodyFatPercentage
             self.activityLevel = activityLevel
+            self.profileImage = profileImage
     }
     
     // Used for fetching records from Cloudkit
     init?(cloudKitRecord: CKRecord) {
-        guard let username = cloudKitRecord[usernameKey] as? String,
-            let phoneNumber = cloudKitRecord[phoneNumberKey] as? Int,
+           guard let username = cloudKitRecord[usernameKey] as? String,
             let email = cloudKitRecord[emailKey] as? String,
             let gender = cloudKitRecord[genderKey] as? String,
             let bodyWeight = cloudKitRecord[bodyWeightKey] as? Double,
             let leanBodyMass = cloudKitRecord[leanBodyMassKey] as? Double,
             let bodyFatPercentage = cloudKitRecord[bodyFatPercentageKey] as? Double,
-            let activityLevel = cloudKitRecord[activityLevelKey] as? Int else { return nil }
+            let activityLevel = cloudKitRecord[activityLevelKey] as? Int,
+            let photoAsset = cloudKitRecord[profileImageKey] as? CKAsset else { return nil }
+            let profileImage = try? Data(contentsOf: photoAsset.fileURL)
         
         self.username = username
-        self.phoneNumber = phoneNumber
         self.email = email
         self.gender = gender
         self.bodyWeight = bodyWeight
@@ -67,6 +72,7 @@ class User: CloudKitManager, Equatable {
         self.bodyFatPercentage = bodyFatPercentage
         self.activityLevel = activityLevel
         self.cloudKitRecordID = cloudKitRecord.recordID
+        self.profileImage = profileImage
     }
     
     // Used for Saving to cloudkit
@@ -76,22 +82,36 @@ class User: CloudKitManager, Equatable {
         let record = CKRecord(recordType: User.typeKey)
         
         record.setValue(username, forKey: usernameKey)
-        record.setValue(phoneNumber, forKey: phoneNumberKey)
         record.setValue(email, forKey: emailKey)
         record.setValue(gender, forKey: genderKey)
         record.setValue(bodyWeight, forKey: bodyWeightKey)
         record.setValue(leanBodyMass, forKey: leanBodyMassKey)
         record.setValue(bodyFatPercentage, forKey: bodyFatPercentageKey)
         record.setValue(activityLevel, forKey: activityLevelKey)
+        record[profileImageKey] = CKAsset(fileURL: temporaryPhotoURL)
         
         return record
     }
    
-    // Equatable
     
-    static func ==(lhs: User, rhs: User) -> Bool {
-        return lhs.username == rhs.username &&
-                lhs.phoneNumber == rhs.phoneNumber &&
-                lhs.email == rhs.email
+    fileprivate var temporaryPhotoURL: URL {
+        
+        // Must write to temporary directory to be able to pass image file path url to CKAsset
+        
+        let temporaryDirectory = NSTemporaryDirectory()
+        let temporaryDirectoryURL = URL(fileURLWithPath: temporaryDirectory)
+        let fileURL = temporaryDirectoryURL.appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")
+        
+        try? profileImage?.write(to: fileURL, options: [.atomic])
+        
+        return fileURL
     }
+    
+//    // Equatable
+//
+//    static func ==(lhs: User, rhs: User) -> Bool {
+//        return lhs.username == rhs.username &&
+//            lhs.phoneNumber == rhs.phoneNumber &&
+//            lhs.email == rhs.email
+//    }
 }

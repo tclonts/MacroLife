@@ -22,22 +22,28 @@ class RecipesController {
     
     // Create New Recipe
     
-    func createRecipe(recipeImage: UIImage, recipeText: String) {
-        let newRecipe = Recipe(recipeImage: recipeImage, recipeText: recipeText)
-        recipes.append(newRecipe)
-        saveToPersistentStore()
-    }
+//    func createRecipe(recipeImage: UIImage, recipeText: String) {
+//        let newRecipe = Recipe(recipeImage: recipeImage, recipeText: recipeText)
+//        recipes.append(newRecipe)
+//        saveToPersistentStore()
+//    }
     
     // Delete Recipe
     
-    func deleteRecipe(recipe: Recipe) {
-        guard let index = recipes.index(of: recipe) else { return }
-        recipes.remove(at: index)
-        CKContainer.default().publicCloudDatabase.delete(withRecordID: recipe.cloudKitRecord.recordID) { (_, error) in
-            if let error = error {
-                print("Error deleting recipe record: \(error.localizedDescription)")
-            }
-        }
+//    func deleteRecipe(recipe: Recipe) {
+//        guard let index = recipes.index(of: recipe) else { return }
+//        recipes.remove(at: index)
+//        CKContainer.default().publicCloudDatabase.delete(withRecordID: recipe.cloudKitRecord.recordID) { (_, error) in
+//            if let error = error {
+//                print("Error deleting recipe record: \(error.localizedDescription)")
+//            }
+//        }
+//    }
+    
+    // Update Recipe
+    func updateRecipe(recipe: Recipe, recipeImage: UIImage, recipeText: String){
+        let record = recipe.cloudKitRecord
+        CloudKitManager.shared.modifyRecords([record], perRecordCompletion: nil, completion: nil)
     }
     
     

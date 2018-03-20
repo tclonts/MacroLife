@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CloudKit
 
-class Recipe: CloudKitManager, Equatable {
+class Recipe: CloudKitManager {
     
     
     // CodingKeys
@@ -20,11 +20,15 @@ class Recipe: CloudKitManager, Equatable {
     
     
     // Properties
-    var recipeImage: UIImage
+    var recipeImage: Data?
     var recipeText: String
     var cloudkitRecordID: CKRecordID?
+    var photo: UIImage? {
+        guard let recipeImage = self.recipeImage else { return nil }
+        return UIImage(data: recipeImage)
+    }
     
-    init(recipeImage: UIImage, recipeText: String) {
+    init(recipeImage: Data?, recipeText: String) {
     
         self.recipeImage = recipeImage
         self.recipeText = recipeText
@@ -33,8 +37,9 @@ class Recipe: CloudKitManager, Equatable {
     // Used for Fetching records from CloudKit
     
     init?(cloudKitRecord: CKRecord) {
-        guard let recipeImage = cloudKitRecord[recipeImageKey] as? UIImage,
-            let recipeText = cloudKitRecord[recipeTextKey] as? String else { return nil}
+        guard let recipeText = cloudKitRecord[recipeTextKey] as? String,
+            let photoAsset = cloudKitRecord[recipeImageKey] as? CKAsset else { return nil}
+        let recipeImage = try? Data(contentsOf: photoAsset.fileURL)
         
             self.recipeImage = recipeImage
             self.recipeText = recipeText
@@ -45,16 +50,29 @@ class Recipe: CloudKitManager, Equatable {
     
     var cloudKitRecord: CKRecord {
         let recordID = cloudkitRecordID ?? CKRecordID(recordName: UUID().uuidString)
-        let record = CKRecord(recordType: User.typeKey)
+        let record = CKRecord(recordType: Recipe.typeKey)
         
-        record.setValue(recipeImage, forKey: recipeImageKey)
         record.setValue(recipeText, forKey: recipeTextKey)
+        record[recipeImageKey] = CKAsset(fileURL: temporaryPhotoURL)
         
         return record
     }
     
-    // Equatable
-    static func ==(lhs: Recipe, rhs: Recipe) -> Bool {
-        return lhs.recipeImage == rhs.recipeImage && lhs.recipeText == rhs.recipeText
+    fileprivate var temporaryPhotoURL: URL {
+        
+        // Must write to temporary directory to be able to pass image file path url to CKAsset
+        
+        let temporaryDirectory = NSTemporaryDirectory()
+        let temporaryDirectoryURL = URL(fileURLWithPath: temporaryDirectory)
+        let fileURL = temporaryDirectoryURL.appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")
+        
+        try? recipeImage?.write(to: fileURL, options: [.atomic])
+        
+        return fileURL
     }
+    
+//    // Equatable
+//    static func ==(lhs: Recipe, rhs: Recipe) -> Bool {
+//        return lhs.recipeImage == rhs.recipeImage && lhs.recipeText == rhs.recipeText
+//    }
 }

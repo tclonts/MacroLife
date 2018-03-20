@@ -17,6 +17,12 @@
 		BE0B342C20605771003B026E /* RecipesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B342B20605771003B026E /* RecipesController.swift */; };
 		BE0B342E20605784003B026E /* UsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B342D20605784003B026E /* UsersController.swift */; };
 		BE13C7B520609C9E004DB4C7 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE13C7B420609C9E004DB4C7 /* CloudKitManager.swift */; };
+		BE95244F2061B70300722E51 /* ProfilePhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE95244E2061B70300722E51 /* ProfilePhotoSelectViewController.swift */; };
+		BEE17656206177D500177909 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE17655206177D500177909 /* SignUpViewController.swift */; };
+		BEE17658206177E800177909 /* MacroCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE17657206177E800177909 /* MacroCalculatorViewController.swift */; };
+		BEE1765A206177FC00177909 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE17659206177FC00177909 /* ProfileViewController.swift */; };
+		BEE1765E2061A2F500177909 /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE1765D2061A2F500177909 /* PhotoSelectViewController.swift */; };
+		BEE176602061AC0900177909 /* AddRecipeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE1765F2061AC0900177909 /* AddRecipeCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +39,12 @@
 		BE0B342B20605771003B026E /* RecipesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesController.swift; sourceTree = "<group>"; };
 		BE0B342D20605784003B026E /* UsersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersController.swift; sourceTree = "<group>"; };
 		BE13C7B420609C9E004DB4C7 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		BE95244E2061B70300722E51 /* ProfilePhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectViewController.swift; sourceTree = "<group>"; };
+		BEE17655206177D500177909 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		BEE17657206177E800177909 /* MacroCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroCalculatorViewController.swift; sourceTree = "<group>"; };
+		BEE17659206177FC00177909 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BEE1765D2061A2F500177909 /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
+		BEE1765F2061AC0900177909 /* AddRecipeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +120,12 @@
 		BE0B34242060238B003B026E /* VIewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BEE17655206177D500177909 /* SignUpViewController.swift */,
+				BE95244E2061B70300722E51 /* ProfilePhotoSelectViewController.swift */,
+				BEE17657206177E800177909 /* MacroCalculatorViewController.swift */,
+				BEE17659206177FC00177909 /* ProfileViewController.swift */,
+				BEE1765F2061AC0900177909 /* AddRecipeCollectionViewController.swift */,
+				BEE1765D2061A2F500177909 /* PhotoSelectViewController.swift */,
 			);
 			path = VIewControllers;
 			sourceTree = "<group>";
@@ -219,11 +237,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE0B342A206056DA003B026E /* Recipe.swift in Sources */,
+				BEE17658206177E800177909 /* MacroCalculatorViewController.swift in Sources */,
+				BEE17656206177D500177909 /* SignUpViewController.swift in Sources */,
 				BE0B342E20605784003B026E /* UsersController.swift in Sources */,
 				BE13C7B520609C9E004DB4C7 /* CloudKitManager.swift in Sources */,
 				BE0B342C20605771003B026E /* RecipesController.swift in Sources */,
+				BEE176602061AC0900177909 /* AddRecipeCollectionViewController.swift in Sources */,
+				BEE1765E2061A2F500177909 /* PhotoSelectViewController.swift in Sources */,
+				BEE1765A206177FC00177909 /* ProfileViewController.swift in Sources */,
 				BE0B3428206056AF003B026E /* User.swift in Sources */,
 				BE0B340D20602120003B026E /* AppDelegate.swift in Sources */,
+				BE95244F2061B70300722E51 /* ProfilePhotoSelectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
