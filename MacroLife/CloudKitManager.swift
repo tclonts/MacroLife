@@ -89,6 +89,21 @@ class CloudKitManager {
         CKContainer.default().discoverUserIdentity(withPhoneNumber: phoneNumber, completionHandler: completion)
     }
     
+    //MARK: Modify records
+    func modifyRecords(_ records: [CKRecord], perRecordCompletion: ((_ record: CKRecord?, _ error: Error?) -> Void)?, completion: ((_ records: [CKRecord]?, _ error: Error?) -> Void)?) {
+        
+        let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
+        operation.savePolicy = .changedKeys
+        operation.queuePriority = .high
+        operation.qualityOfService = .userInteractive
+        
+        operation.perRecordCompletionBlock = perRecordCompletion
+        
+        operation.modifyRecordsCompletionBlock = { (records, recordIDs, error) -> Void in
+            (completion?(records, error))!
+        }
+    }
+    
     // MARK: - Sharing
     
     var sharingZoneID: CKRecordZoneID = {

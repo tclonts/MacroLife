@@ -115,8 +115,8 @@
 		BE0B34252060239E003B026E /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
-				BE0B342B20605771003B026E /* RecipesController.swift */,
 				BE0B342D20605784003B026E /* UsersController.swift */,
+				BE0B342B20605771003B026E /* RecipesController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
