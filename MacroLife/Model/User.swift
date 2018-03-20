@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-class User: CloudKitManager {
+class User: CloudKitManager, Equatable {
     
     // CodingKeys
     static let typeKey = "User"
@@ -86,8 +86,12 @@ class User: CloudKitManager {
         
         return record
     }
+   
+    // Equatable
     
-//    static func ==(lhs: User, rhs: User) -> Bool {
-//        if lhs.username !=
-//    }
+    static func ==(lhs: User, rhs: User) -> Bool {
+        return lhs.username == rhs.username &&
+                lhs.phoneNumber == rhs.phoneNumber &&
+                lhs.email == rhs.email
+    }
 }
