@@ -26,13 +26,13 @@ class User: CloudKitManager {
     
     // Properties
     var profileImage: Data?
-    var username: String
-    var email: String
-    var gender: String
-    var bodyWeight: Double
-    var leanBodyMass: Double
-    var bodyFatPercentage: Double
-    var activityLevel: Int
+    var username: String?
+    var email: String?
+    var gender: String?
+    var bodyWeight: Double?
+    var leanBodyMass: Double?
+    var bodyFatPercentage: Double?
+    var activityLevel: Int?
     var cloudKitRecordID: CKRecordID?
     var photo: UIImage? {
         guard let profileImage = self.profileImage else { return nil }
@@ -40,7 +40,7 @@ class User: CloudKitManager {
     }
     
     
-    init(profileImage: Data? ,username: String, email: String, gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double, activityLevel: Int) {
+    init(profileImage: Data? ,username: String?, email: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, activityLevel: Int?) {
         
             self.username = username
             self.email = email
@@ -79,7 +79,7 @@ class User: CloudKitManager {
     
     var cloudKitRecord: CKRecord {
         let recordID = cloudKitRecordID ?? CKRecordID(recordName: UUID().uuidString)
-        let record = CKRecord(recordType: User.typeKey)
+        let record = CKRecord(recordType: User.typeKey, recordID: recordID)
         
         record.setValue(username, forKey: usernameKey)
         record.setValue(email, forKey: emailKey)
@@ -89,6 +89,8 @@ class User: CloudKitManager {
         record.setValue(bodyFatPercentage, forKey: bodyFatPercentageKey)
         record.setValue(activityLevel, forKey: activityLevelKey)
         record[profileImageKey] = CKAsset(fileURL: temporaryPhotoURL)
+        
+        cloudKitRecordID = recordID
         
         return record
     }

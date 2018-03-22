@@ -13,6 +13,8 @@ import UIKit
 class CloudKitManager {
     
     static let shared = CloudKitManager()
+    let publicDB = CKContainer.default().publicCloudDatabase
+
     
     // Save one file at a time
     func saveRecordToCloudKit(record: CKRecord, database: CKDatabase, completion: @escaping (CKRecord?, Error?) -> Void) {
@@ -90,7 +92,8 @@ class CloudKitManager {
     }
     
     //MARK: Modify records
-    func modifyRecords(_ records: [CKRecord], perRecordCompletion: ((_ record: CKRecord?, _ error: Error?) -> Void)?, completion: ((_ records: [CKRecord]?, _ error: Error?) -> Void)?) {
+    
+    func modifyRecords(_ records: [CKRecord], database: CKDatabase, perRecordCompletion: ((_ record: CKRecord?, _ error: Error?) -> Void)?, completion: ((_ records: [CKRecord]?, _ error: Error?) -> Void)?) {
         
         let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
         operation.savePolicy = .changedKeys
@@ -100,8 +103,10 @@ class CloudKitManager {
         operation.perRecordCompletionBlock = perRecordCompletion
         
         operation.modifyRecordsCompletionBlock = { (records, recordIDs, error) -> Void in
-            (completion?(records, error))!
+            completion?(records, error)
         }
+        
+        publicDB.add(operation)
     }
     
     // MARK: - Sharing

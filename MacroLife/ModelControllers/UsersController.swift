@@ -13,53 +13,68 @@ import CloudKit
 class UsersController {
     
     static let shared = UsersController()
-    let privateDB = CKContainer.default().privateCloudDatabase
+    let publicDB = CKContainer.default().publicCloudDatabase
+    
+    var currentUser: User?
     var users: [User] = []
     
     init() {
         loadFromPersistentStore()
     }
-    
+
     // Add new user
-    func createNewUser(profileImage: UIImage, username: String, phoneNumber: Int, email: String, gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double, activityLevel: Int) {
-        guard let data = UIImageJPEGRepresentation(profileImage, 0.8) else { return }
+    func createNewUserForCurrentUser(image: UIImage?, username: String?, email: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, activityLevel: Int?, completion: @escaping(_ success: Bool) -> Void) {
+        guard let image = image,
+                let username = username,
+            let email = email else { completion(false); return }
+        guard let data = UIImageJPEGRepresentation(image, 0.8) else { completion(false); return }
+
+        let newUser = User(profileImage: data, username: username, email: email, gender: gender, bodyWeight: bodyWeight, leanBodyMass: leanBodyMass, bodyFatPercentage: bodyFatPercentage, activityLevel: activityLevel)
         
-        let newUser = User(profileImage: data, username: username, phoneNumber: phoneNumber, email: email, gender: gender, bodyWeight: bodyWeight, leanBodyMass: leanBodyMass, bodyFatPercentage: bodyFatPercentage, activityLevel: activityLevel)
+        self.currentUser = newUser
         
-        users.append(newUser)
-        saveToPersistentStore()
+        saveToPersistentStore {
+            completion(true)
+        }
     }
-    
-    // Delete User
-    
-//    func deleteUser(user: User) {
-//        guard let index = users.index(of: user) else { return }
-//        users.remove(at: index)
-//        CKContainer.default().privateCloudDatabase.delete(withRecordID: user.cloudKitRecord.recordID) { (record, error) in
-//            if let error = error {
-//                print("Error deleting user record: \(error.localizedDescription)")
-//            }
-//        }
+    // Future function when i have multiple users interacting
+//    func createNewUser() {
+//
 //    }
     
     // Update User
-    func updateUser(user: User, username: String, phoneNumber: Int, email: String, gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double, activityLevel: Int){
+    func updateUser(user: User, gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double, activityLevel: Int, completion: (() -> Void)? = nil) {
+      
+        user.gender = gender
+        user.bodyWeight = bodyWeight
+        user.leanBodyMass = leanBodyMass
+        user.bodyFatPercentage = bodyFatPercentage
+        user.activityLevel = activityLevel
+        
         let record = user.cloudKitRecord
-        CloudKitManager.shared.modifyRecords([record], perRecordCompletion: nil, completion: nil)
+        CloudKitManager.shared.modifyRecords([record], database: publicDB, perRecordCompletion: nil, completion: { (_, error) in
+            completion?()
+        })
     }
     
     
+    
     // Saving Function
-    func saveToPersistentStore() {
+    func saveToPersistentStore(completion: (() -> Void)? = nil) {
         
-        let userRecords = users.map({$0.cloudKitRecord})
+//        let userRecords = users.map({$0.cloudKitRecord})
         
-        CloudKitManager.shared.saveRecordsToCloudKit(record: userRecords, database: privateDB, perRecordCompletion: nil) { (_, _, error) in
+        guard let user = currentUser else { completion?(); return }
+        
+        CloudKitManager.shared.saveRecordsToCloudKit(record: [user.cloudKitRecord], database: publicDB, perRecordCompletion: nil) { (_, _, error) in
             if let error = error {
                 print("Error saving records to CloudKit: \(error.localizedDescription)")
             } else {
                 print("Success saving records to CloudKit")
-        }
+            }
+            
+            self.currentUser = user
+            completion?()
         
     }
 }
@@ -67,7 +82,7 @@ class UsersController {
     
     func loadFromPersistentStore() {
         
-        CloudKitManager.shared.fetchRecordsOf(type: User.typeKey, database: privateDB) { (records, error) in
+        CloudKitManager.shared.fetchRecordsOf(type: User.typeKey, database: publicDB) { (records, error) in
             if let error = error {
                 print("Error fetching records from cloudKit: \(error.localizedDescription)")
             } else {
@@ -75,7 +90,19 @@ class UsersController {
             }
             guard let records = records else { return }
             let users = records.flatMap {User(cloudKitRecord:$0)}
-            self.users = users
+            self.currentUser = users.first
         }
     }
 }
+    // Delete User
+
+    //    func deleteUser(user: User) {
+    //        guard let index = users.index(of: user) else { return }
+    //        users.remove(at: index)
+    //        CKContainer.default().privateCloudDatabase.delete(withRecordID: user.cloudKitRecord.recordID) { (record, error) in
+    //            if let error = error {
+    //                print("Error deleting user record: \(error.localizedDescription)")
+    //            }
+    //        }
+    //    }
+

@@ -43,7 +43,7 @@ class RecipesController {
     // Update Recipe
     func updateRecipe(recipe: Recipe, recipeImage: UIImage, recipeText: String){
         let record = recipe.cloudKitRecord
-        CloudKitManager.shared.modifyRecords([record], perRecordCompletion: nil, completion: nil)
+        CloudKitManager.shared.modifyRecords([record], database: publicDB, perRecordCompletion: nil, completion: nil)
     }
     
     

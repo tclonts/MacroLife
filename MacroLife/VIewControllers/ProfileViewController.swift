@@ -10,16 +10,30 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var bodyWeightLabel: UILabel!
+    @IBOutlet weak var leanBodyMassLabel: UILabel!
+    @IBOutlet weak var bodyFatLabel: UILabel!
+    @IBOutlet weak var activityLevelLabel: UILabel!
+    @IBOutlet weak var usernameUpdateTextField: UITextField!
+    @IBOutlet weak var genderUpdateTextField: UITextField!
+    @IBOutlet weak var bodyWeightUpdateTextField: UITextField!
+    @IBOutlet weak var leanBodyMassUpdateTextField: UITextField!
+    @IBOutlet weak var bodyFatUpdateTextField: UITextField!
+    @IBOutlet weak var activityLevelUpdateTextField: UITextField!
+    @IBOutlet weak var proteinProfileLabel: UILabel!
+    @IBOutlet weak var fatProfileLabel: UILabel!
+    @IBOutlet weak var carbsProfileLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func updateButtonTapped(_ sender: UIButton) {
     }
+    
     
 
     /*
