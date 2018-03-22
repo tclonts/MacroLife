@@ -114,6 +114,7 @@
                                 <state key="normal" title="Save Results"/>
                                 <connections>
                                     <action selector="saveResultsButtonTapped:" destination="aE4-ll-0XW" eventType="touchUpInside" id="qJ8-yg-Ya6"/>
+                                    <segue destination="UpQ-Nv-KS2" kind="showDetail" identifier="toProfileDetail" id="uWt-na-nDm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kp3-Uu-b7I">

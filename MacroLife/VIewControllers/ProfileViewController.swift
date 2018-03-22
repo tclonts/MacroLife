@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class ProfileViewController: UIViewController {
 
@@ -27,12 +28,53 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var fatProfileLabel: UILabel!
     @IBOutlet weak var carbsProfileLabel: UILabel!
     
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateForCurrentUser()
     }
 
     @IBAction func updateButtonTapped(_ sender: UIButton) {
     }
+
+    func updateForCurrentUser() {
+        
+        CloudKitManager.shared.fetchRecordsOf(type: User.typeKey, database: UsersController.shared.publicDB) { (records, error) in
+            if let error = error {
+                print("Error fetching records from cloudKit: \(error.localizedDescription)")
+            } else {
+                print("Success fetching records from cloudKit")
+            }
+            
+            guard let records = records else { return }
+            let users = records.flatMap {User(cloudKitRecord:$0)}
+            UsersController.shared.currentUser = users.first
+            DispatchQueue.main.async {
+                self.usernameLabel.text = users.first?.username
+                self.genderLabel.text = users.first?.gender
+                self.bodyWeightLabel.text = "\(users.first?.bodyWeight)"
+//                self.leanBodyMassLabel.text = "\(users.first?.leanBodyMass)"
+//                self.bodyFatLabel.text = "\(users.first?.bodyFatPercentage)"
+//                self.activityLevelLabel.text = "\(users.first?.activityLevel)"
+            }
+        }
+    }
+}
+
+
+
+//    func updateViews() {
+//        guard let user = user else { return }
+//            self.usernameLabel.text = user.username
+//            self.genderLabel.text = user.gender
+//            self.bodyWeightLabel.text = "\(user.bodyWeight)"
+//            self.leanBodyMassLabel.text = "\(user.leanBodyMass)"
+//            self.bodyFatLabel.text = "\(user.bodyFatPercentage)"
+//            self.activityLevelLabel.text = "\(user.activityLevel)"
+//        }
+//    }
+
     
     
 
@@ -46,4 +88,3 @@ class ProfileViewController: UIViewController {
     }
     */
 
-}
