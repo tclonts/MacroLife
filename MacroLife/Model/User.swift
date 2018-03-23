@@ -21,7 +21,11 @@ class User: CloudKitManager {
     private let bodyWeightKey = "bodyWeight"
     private let leanBodyMassKey = "leanBodyMass"
     private let bodyFatPercentageKey = "bodyFat"
-    var activityLevelKey = "activityLevel"
+    private let activityLevelKey = "activityLevel"
+    private let proteinKey = "protein"
+    private let fatKey = "fat"
+    private let carbsKey = "carbs"
+    
     
     
     // Properties
@@ -33,6 +37,9 @@ class User: CloudKitManager {
     var leanBodyMass: Double?
     var bodyFatPercentage: Double?
     var activityLevel: Int?
+    var protein: Double?
+    var fat: Double?
+    var carbs: Double?
     var cloudKitRecordID: CKRecordID?
     var photo: UIImage? {
         guard let profileImage = self.profileImage else { return nil }
@@ -40,7 +47,7 @@ class User: CloudKitManager {
     }
     
     
-    init(profileImage: Data? ,username: String?, email: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, activityLevel: Int?) {
+    init(profileImage: Data? ,username: String?, email: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, activityLevel: Int?, protein: Double?, fat: Double?, carbs: Double?) {
         
             self.username = username
             self.email = email
@@ -49,6 +56,9 @@ class User: CloudKitManager {
             self.leanBodyMass = leanBodyMass
             self.bodyFatPercentage = bodyFatPercentage
             self.activityLevel = activityLevel
+            self.protein = protein
+            self.fat = fat
+            self.carbs = carbs
             self.profileImage = profileImage
     }
     
@@ -61,6 +71,9 @@ class User: CloudKitManager {
             let leanBodyMass = cloudKitRecord[leanBodyMassKey] as? Double,
             let bodyFatPercentage = cloudKitRecord[bodyFatPercentageKey] as? Double,
             let activityLevel = cloudKitRecord[activityLevelKey] as? Int,
+            let protein = cloudKitRecord[proteinKey] as? Double,
+            let fat = cloudKitRecord[fatKey] as? Double,
+            let carbs = cloudKitRecord[carbsKey] as? Double,
             let photoAsset = cloudKitRecord[profileImageKey] as? CKAsset else { return nil }
             let profileImage = try? Data(contentsOf: photoAsset.fileURL)
         
@@ -71,6 +84,9 @@ class User: CloudKitManager {
         self.leanBodyMass = leanBodyMass
         self.bodyFatPercentage = bodyFatPercentage
         self.activityLevel = activityLevel
+        self.protein = protein
+        self.fat = fat
+        self.carbs = carbs
         self.cloudKitRecordID = cloudKitRecord.recordID
         self.profileImage = profileImage
     }
@@ -88,6 +104,9 @@ class User: CloudKitManager {
         record.setValue(leanBodyMass, forKey: leanBodyMassKey)
         record.setValue(bodyFatPercentage, forKey: bodyFatPercentageKey)
         record.setValue(activityLevel, forKey: activityLevelKey)
+        record.setValue(protein, forKey: proteinKey)
+        record.setValue(fat, forKey: fatKey)
+        record.setValue(carbs, forKey: carbsKey)
         record[profileImageKey] = CKAsset(fileURL: temporaryPhotoURL)
         
         cloudKitRecordID = recordID

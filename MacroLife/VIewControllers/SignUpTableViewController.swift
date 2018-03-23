@@ -27,7 +27,7 @@ class SignUpTableViewController: UITableViewController {
             let username = usernameTextField.text,
             let email = emailTextField.text  else { return }
             
-        UsersController.shared.createNewUserForCurrentUser(image: image, username: username, email: email, gender: nil, bodyWeight: nil, leanBodyMass: nil, bodyFatPercentage: nil, activityLevel: nil, completion: {_ in
+        UsersController.shared.createNewUserForCurrentUser(image: image, username: username, email: email, gender: nil, bodyWeight: nil, leanBodyMass: nil, bodyFatPercentage: nil, protein: nil, fat: nil, carbs: nil, activityLevel: nil, completion: {_ in
             DispatchQueue.main.async {
                 
                 self.performSegue(withIdentifier: "toMacroDetails", sender: self)

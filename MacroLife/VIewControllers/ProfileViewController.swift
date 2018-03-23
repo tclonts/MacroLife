@@ -54,9 +54,13 @@ class ProfileViewController: UIViewController {
                 self.usernameLabel.text = users.first?.username
                 self.genderLabel.text = users.first?.gender
                 self.bodyWeightLabel.text = "\(users.first?.bodyWeight)"
-//                self.leanBodyMassLabel.text = "\(users.first?.leanBodyMass)"
-//                self.bodyFatLabel.text = "\(users.first?.bodyFatPercentage)"
-//                self.activityLevelLabel.text = "\(users.first?.activityLevel)"
+                self.leanBodyMassLabel.text = "\(users.first?.leanBodyMass)"
+                self.bodyFatLabel.text = "\(users.first?.bodyFatPercentage)"
+                self.proteinProfileLabel.text = "\(users.first?.protein)"
+                self.fatProfileLabel.text = "\(users.first?.fat)"
+                self.carbsProfileLabel.text = "\(users.first?.carbs)"
+                self.activityLevelLabel.text = "\(users.first?.activityLevel)"
+                
             }
         }
     }

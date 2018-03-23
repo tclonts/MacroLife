@@ -23,13 +23,13 @@ class UsersController {
     }
 
     // Add new user
-    func createNewUserForCurrentUser(image: UIImage?, username: String?, email: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, activityLevel: Int?, completion: @escaping(_ success: Bool) -> Void) {
+    func createNewUserForCurrentUser(image: UIImage?, username: String?, email: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, protein: Double?, fat: Double?, carbs: Double?, activityLevel: Int?, completion: @escaping(_ success: Bool) -> Void) {
         guard let image = image,
                 let username = username,
             let email = email else { completion(false); return }
         guard let data = UIImageJPEGRepresentation(image, 0.8) else { completion(false); return }
 
-        let newUser = User(profileImage: data, username: username, email: email, gender: gender, bodyWeight: bodyWeight, leanBodyMass: leanBodyMass, bodyFatPercentage: bodyFatPercentage, activityLevel: activityLevel)
+        let newUser = User(profileImage: data, username: username, email: email, gender: gender, bodyWeight: bodyWeight, leanBodyMass: leanBodyMass, bodyFatPercentage: bodyFatPercentage, activityLevel: activityLevel, protein: protein, fat: fat, carbs: carbs)
         
         self.currentUser = newUser
         
@@ -43,12 +43,15 @@ class UsersController {
 //    }
     
     // Update User
-    func updateUser(user: User, gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double, activityLevel: Int, completion: (() -> Void)? = nil) {
+    func updateUser(user: User, gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double, protein: Double, fat: Double, carbs: Double, activityLevel: Int, completion: (() -> Void)? = nil) {
       
         user.gender = gender
         user.bodyWeight = bodyWeight
         user.leanBodyMass = leanBodyMass
         user.bodyFatPercentage = bodyFatPercentage
+        user.protein = protein
+        user.fat = fat
+        user.carbs = carbs
         user.activityLevel = activityLevel
         
         let record = user.cloudKitRecord

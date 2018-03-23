@@ -38,10 +38,13 @@ class MacroCalculatorViewController: UIViewController {
             let bodyWeight = Int(bodyWeightTextField.text!),
             let leanBodyMass = Int(leanBodyMassTextField.text!),
             let bodyFatPercentage = Int(bodyFatTextField.text!),
+            let proteinL = Int(proteinLabel.text!),
+            let fatL = Int(fatLabel.text!),
+            let carbsL = Int(carbsLabel.text!),
             let activityLevel = Int(activityLevelTextField.text!) else { return }
         
         
-        UsersController.shared.updateUser(user: user, gender: gender, bodyWeight: Double(bodyWeight), leanBodyMass: Double(leanBodyMass), bodyFatPercentage: Double(bodyFatPercentage), activityLevel: activityLevel)
+        UsersController.shared.updateUser(user: user, gender: gender, bodyWeight: Double(bodyWeight), leanBodyMass: Double(leanBodyMass), bodyFatPercentage: Double(bodyFatPercentage), protein: Double(proteinL), fat: Double(fatL), carbs: Double(carbsL), activityLevel: activityLevel)
         print("button tapped")
         
     }
@@ -49,7 +52,6 @@ class MacroCalculatorViewController: UIViewController {
     func proteinCalculator() {
         guard let proteinInG = Int(leanBodyMassTextField.text!) else { return }
         proteinLabel.text = "\(proteinInG)"
-        print(proteinInG)
     }
     
     func fatCalculator() {
