@@ -20,9 +20,9 @@ class MacroCalculatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
+
+    
     var user: User?
     
     // MARK: - Actions
@@ -44,9 +44,12 @@ class MacroCalculatorViewController: UIViewController {
             let activityLevel = Int(activityLevelTextField.text!) else { return }
         
         
-        UsersController.shared.updateUser(user: user, gender: gender, bodyWeight: Double(bodyWeight), leanBodyMass: Double(leanBodyMass), bodyFatPercentage: Double(bodyFatPercentage), protein: Double(proteinL), fat: Double(fatL), carbs: Double(carbsL), activityLevel: activityLevel)
-        print("button tapped")
-        
+        UsersController.shared.updateUser(user: user, gender: gender, bodyWeight: Double(bodyWeight), leanBodyMass: Double(leanBodyMass), bodyFatPercentage: Double(bodyFatPercentage), protein: Double(proteinL), fat: Double(fatL), carbs: Double(carbsL), activityLevel: activityLevel) { (success) in
+            
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "toProfileDetail", sender: self)
+            }
+        }
     }
     // Macros Calculation Functions
     func proteinCalculator() {

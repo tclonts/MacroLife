@@ -14,8 +14,16 @@ class UsersController {
     
     static let shared = UsersController()
     let publicDB = CKContainer.default().publicCloudDatabase
+    let currentUserWasSetNotification = Notification.Name("currentUserWasSet")
     
     var currentUser: User?
+    {
+        didSet{
+            DispatchQueue.main.async {
+            NotificationCenter.default.post(name: self.currentUserWasSetNotification, object: nil)
+            }
+        }
+    }
     var users: [User] = []
     
     init() {
@@ -26,7 +34,7 @@ class UsersController {
     func createNewUserForCurrentUser(image: UIImage?, username: String?, email: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, protein: Double?, fat: Double?, carbs: Double?, activityLevel: Int?, completion: @escaping(_ success: Bool) -> Void) {
         guard let image = image,
                 let username = username,
-            let email = email else { completion(false); return }
+                let email = email else { completion(false); return }
         guard let data = UIImageJPEGRepresentation(image, 0.8) else { completion(false); return }
 
         let newUser = User(profileImage: data, username: username, email: email, gender: gender, bodyWeight: bodyWeight, leanBodyMass: leanBodyMass, bodyFatPercentage: bodyFatPercentage, activityLevel: activityLevel, protein: protein, fat: fat, carbs: carbs)
@@ -43,7 +51,7 @@ class UsersController {
 //    }
     
     // Update User
-    func updateUser(user: User, gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double, protein: Double, fat: Double, carbs: Double, activityLevel: Int, completion: (() -> Void)? = nil) {
+    func updateUser(user: User, gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double, protein: Double, fat: Double, carbs: Double, activityLevel: Int, completion: @escaping(_ success: Bool) -> Void) {
       
         user.gender = gender
         user.bodyWeight = bodyWeight
@@ -56,11 +64,9 @@ class UsersController {
         
         let record = user.cloudKitRecord
         CloudKitManager.shared.modifyRecords([record], database: publicDB, perRecordCompletion: nil, completion: { (_, error) in
-            completion?()
+            completion(true)
         })
     }
-    
-    
     
     // Saving Function
     func saveToPersistentStore(completion: (() -> Void)? = nil) {

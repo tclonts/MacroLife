@@ -11,14 +11,26 @@ import CloudKit
 
 class SignUpTableViewController: UITableViewController {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var continueButton: UIButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(self, selector: #selector(segueToProfileDetail), name: UsersController.shared.currentUserWasSetNotification, object: nil)
+    }
+    @objc func segueToProfileDetail() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "toProfileDetail", sender: self)
+        }
+    }
+    
     // MARK: -Properties
         
     var image: UIImage?
+    
+    // MARK: -Actions
     
     //Give this a completion handler and then call the perform segue. Also add use
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
@@ -26,17 +38,48 @@ class SignUpTableViewController: UITableViewController {
         guard let image = image,
             let username = usernameTextField.text,
             let email = emailTextField.text  else { return }
+        
+        activityIndicator.startAnimating()
             
-        UsersController.shared.createNewUserForCurrentUser(image: image, username: username, email: email, gender: nil, bodyWeight: nil, leanBodyMass: nil, bodyFatPercentage: nil, protein: nil, fat: nil, carbs: nil, activityLevel: nil, completion: {_ in
+        UsersController.shared.createNewUserForCurrentUser(image: image, username: username, email: email, gender: nil, bodyWeight: nil, leanBodyMass: nil, bodyFatPercentage: nil, protein: nil, fat: nil, carbs: nil, activityLevel: nil) { (success) in
+            
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+            }
+            if !success {
+                DispatchQueue.main.async {
+                self.presentSimpleAlert(title: "Unable to create an account", message: "Make sure you have a network connection, and please try again.")
+                self.activityIndicator.stopAnimating()
+                }
+            }
             DispatchQueue.main.async {
-                
                 self.performSegue(withIdentifier: "toMacroDetails", sender: self)
             }
-        })
-        
- 
-//        self.performSegue(withIdentifier: "toMacroDetails", sender: self)
+        }
     }
+    
+    func presentSimpleAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Dismisss", style: .cancel, handler: nil)
+        alert.addAction(dismissAction)
+        self.present(alert, animated: true, completion: nil)
+        }
+    
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+        
+        guard UsersController.shared.currentUser == nil else { segueToMacroDetails(); return }
+        
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "toProfileDetail", sender: self)
+        }
+    }
+    
+    @objc func segueToMacroDetails() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "toMacroDetails", sender: self)
+        }
+    }
+    
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

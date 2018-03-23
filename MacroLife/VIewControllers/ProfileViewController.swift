@@ -52,6 +52,7 @@ class ProfileViewController: UIViewController {
             UsersController.shared.currentUser = users.first
             DispatchQueue.main.async {
                 self.usernameLabel.text = users.first?.username
+                self.profilePicture.image = UIImage(data:(users.first?.profileImage)!)
                 self.genderLabel.text = users.first?.gender
                 self.bodyWeightLabel.text = "\(users.first?.bodyWeight)"
                 self.leanBodyMassLabel.text = "\(users.first?.leanBodyMass)"
