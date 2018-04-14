@@ -11,6 +11,12 @@ import CloudKit
 
 class ProfileViewController: UIViewController {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateForCurrentUser()
+    }
+    
+    // MARK: - Outlets
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
@@ -18,26 +24,34 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var leanBodyMassLabel: UILabel!
     @IBOutlet weak var bodyFatLabel: UILabel!
     @IBOutlet weak var activityLevelLabel: UILabel!
-    @IBOutlet weak var usernameUpdateTextField: UITextField!
-    @IBOutlet weak var genderUpdateTextField: UITextField!
-    @IBOutlet weak var bodyWeightUpdateTextField: UITextField!
-    @IBOutlet weak var leanBodyMassUpdateTextField: UITextField!
-    @IBOutlet weak var bodyFatUpdateTextField: UITextField!
-    @IBOutlet weak var activityLevelUpdateTextField: UITextField!
     @IBOutlet weak var proteinProfileLabel: UILabel!
     @IBOutlet weak var fatProfileLabel: UILabel!
     @IBOutlet weak var carbsProfileLabel: UILabel!
     
+    // MARK: - Properties
     var user: User?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateForCurrentUser()
+    // MARK: - Actions
+    
+    @IBAction func profileImagePickerTapped(_ sender: UITapGestureRecognizer) {
     }
 
-    @IBAction func updateButtonTapped(_ sender: UIButton) {
+    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
     }
+    
+    @IBAction func logoutButtonTapped(_ sender: UIBarButtonItem) {
 
+        if self.user != nil {
+        
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "toSignUp", sender: self)
+        }
+    }
+}
+    
+    
+    
+    
     func updateForCurrentUser() {
         
         CloudKitManager.shared.fetchRecordsOf(type: User.typeKey, database: UsersController.shared.publicDB) { (records, error) in
@@ -52,7 +66,7 @@ class ProfileViewController: UIViewController {
             UsersController.shared.currentUser = users.first
             DispatchQueue.main.async {
                 self.usernameLabel.text = users.first?.username
-                self.profilePicture.image = UIImage(data:(users.first?.profileImage)!)
+//                self.profilePicture.image = UIImage(data:(users.first?.profileImage)!)
                 self.genderLabel.text = users.first?.gender
                 self.bodyWeightLabel.text = "\(users.first?.bodyWeight)"
                 self.leanBodyMassLabel.text = "\(users.first?.leanBodyMass)"

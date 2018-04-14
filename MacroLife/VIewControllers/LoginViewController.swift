@@ -9,11 +9,13 @@
 import UIKit
 import CloudKit
 
-class SignUpTableViewController: UITableViewController {
+class LoginViewController: UIViewController {
 
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var usernameTextField: UITextField!
+   
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,29 +34,10 @@ class SignUpTableViewController: UITableViewController {
     
     // MARK: -Actions
     
-    //Give this a completion handler and then call the perform segue. Also add use
-    @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        //Assign image, email, and password to the text in the textfields
-        guard let image = image,
-            let username = usernameTextField.text,
-            let email = emailTextField.text  else { return }
-        
-        activityIndicator.startAnimating()
-            
-        UsersController.shared.createNewUserForCurrentUser(image: image, username: username, email: email, gender: nil, bodyWeight: nil, leanBodyMass: nil, bodyFatPercentage: nil, protein: nil, fat: nil, carbs: nil, activityLevel: nil) { (success) in
-            
-                DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-            }
-            if !success {
-                DispatchQueue.main.async {
-                self.presentSimpleAlert(title: "Unable to create an account", message: "Make sure you have a network connection, and please try again.")
-                self.activityIndicator.stopAnimating()
-                }
-            }
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "toMacroDetails", sender: self)
-            }
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+  
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "toProfileDetail", sender: self)
         }
     }
     
@@ -65,30 +48,44 @@ class SignUpTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
         }
     
-    @IBAction func loginButtonTapped(_ sender: UIButton) {
-        
+    @IBAction func signUpButtonTapped(_ sender: UIButton) {
         guard UsersController.shared.currentUser == nil else { segueToMacroDetails(); return }
+        //Assign image, email, and password to the text in the textfields
+        guard let image = image,
+            let email = emailTextField.text  else { return }
         
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "toProfileDetail", sender: self)
+        activityIndicator.startAnimating()
+        
+        UsersController.shared.createNewUserForCurrentUser(image: image, username: username, email: email, gender: nil, bodyWeight: nil, leanBodyMass: nil, bodyFatPercentage: nil, protein: nil, fat: nil, carbs: nil, activityLevel: nil) { (success) in
+            
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+            }
+            if !success {
+                DispatchQueue.main.async {
+                    self.presentSimpleAlert(title: "Unable to create an account", message: "Make sure you have a network connection, and please try again.")
+                    self.activityIndicator.stopAnimating()
+                }
+            }
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "toMacroDetails", sender: self)
+            }
         }
+    
     }
     
     @objc func segueToMacroDetails() {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "toMacroDetails", sender: self)
         }
+
     }
+    
     
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "embedProfilePhotoSelect" {
-            
-            let embedViewController = segue.destination as? ProfilePhotoSelectViewController
-            embedViewController?.delegate = self
-        }
         if segue.identifier == "toMacroDetails" {
             if let destinationVC = segue.destination as? MacroCalculatorViewController {
                 let user = UsersController.shared.currentUser
@@ -97,13 +94,10 @@ class SignUpTableViewController: UITableViewController {
         }
     }
 }
-extension SignUpTableViewController: ProfilePhotoSelectViewControllerDelegate {
-    
-    func profilePhotoSelectViewControllerSelected(_ image: UIImage) {
-        
-        self.image = image
-    }
-}
+
+
+
+
 //'''override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //if segue.identifier == "toDetailImageView",
 //    let indexPath = collectionView.indexPathsForSelectedItems?.first {

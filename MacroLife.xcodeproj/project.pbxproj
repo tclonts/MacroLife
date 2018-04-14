@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54E996937BB261353166209E /* Pods_MacroLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D46603A62B2DFDE75516246 /* Pods_MacroLife.framework */; };
 		BE0B340D20602120003B026E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B340C20602120003B026E /* AppDelegate.swift */; };
 		BE0B341220602120003B026E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0B341020602120003B026E /* Main.storyboard */; };
 		BE0B341420602120003B026E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE0B341320602120003B026E /* Assets.xcassets */; };
@@ -17,15 +18,19 @@
 		BE0B342C20605771003B026E /* RecipesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B342B20605771003B026E /* RecipesController.swift */; };
 		BE0B342E20605784003B026E /* UsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B342D20605784003B026E /* UsersController.swift */; };
 		BE13C7B520609C9E004DB4C7 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE13C7B420609C9E004DB4C7 /* CloudKitManager.swift */; };
-		BE95244F2061B70300722E51 /* ProfilePhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE95244E2061B70300722E51 /* ProfilePhotoSelectViewController.swift */; };
-		BEE17656206177D500177909 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE17655206177D500177909 /* SignUpTableViewController.swift */; };
+		BE1DCF002082B7B6003148BE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BE1DCEFF2082B7B6003148BE /* Podfile */; };
+		BE91D56C20670DF20018928F /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE91D56B20670DF20018928F /* RecipeDetailViewController.swift */; };
+		BE95244F2061B70300722E51 /* ProfileImagePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE95244E2061B70300722E51 /* ProfileImagePickerHelper.swift */; };
+		BEE17656206177D500177909 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE17655206177D500177909 /* LoginViewController.swift */; };
 		BEE17658206177E800177909 /* MacroCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE17657206177E800177909 /* MacroCalculatorViewController.swift */; };
 		BEE1765A206177FC00177909 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE17659206177FC00177909 /* ProfileViewController.swift */; };
 		BEE1765E2061A2F500177909 /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE1765D2061A2F500177909 /* PhotoSelectViewController.swift */; };
-		BEE176602061AC0900177909 /* AddRecipeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE1765F2061AC0900177909 /* AddRecipeCollectionViewController.swift */; };
+		BEE176602061AC0900177909 /* RecipeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE1765F2061AC0900177909 /* RecipeCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D46603A62B2DFDE75516246 /* Pods_MacroLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacroLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A15078A1AF21BDE81762434 /* Pods-MacroLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacroLife.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MacroLife/Pods-MacroLife.debug.xcconfig"; sourceTree = "<group>"; };
 		BE0B34092060211F003B026E /* MacroLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0B340C20602120003B026E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE0B341120602120003B026E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,12 +44,15 @@
 		BE0B342B20605771003B026E /* RecipesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesController.swift; sourceTree = "<group>"; };
 		BE0B342D20605784003B026E /* UsersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersController.swift; sourceTree = "<group>"; };
 		BE13C7B420609C9E004DB4C7 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
-		BE95244E2061B70300722E51 /* ProfilePhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectViewController.swift; sourceTree = "<group>"; };
-		BEE17655206177D500177909 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
+		BE1DCEFF2082B7B6003148BE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BE91D56B20670DF20018928F /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		BE95244E2061B70300722E51 /* ProfileImagePickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImagePickerHelper.swift; sourceTree = "<group>"; };
+		BEE17655206177D500177909 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BEE17657206177E800177909 /* MacroCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroCalculatorViewController.swift; sourceTree = "<group>"; };
 		BEE17659206177FC00177909 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BEE1765D2061A2F500177909 /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
-		BEE1765F2061AC0900177909 /* AddRecipeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeCollectionViewController.swift; sourceTree = "<group>"; };
+		BEE1765F2061AC0900177909 /* RecipeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewController.swift; sourceTree = "<group>"; };
+		FE60C6ABC255AF84E3A90161 /* Pods-MacroLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacroLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-MacroLife/Pods-MacroLife.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,18 +61,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE0B34232060227E003B026E /* CloudKit.framework in Frameworks */,
+				54E996937BB261353166209E /* Pods_MacroLife.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59709416172C72E00EE4D97F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8A15078A1AF21BDE81762434 /* Pods-MacroLife.debug.xcconfig */,
+				FE60C6ABC255AF84E3A90161 /* Pods-MacroLife.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BE0B34002060211F003B026E = {
 			isa = PBXGroup;
 			children = (
+				BE1DCEFF2082B7B6003148BE /* Podfile */,
 				BE0B340B2060211F003B026E /* MacroLife */,
 				BE0B340A2060211F003B026E /* Products */,
 				BE0B34212060227E003B026E /* Frameworks */,
+				59709416172C72E00EE4D97F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				BE0B34222060227E003B026E /* CloudKit.framework */,
+				6D46603A62B2DFDE75516246 /* Pods_MacroLife.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -120,11 +141,12 @@
 		BE0B34242060238B003B026E /* VIewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				BEE17655206177D500177909 /* SignUpTableViewController.swift */,
-				BE95244E2061B70300722E51 /* ProfilePhotoSelectViewController.swift */,
+				BEE17655206177D500177909 /* LoginViewController.swift */,
 				BEE17657206177E800177909 /* MacroCalculatorViewController.swift */,
 				BEE17659206177FC00177909 /* ProfileViewController.swift */,
-				BEE1765F2061AC0900177909 /* AddRecipeCollectionViewController.swift */,
+				BE95244E2061B70300722E51 /* ProfileImagePickerHelper.swift */,
+				BEE1765F2061AC0900177909 /* RecipeCollectionViewController.swift */,
+				BE91D56B20670DF20018928F /* RecipeDetailViewController.swift */,
 				BEE1765D2061A2F500177909 /* PhotoSelectViewController.swift */,
 			);
 			path = VIewControllers;
@@ -163,9 +185,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE0B341B20602120003B026E /* Build configuration list for PBXNativeTarget "MacroLife" */;
 			buildPhases = (
+				79DEC2BE9B263C754E9AE514 /* [CP] Check Pods Manifest.lock */,
 				BE0B34052060211F003B026E /* Sources */,
 				BE0B34062060211F003B026E /* Frameworks */,
 				BE0B34072060211F003B026E /* Resources */,
+				EC97E10AE067320388142EA8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,7 +207,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Tyler Clonts";
 				TargetAttributes = {
 					BE0B34082060211F003B026E = {
@@ -225,11 +249,51 @@
 			files = (
 				BE0B341720602120003B026E /* LaunchScreen.storyboard in Resources */,
 				BE0B341420602120003B026E /* Assets.xcassets in Resources */,
+				BE1DCF002082B7B6003148BE /* Podfile in Resources */,
 				BE0B341220602120003B026E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		79DEC2BE9B263C754E9AE514 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MacroLife-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC97E10AE067320388142EA8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MacroLife/Pods-MacroLife-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MacroLife/Pods-MacroLife-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BE0B34052060211F003B026E /* Sources */ = {
@@ -238,16 +302,17 @@
 			files = (
 				BE0B342A206056DA003B026E /* Recipe.swift in Sources */,
 				BEE17658206177E800177909 /* MacroCalculatorViewController.swift in Sources */,
-				BEE17656206177D500177909 /* SignUpTableViewController.swift in Sources */,
+				BEE17656206177D500177909 /* LoginViewController.swift in Sources */,
 				BE0B342E20605784003B026E /* UsersController.swift in Sources */,
 				BE13C7B520609C9E004DB4C7 /* CloudKitManager.swift in Sources */,
 				BE0B342C20605771003B026E /* RecipesController.swift in Sources */,
-				BEE176602061AC0900177909 /* AddRecipeCollectionViewController.swift in Sources */,
+				BEE176602061AC0900177909 /* RecipeCollectionViewController.swift in Sources */,
+				BE91D56C20670DF20018928F /* RecipeDetailViewController.swift in Sources */,
 				BEE1765E2061A2F500177909 /* PhotoSelectViewController.swift in Sources */,
 				BEE1765A206177FC00177909 /* ProfileViewController.swift in Sources */,
 				BE0B3428206056AF003B026E /* User.swift in Sources */,
 				BE0B340D20602120003B026E /* AppDelegate.swift in Sources */,
-				BE95244F2061B70300722E51 /* ProfilePhotoSelectViewController.swift in Sources */,
+				BE95244F2061B70300722E51 /* ProfileImagePickerHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +352,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -294,6 +360,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -344,6 +411,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -351,6 +419,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -382,6 +451,7 @@
 		};
 		BE0B341C20602120003B026E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A15078A1AF21BDE81762434 /* Pods-MacroLife.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MacroLife/MacroLife.entitlements;
@@ -398,6 +468,7 @@
 		};
 		BE0B341D20602120003B026E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE60C6ABC255AF84E3A90161 /* Pods-MacroLife.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MacroLife/MacroLife.entitlements;

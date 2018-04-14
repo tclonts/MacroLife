@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MacroCalculatorViewController: UIViewController {
+class SignUpViewController: UIViewController {
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var bodyWeightTextField: UITextField!
     @IBOutlet weak var leanBodyMassTextField: UITextField!
