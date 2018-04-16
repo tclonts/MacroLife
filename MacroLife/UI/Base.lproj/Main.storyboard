@@ -416,19 +416,20 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="mmn-tB-NYf" firstAttribute="top" secondItem="xqM-hv-2jP" secondAttribute="bottom" constant="10" id="Cp9-0P-4GS"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="XFn-TR-1h7"/>
+                                    <constraint firstItem="xqM-hv-2jP" firstAttribute="top" secondItem="ntO-Xr-QYe" secondAttribute="bottom" constant="10" id="smO-gU-Rbk"/>
+                                    <constraint firstItem="70p-vR-jmq" firstAttribute="top" secondItem="mmn-tB-NYf" secondAttribute="bottom" constant="10" id="xmg-zD-2iW"/>
                                 </constraints>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hSV-kS-nuk">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hSV-kS-nuk">
                                 <rect key="frame" x="177" y="170" width="20" height="20"/>
                             </activityIndicatorView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yqq-L5-wW9">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yqq-L5-wW9">
                                 <rect key="frame" x="200" y="379" width="51" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Auto Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWd-Qn-twt">
-                                <rect key="frame" x="94" y="388" width="98" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWd-Qn-twt">
+                                <rect key="frame" x="110" y="388" width="82" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -436,18 +437,41 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ntO-Xr-QYe" firstAttribute="top" secondItem="hSV-kS-nuk" secondAttribute="bottom" constant="22" id="0ud-x0-0nA"/>
+                            <constraint firstItem="MJ3-0F-LNp" firstAttribute="bottom" secondItem="kWd-Qn-twt" secondAttribute="bottom" constant="258.5" id="7oO-IA-EEc"/>
                             <constraint firstItem="MJ3-0F-LNp" firstAttribute="bottom" secondItem="wZL-Yd-wAe" secondAttribute="bottom" constant="305" id="9Go-Fe-GXA"/>
+                            <constraint firstItem="yqq-L5-wW9" firstAttribute="leading" secondItem="kWd-Qn-twt" secondAttribute="trailing" constant="8" id="F5D-97-qk5"/>
+                            <constraint firstItem="hSV-kS-nuk" firstAttribute="leading" secondItem="MJ3-0F-LNp" secondAttribute="leading" constant="177" id="HJU-4c-twY"/>
                             <constraint firstItem="MJ3-0F-LNp" firstAttribute="trailing" secondItem="wZL-Yd-wAe" secondAttribute="trailing" constant="38" id="Llo-hJ-vM8"/>
+                            <constraint firstItem="MJ3-0F-LNp" firstAttribute="trailing" secondItem="yqq-L5-wW9" secondAttribute="trailing" constant="126" id="WAn-1N-HhO"/>
+                            <constraint firstItem="mmn-tB-NYf" firstAttribute="leading" secondItem="MJ3-0F-LNp" secondAttribute="leading" constant="37" id="cnC-iX-66z"/>
+                            <constraint firstItem="MJ3-0F-LNp" firstAttribute="trailing" secondItem="hSV-kS-nuk" secondAttribute="trailing" constant="178" id="dG7-ni-dhI"/>
+                            <constraint firstItem="MJ3-0F-LNp" firstAttribute="trailing" secondItem="mmn-tB-NYf" secondAttribute="trailing" constant="38" id="dud-Sm-IZw"/>
+                            <constraint firstItem="kWd-Qn-twt" firstAttribute="leading" secondItem="MJ3-0F-LNp" secondAttribute="leading" constant="110" id="fP0-gh-sSl"/>
+                            <constraint firstItem="xqM-hv-2jP" firstAttribute="leading" secondItem="MJ3-0F-LNp" secondAttribute="leading" constant="37" id="gnD-1v-f5B"/>
                             <constraint firstItem="wZL-Yd-wAe" firstAttribute="leading" secondItem="MJ3-0F-LNp" secondAttribute="leading" constant="37" id="j2i-jf-EGB"/>
+                            <constraint firstItem="MJ3-0F-LNp" firstAttribute="trailing" secondItem="ntO-Xr-QYe" secondAttribute="trailing" constant="38" id="jsP-Sv-2h5"/>
                             <constraint firstItem="wZL-Yd-wAe" firstAttribute="top" secondItem="hSV-kS-nuk" secondAttribute="bottom" constant="22" id="mbu-cH-UhU"/>
+                            <constraint firstItem="MJ3-0F-LNp" firstAttribute="trailing" secondItem="xqM-hv-2jP" secondAttribute="trailing" constant="38" id="oS5-fU-KTJ"/>
+                            <constraint firstItem="hSV-kS-nuk" firstAttribute="top" secondItem="MJ3-0F-LNp" secondAttribute="top" constant="106" id="oey-UN-RyH"/>
+                            <constraint firstItem="MJ3-0F-LNp" firstAttribute="trailing" secondItem="70p-vR-jmq" secondAttribute="trailing" constant="38" id="qm9-ay-YlH"/>
+                            <constraint firstItem="70p-vR-jmq" firstAttribute="leading" secondItem="MJ3-0F-LNp" secondAttribute="leading" constant="37" id="tCf-UV-rir"/>
+                            <constraint firstItem="yqq-L5-wW9" firstAttribute="top" secondItem="70p-vR-jmq" secondAttribute="bottom" constant="17" id="uj6-lX-kBh"/>
+                            <constraint firstItem="ntO-Xr-QYe" firstAttribute="leading" secondItem="MJ3-0F-LNp" secondAttribute="leading" constant="37" id="xNK-gW-BQK"/>
+                            <constraint firstItem="MJ3-0F-LNp" firstAttribute="bottom" secondItem="yqq-L5-wW9" secondAttribute="bottom" constant="258" id="xTs-3g-nE4"/>
+                            <constraint firstItem="kWd-Qn-twt" firstAttribute="top" secondItem="70p-vR-jmq" secondAttribute="bottom" constant="26" id="zun-vw-Pxi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MJ3-0F-LNp"/>
                     </view>
                     <navigationItem key="navigationItem" title="MacroLife" id="hE5-g8-tAC"/>
                     <connections>
                         <outlet property="activityIndicator" destination="hSV-kS-nuk" id="aQD-Hf-sx0"/>
+                        <outlet property="autoLoginLabel" destination="kWd-Qn-twt" id="5bt-my-7Rn"/>
+                        <outlet property="autoLoginSwitch" destination="yqq-L5-wW9" id="ceQ-7A-wCp"/>
                         <outlet property="emailTextField" destination="ntO-Xr-QYe" id="wKV-9v-xoV"/>
+                        <outlet property="loginButton" destination="mmn-tB-NYf" id="Xf6-6y-saL"/>
                         <outlet property="passwordTextField" destination="xqM-hv-2jP" id="0O9-5A-RbY"/>
+                        <outlet property="signUpButton" destination="70p-vR-jmq" id="Rtg-Bx-E9f"/>
                         <segue destination="aE4-ll-0XW" kind="show" identifier="toMacroDetail" id="vSs-WG-Qjh"/>
                         <segue destination="UpQ-Nv-KS2" kind="showDetail" identifier="toProfileDetail" id="NIM-0i-I9M"/>
                     </connections>

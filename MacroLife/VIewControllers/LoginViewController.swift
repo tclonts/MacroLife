@@ -8,29 +8,62 @@
 
 import UIKit
 import CloudKit
+import IQKeyboardManagerSwift
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
-   
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var autoLoginSwitch: UISwitch!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var autoLoginLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.delegate = self
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
+        passwordTextField.delegate = self
+        passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
+        checkLoginButtonActive()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(segueToProfileDetail), name: UsersController.shared.currentUserWasSetNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(segueToProfileDetail), name: UsersController.shared.currentUserWasSetNotification, object: nil)
+//    }
+//    @objc func segueToProfileDetail() {
+//        DispatchQueue.main.async {
+//            self.performSegue(withIdentifier: "toProfileDetail", sender: self)
+//        }
     }
-    @objc func segueToProfileDetail() {
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "toProfileDetail", sender: self)
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        checkLoginButtonActive()
+    }
+   
+    func checkLoginButtonActive() {
+        if (emailTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! {
+            loginButton.isEnabled = false
+        } else {
+            loginButton.isEnabled = true
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeTF = textField
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == emailTextField {
+            emailTextField.text = textField.text
+        } else if textField == passwordTextField {
+            passwordTextField.text = textField.text
         }
     }
     
     // MARK: -Properties
         
     var image: UIImage?
+    var activeTF = UITextField()
     
     // MARK: -Actions
     
@@ -49,28 +82,28 @@ class LoginViewController: UIViewController {
         }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        guard UsersController.shared.currentUser == nil else { segueToMacroDetails(); return }
-        //Assign image, email, and password to the text in the textfields
-        guard let image = image,
-            let email = emailTextField.text  else { return }
-        
-        activityIndicator.startAnimating()
-        
-        UsersController.shared.createNewUserForCurrentUser(image: image, username: username, email: email, gender: nil, bodyWeight: nil, leanBodyMass: nil, bodyFatPercentage: nil, protein: nil, fat: nil, carbs: nil, activityLevel: nil) { (success) in
-            
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-            }
-            if !success {
-                DispatchQueue.main.async {
-                    self.presentSimpleAlert(title: "Unable to create an account", message: "Make sure you have a network connection, and please try again.")
-                    self.activityIndicator.stopAnimating()
-                }
-            }
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "toMacroDetails", sender: self)
-            }
-        }
+//        guard UsersController.shared.currentUser == nil else { segueToMacroDetails(); return }
+//        //Assign image, email, and password to the text in the textfields
+//        guard let image = image,
+//            let email = emailTextField.text  else { return }
+//
+//        activityIndicator.startAnimating()
+//
+////        UsersController.shared.createNewUserForCurrentUser(image: image, email: email, gender: nil, bodyWeight: nil, leanBodyMass: nil, bodyFatPercentage: nil, protein: nil, fat: nil, carbs: nil, activityLevel: nil) { (success) in
+//
+//            DispatchQueue.main.async {
+//                self.activityIndicator.stopAnimating()
+//            }
+//            if !success {
+//                DispatchQueue.main.async {
+//                    self.presentSimpleAlert(title: "Unable to create an account", message: "Make sure you have a network connection, and please try again.")
+//                    self.activityIndicator.stopAnimating()
+//                }
+//            }
+//            DispatchQueue.main.async {
+//                self.performSegue(withIdentifier: "toMacroDetails", sender: self)
+//            }
+//        }
     
     }
     
@@ -87,7 +120,7 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toMacroDetails" {
-            if let destinationVC = segue.destination as? MacroCalculatorViewController {
+            if let destinationVC = segue.destination as? SignUpViewController {
                 let user = UsersController.shared.currentUser
                 destinationVC.user = user
             }

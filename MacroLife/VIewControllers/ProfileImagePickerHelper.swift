@@ -78,11 +78,11 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 //                self.dismiss(animated: true, completion: nil)
 //            }
 //        }
-    }
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        //        self.imagePickerWasDismissed = true
-        dismiss(animated: true, completion: nil)
-    }
+//    }
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        //        self.imagePickerWasDismissed = true
+//        dismiss(animated: true, completion: nil)
+//    }
     
 
     
