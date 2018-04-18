@@ -10,6 +10,8 @@ import UIKit
 import CloudKit
 
 class SignUpViewController: UIViewController {
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var bodyWeightTextField: UITextField!
     @IBOutlet weak var leanBodyMassTextField: UITextField!
@@ -23,17 +25,18 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    // MARK: - Properties
     
     var user: User?
     
     // MARK: - Actions
   
     @IBAction func saveResultsButtonTapped(_ sender: UIButton) {
-//        proteinCalculator()
-//        fatCalculator()
-//        carbCalculator()
+
         
         guard let gender = genderTextField.text,
+        let firstName = firstNameTextField.text,
+        let lastName = lastNameTextField.text,
         let bodyWeight = Int(bodyWeightTextField.text!),
         let leanBodyMass = Int(leanBodyMassTextField.text!),
         let bodyFatPercentage = Int(bodyFatTextField.text!),
@@ -56,7 +59,7 @@ class SignUpViewController: UIViewController {
         } else {
             
             //save data
-            UsersController.shared.createNewUserForCurrentUser(email: userEmail, gender: gender, bodyWeight: Double(bodyWeight), leanBodyMass: Double(leanBodyMass), bodyFatPercentage: Double(bodyFatPercentage)) { (success) in
+            UsersController.shared.createNewUserForCurrentUser(firstName: firstName, lastName: lastName, email: userEmail, password: userPassword, gender: gender, bodyWeight: Double(bodyWeight), leanBodyMass: Double(leanBodyMass), bodyFatPercentage: Double(bodyFatPercentage)) { (success) in
                 print(success)
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "toProfileDetail", sender: self)
@@ -89,29 +92,6 @@ class SignUpViewController: UIViewController {
         
     }
 
-    // Macros Calculation Functions
-    func proteinCalculator() {
-        guard let proteinInG = Int(leanBodyMassTextField.text!) else { return }
-        //save to user value
-    }
-    
-    func fatCalculator() {
-        let proteinInG = Int(leanBodyMassTextField.text!)
-        let proteinCals = (proteinInG! * 4)
-        let carbsInG = (Int(Double(leanBodyMassTextField.text!)! * (1.3)))
-        let carbCals = (carbsInG * 4)
-        let maitenanceCal = (Int(bodyWeightTextField.text!)! * 11)
-        let newMC = (maitenanceCal - 250)
-        let fatInG = (newMC - (proteinCals + carbCals)) / Int(9.0)
-        //save to user value
-    }
-    
-    func carbCalculator() {
-        
-        let carbsInG = (Int(Double(leanBodyMassTextField.text!)! * (1.3)))
-        //save to user value
-    }
-    
 
     // MARK: - Navigation
 

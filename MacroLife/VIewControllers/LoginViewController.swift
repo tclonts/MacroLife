@@ -10,20 +10,15 @@ import UIKit
 import CloudKit
 import IQKeyboardManagerSwift
 
-protocol LoginButtonDelegate {
-    func passInfo(user: User?)
-}
-
 class LoginViewController: UIViewController {
 
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var autoLoginSwitch: UISwitch!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var autoLoginLabel: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +27,7 @@ class LoginViewController: UIViewController {
         passwordTextField.delegate = self
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
         checkLoginButtonActive()
-//        NotificationCenter.default.addObserver(self, selector: #selector(segueToProfileDetail), name: UsersController.shared.currentUserWasSetNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(segueToProfileDetail), name: UsersController.shared.currentUserWasSetNotification, object: nil)
     }
     
     @objc func segueToProfileDetail() {
@@ -48,8 +43,6 @@ class LoginViewController: UIViewController {
             loginButton.isEnabled = true
         }
     }
-    
-
     
     // MARK: -Properties
         
@@ -82,10 +75,13 @@ class LoginViewController: UIViewController {
                     if (records?.count)! > 0
                     {
                         let record = records?[0]
-                        let email = (record?.value(forKey: "email"))!
+                        let users = records?.compactMap({User(cloudKitRecord: $0)})
+                        UsersController.shared.currentUser = users?.first
+                        let email = users?.first?.email
+//                        let email = (record?.value(forKey: "email"))!
                         //add user defaults for logged in
                         UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
-                        UserDefaults.standard.synchronize()
+//                        UserDefaults.standard.synchronize()
                         print("Found user: \(email)")
                         
                         
@@ -106,8 +102,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-
-    
     func presentSimpleAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "Dismisss", style: .cancel, handler: nil)
@@ -121,15 +115,15 @@ class LoginViewController: UIViewController {
     
     // MARK: Navigation
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if segue.identifier == "toProfileDetail" {
-            if let destinationVC = segue.destination as? ProfileViewController {
-                let user = UsersController.shared.currentUser
-                destinationVC.user = user
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if segue.identifier == "toProfileDetail" {
+//            if let destinationVC = segue.destination as? ProfileViewController {
+//                let user = UsersController.shared.currentUser
+//                destinationVC.user = user
+//            }
+//        }
+//    }
 }
 
 

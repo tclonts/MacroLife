@@ -17,13 +17,13 @@ class UsersController {
     let currentUserWasSetNotification = Notification.Name("currentUserWasSet")
     
     var currentUser: User?
-//    {
-//        didSet{
-//            DispatchQueue.main.async {
-//            NotificationCenter.default.post(name: self.currentUserWasSetNotification, object: nil)
-//            }
-//        }
-//    }
+    {
+        didSet{
+            DispatchQueue.main.async {
+            NotificationCenter.default.post(name: self.currentUserWasSetNotification, object: nil)
+            }
+        }
+    }
     var users: [User] = []
     
     init() {
@@ -31,10 +31,10 @@ class UsersController {
     }
 
     // Add new user
-    func createNewUserForCurrentUser(email: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, /*activityLevel: Int?,*/ /*, protein: Double?, fat: Double?, carbs: Double?*/ completion: @escaping(_ success: Bool) -> Void) {
+    func createNewUserForCurrentUser(firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, /*activityLevel: Int?,*/ /*, protein: Double?, fat: Double?, carbs: Double?*/ completion: @escaping(_ success: Bool) -> Void) {
         
 
-        let newUser = User(email: email, gender: gender, bodyWeight: bodyWeight, leanBodyMass: leanBodyMass, bodyFatPercentage: bodyFatPercentage)
+        let newUser = User(firstName: firstName, lastName: lastName, email: email, password: password, gender: gender, bodyWeight: bodyWeight, leanBodyMass: leanBodyMass, bodyFatPercentage: bodyFatPercentage)
         
         self.currentUser = newUser
         
