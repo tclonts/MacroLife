@@ -10,7 +10,11 @@ import UIKit
 import CloudKit
 import IQKeyboardManagerSwift
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+protocol LoginButtonDelegate {
+    func passInfo(user: User?)
+}
+
+class LoginViewController: UIViewController {
 
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -28,18 +32,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
         checkLoginButtonActive()
-
 //        NotificationCenter.default.addObserver(self, selector: #selector(segueToProfileDetail), name: UsersController.shared.currentUserWasSetNotification, object: nil)
-//    }
-//    @objc func segueToProfileDetail() {
-//        DispatchQueue.main.async {
-//            self.performSegue(withIdentifier: "toProfileDetail", sender: self)
-//        }
     }
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        checkLoginButtonActive()
+    
+    @objc func segueToProfileDetail() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "toProfileDetail", sender: self)
+        }
     }
-   
+  
     func checkLoginButtonActive() {
         if (emailTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! {
             loginButton.isEnabled = false
@@ -48,17 +49,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        activeTF = textField
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == emailTextField {
-            emailTextField.text = textField.text
-        } else if textField == passwordTextField {
-            passwordTextField.text = textField.text
-        }
-    }
+
     
     // MARK: -Properties
         
@@ -68,11 +59,54 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: -Actions
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-  
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "toProfileDetail", sender: self)
+        let userEmail = emailTextField.text!;
+        let userPassword = passwordTextField.text!;
+        
+        //check for empty fields
+        if ((userEmail.isEmpty) || (userPassword.isEmpty)){
+            //display alert
+            let myAlert = UIAlertController(title:"Uh-oh!", message: "All fields are required.", preferredStyle: UIAlertControllerStyle.alert);
+            let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil);
+            
+            myAlert.addAction(okAction);
+            
+            self.present(myAlert, animated: true, completion: nil);
+        }
+        else {
+            //check if correct
+            let predicate = NSPredicate(format: "email == %@ AND password == %@", argumentArray: [userEmail, userPassword])
+            
+            let query = CKQuery(recordType: "User", predicate: predicate)
+            CloudKitManager.shared.publicDB.perform(query, inZoneWith: nil) { (records:[CKRecord]?, error:Error?) in
+                if error == nil {
+                    if (records?.count)! > 0
+                    {
+                        let record = records?[0]
+                        let email = (record?.value(forKey: "email"))!
+                        //add user defaults for logged in
+                        UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+                        UserDefaults.standard.synchronize()
+                        print("Found user: \(email)")
+                        
+                        
+                        //redirect to Profile View
+                        DispatchQueue.main.async {
+                         
+                        self.performSegue(withIdentifier: "toProfileDetail", sender: self)
+                            
+                        }
+                    } else {
+                        print("no such user found. Don't give up.")
+                    }
+                } else
+                {
+                    print(error)
+                }
+            }
         }
     }
+    
+
     
     func presentSimpleAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -81,46 +115,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
         }
     
-    @IBAction func signUpButtonTapped(_ sender: UIButton) {
-//        guard UsersController.shared.currentUser == nil else { segueToMacroDetails(); return }
-//        //Assign image, email, and password to the text in the textfields
-//        guard let image = image,
-//            let email = emailTextField.text  else { return }
-//
-//        activityIndicator.startAnimating()
-//
-////        UsersController.shared.createNewUserForCurrentUser(image: image, email: email, gender: nil, bodyWeight: nil, leanBodyMass: nil, bodyFatPercentage: nil, protein: nil, fat: nil, carbs: nil, activityLevel: nil) { (success) in
-//
-//            DispatchQueue.main.async {
-//                self.activityIndicator.stopAnimating()
-//            }
-//            if !success {
-//                DispatchQueue.main.async {
-//                    self.presentSimpleAlert(title: "Unable to create an account", message: "Make sure you have a network connection, and please try again.")
-//                    self.activityIndicator.stopAnimating()
-//                }
-//            }
-//            DispatchQueue.main.async {
-//                self.performSegue(withIdentifier: "toMacroDetails", sender: self)
-//            }
-//        }
-    
-    }
-    
-    @objc func segueToMacroDetails() {
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "toMacroDetails", sender: self)
-        }
-
+    @IBAction func signUpButtonTapped(_ sender: UIButton) {    
     }
     
     
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "toMacroDetails" {
-            if let destinationVC = segue.destination as? SignUpViewController {
+
+        if segue.identifier == "toProfileDetail" {
+            if let destinationVC = segue.destination as? ProfileViewController {
                 let user = UsersController.shared.currentUser
                 destinationVC.user = user
             }
@@ -131,36 +135,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 
 
-//'''override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//if segue.identifier == "toDetailImageView",
-//    let indexPath = collectionView.indexPathsForSelectedItems?.first {
-//    let detailPhoto = PhotoController.sharedController.photos[indexPath.item]
-//    let destinationVC = segue.destination as? DetailImageViewController
-//    destinationVC?.detailPhoto = detailPhoto
-//}'''
-//        if (username.isEmpty || email.isEmpty) {
-//
-//        let alertController = UIAlertController(title: "Missing Post Information", message: "Check your image, username, and email again.", preferredStyle: .alert)
-//        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-//
-//        present(alertController, animated: true, completion: nil)
-//            }
-//        } else {
-//        let alertController = UIAlertController(title: "Your all signed up", message: "Hit the continue button to move on.", preferredStyle: .alert)
-//        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-//
-//        present(alertController, animated: true, completion: nil)
-//
-//        }
-        // See view heirarchy in storyboard
-//        guard let tabBarController = self.navigationController?.parent as? UITabBarController else { return }
-//
-//        DispatchQueue.main.async {
-//            tabBarController.selectedIndex = 0
-//        }
-//    }
-//
-//            UsersController.shared.createNewUser(image: image, username: username, email: email, gender: nil, bodyWeight: nil, leanBodyMass: nil, bodyFatPercentage: nil, activityLevel: nil)
+
 
 
 

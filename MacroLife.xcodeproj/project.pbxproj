@@ -21,8 +21,9 @@
 		BE1DCF002082B7B6003148BE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BE1DCEFF2082B7B6003148BE /* Podfile */; };
 		BE91D56C20670DF20018928F /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE91D56B20670DF20018928F /* RecipeDetailViewController.swift */; };
 		BE95244F2061B70300722E51 /* ProfileImagePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE95244E2061B70300722E51 /* ProfileImagePickerHelper.swift */; };
+		BEAE3149208669FE00A180A1 /* LoginViewController+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAE3148208669FE00A180A1 /* LoginViewController+TextField.swift */; };
 		BEE17656206177D500177909 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE17655206177D500177909 /* LoginViewController.swift */; };
-		BEE17658206177E800177909 /* MacroCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE17657206177E800177909 /* MacroCalculatorViewController.swift */; };
+		BEE17658206177E800177909 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE17657206177E800177909 /* SignUpViewController.swift */; };
 		BEE1765A206177FC00177909 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE17659206177FC00177909 /* ProfileViewController.swift */; };
 		BEE1765E2061A2F500177909 /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE1765D2061A2F500177909 /* PhotoSelectViewController.swift */; };
 		BEE176602061AC0900177909 /* RecipeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE1765F2061AC0900177909 /* RecipeCollectionViewController.swift */; };
@@ -47,8 +48,9 @@
 		BE1DCEFF2082B7B6003148BE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BE91D56B20670DF20018928F /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		BE95244E2061B70300722E51 /* ProfileImagePickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImagePickerHelper.swift; sourceTree = "<group>"; };
+		BEAE3148208669FE00A180A1 /* LoginViewController+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+TextField.swift"; sourceTree = "<group>"; };
 		BEE17655206177D500177909 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		BEE17657206177E800177909 /* MacroCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroCalculatorViewController.swift; sourceTree = "<group>"; };
+		BEE17657206177E800177909 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BEE17659206177FC00177909 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BEE1765D2061A2F500177909 /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
 		BEE1765F2061AC0900177909 /* RecipeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				BE0B3426206023A7003B026E /* Model */,
 				BE0B34252060239E003B026E /* ModelControllers */,
 				BE0B34242060238B003B026E /* VIewControllers */,
+				BEAE314A20866AC500A180A1 /* Extensions */,
 				BE13C7B320609C78004DB4C7 /* CloudKit */,
 				BE0B341E2060224C003B026E /* Resources */,
 			);
@@ -142,7 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				BEE17655206177D500177909 /* LoginViewController.swift */,
-				BEE17657206177E800177909 /* MacroCalculatorViewController.swift */,
+				BEE17657206177E800177909 /* SignUpViewController.swift */,
 				BEE17659206177FC00177909 /* ProfileViewController.swift */,
 				BE95244E2061B70300722E51 /* ProfileImagePickerHelper.swift */,
 				BEE1765F2061AC0900177909 /* RecipeCollectionViewController.swift */,
@@ -176,6 +179,15 @@
 				BE13C7B420609C9E004DB4C7 /* CloudKitManager.swift */,
 			);
 			name = CloudKit;
+			sourceTree = "<group>";
+		};
+		BEAE314A20866AC500A180A1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BEAE3148208669FE00A180A1 /* LoginViewController+TextField.swift */,
+			);
+			name = Extensions;
+			path = ../Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,7 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE0B342A206056DA003B026E /* Recipe.swift in Sources */,
-				BEE17658206177E800177909 /* MacroCalculatorViewController.swift in Sources */,
+				BEE17658206177E800177909 /* SignUpViewController.swift in Sources */,
 				BEE17656206177D500177909 /* LoginViewController.swift in Sources */,
 				BE0B342E20605784003B026E /* UsersController.swift in Sources */,
 				BE13C7B520609C9E004DB4C7 /* CloudKitManager.swift in Sources */,
@@ -312,6 +324,7 @@
 				BEE1765A206177FC00177909 /* ProfileViewController.swift in Sources */,
 				BE0B3428206056AF003B026E /* User.swift in Sources */,
 				BE0B340D20602120003B026E /* AppDelegate.swift in Sources */,
+				BEAE3149208669FE00A180A1 /* LoginViewController+TextField.swift in Sources */,
 				BE95244F2061B70300722E51 /* ProfileImagePickerHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

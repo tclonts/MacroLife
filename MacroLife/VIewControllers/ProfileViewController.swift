@@ -9,15 +9,21 @@
 import UIKit
 import CloudKit
 
+
+
 class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateForCurrentUser()
+
     }
     
+    
     // MARK: - Outlets
-    @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var bodyWeightLabel: UILabel!
@@ -40,59 +46,59 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIBarButtonItem) {
-
-        if self.user != nil {
+        //logout user
+        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
+        UserDefaults.standard.synchronize()
+        self.performSegue(withIdentifier: "toSignUp", sender: self);
         
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "toSignUp", sender: self)
-        }
-    }
 }
     
-    
-    
-    
     func updateForCurrentUser() {
-        
+
         CloudKitManager.shared.fetchRecordsOf(type: User.typeKey, database: UsersController.shared.publicDB) { (records, error) in
             if let error = error {
                 print("Error fetching records from cloudKit: \(error.localizedDescription)")
             } else {
                 print("Success fetching records from cloudKit")
             }
-            
+
             guard let records = records else { return }
-            let users = records.flatMap {User(cloudKitRecord:$0)}
-            UsersController.shared.currentUser = users.first
+            var users = records.compactMap{User(cloudKitRecord:$0)}
+            self.user = users.first
+            print(users)
+            
+            
             DispatchQueue.main.async {
-                self.usernameLabel.text = users.first?.username
+                self.usernameLabel.text = self.user?.email
 //                self.profilePicture.image = UIImage(data:(users.first?.profileImage)!)
                 self.genderLabel.text = users.first?.gender
                 self.bodyWeightLabel.text = "\(users.first?.bodyWeight)"
                 self.leanBodyMassLabel.text = "\(users.first?.leanBodyMass)"
-                self.bodyFatLabel.text = "\(users.first?.bodyFatPercentage)"
-                self.proteinProfileLabel.text = "\(users.first?.protein)"
-                self.fatProfileLabel.text = "\(users.first?.fat)"
-                self.carbsProfileLabel.text = "\(users.first?.carbs)"
-                self.activityLevelLabel.text = "\(users.first?.activityLevel)"
-                
-            }
+                self.bodyFatLabel.text = String(users.first?.bodyFatPercentage)
+//                self.proteinProfileLabel.text = "\(users.first?.protein)"
+//                self.fatProfileLabel.text = "\(users.first?.fat)"
+//                self.carbsProfileLabel.text = "\(users.first?.carbs)"
+//                self.activityLevelLabel.text = "\(users.first?.activityLevel)"
+
+        }
         }
     }
 }
 
 
 
+
 //    func updateViews() {
 //        guard let user = user else { return }
-//            self.usernameLabel.text = user.username
+//        self.usernameLabel.text = user.email
 //            self.genderLabel.text = user.gender
-//            self.bodyWeightLabel.text = "\(user.bodyWeight)"
-//            self.leanBodyMassLabel.text = "\(user.leanBodyMass)"
-//            self.bodyFatLabel.text = "\(user.bodyFatPercentage)"
-//            self.activityLevelLabel.text = "\(user.activityLevel)"
+////            self.bodyWeightLabel.text = "\(user.bodyWeight)"
+////            self.leanBodyMassLabel.text = "\(user.leanBodyMass)"
+////            self.bodyFatLabel.text = "\(user.bodyFatPercentage)"
+////            self.activityLevelLabel.text = "\(user.activityLevel)"
 //        }
 //    }
+
 
     
     
@@ -106,4 +112,3 @@ class ProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-

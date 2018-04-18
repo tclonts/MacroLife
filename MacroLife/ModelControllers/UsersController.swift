@@ -17,13 +17,13 @@ class UsersController {
     let currentUserWasSetNotification = Notification.Name("currentUserWasSet")
     
     var currentUser: User?
-    {
-        didSet{
-            DispatchQueue.main.async {
-            NotificationCenter.default.post(name: self.currentUserWasSetNotification, object: nil)
-            }
-        }
-    }
+//    {
+//        didSet{
+//            DispatchQueue.main.async {
+//            NotificationCenter.default.post(name: self.currentUserWasSetNotification, object: nil)
+//            }
+//        }
+//    }
     var users: [User] = []
     
     init() {
@@ -31,13 +31,10 @@ class UsersController {
     }
 
     // Add new user
-    func createNewUserForCurrentUser(image: UIImage?, username: String?, email: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, protein: Double?, fat: Double?, carbs: Double?, activityLevel: Int?, completion: @escaping(_ success: Bool) -> Void) {
-        guard let image = image,
-                let username = username,
-                let email = email else { completion(false); return }
-        guard let data = UIImageJPEGRepresentation(image, 0.8) else { completion(false); return }
+    func createNewUserForCurrentUser(email: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, /*activityLevel: Int?,*/ /*, protein: Double?, fat: Double?, carbs: Double?*/ completion: @escaping(_ success: Bool) -> Void) {
+        
 
-        let newUser = User(profileImage: data, username: username, email: email, gender: gender, bodyWeight: bodyWeight, leanBodyMass: leanBodyMass, bodyFatPercentage: bodyFatPercentage, activityLevel: activityLevel, protein: protein, fat: fat, carbs: carbs)
+        let newUser = User(email: email, gender: gender, bodyWeight: bodyWeight, leanBodyMass: leanBodyMass, bodyFatPercentage: bodyFatPercentage)
         
         self.currentUser = newUser
         
@@ -45,22 +42,17 @@ class UsersController {
             completion(true)
         }
     }
-    // Future function when i have multiple users interacting
-//    func createNewUser() {
-//
-//    }
-    
+
     // Update User
-    func updateUser(user: User, gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double, protein: Double, fat: Double, carbs: Double, activityLevel: Int, completion: @escaping(_ success: Bool) -> Void) {
+    func updateUser(user: User, gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double /*, protein: Double, fat: Double, carbs: Double,*/, completion: @escaping(_ success: Bool) -> Void) {
       
         user.gender = gender
         user.bodyWeight = bodyWeight
         user.leanBodyMass = leanBodyMass
         user.bodyFatPercentage = bodyFatPercentage
-        user.protein = protein
-        user.fat = fat
-        user.carbs = carbs
-        user.activityLevel = activityLevel
+//        user.protein = protein
+//        user.fat = fat
+//        user.carbs = carbs
         
         let record = user.cloudKitRecord
         CloudKitManager.shared.modifyRecords([record], database: publicDB, perRecordCompletion: nil, completion: { (_, error) in
@@ -98,20 +90,10 @@ class UsersController {
                 print("Success fetching records from cloudKit")
             }
             guard let records = records else { return }
-            let users = records.flatMap {User(cloudKitRecord:$0)}
+            let users = records.compactMap{User(cloudKitRecord:$0)}
             self.currentUser = users.first
         }
     }
 }
-    // Delete User
 
-    //    func deleteUser(user: User) {
-    //        guard let index = users.index(of: user) else { return }
-    //        users.remove(at: index)
-    //        CKContainer.default().privateCloudDatabase.delete(withRecordID: user.cloudKitRecord.recordID) { (record, error) in
-    //            if let error = error {
-    //                print("Error deleting user record: \(error.localizedDescription)")
-    //            }
-    //        }
-    //    }
 

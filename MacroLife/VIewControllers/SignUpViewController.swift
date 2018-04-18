@@ -1,0 +1,136 @@
+//
+//  MacroCalculatorViewController.swift
+//  MacroLife
+//
+//  Created by Tyler Clonts on 3/20/18.
+//  Copyright © 2018 Tyler Clonts. All rights reserved.
+//
+
+import UIKit
+import CloudKit
+
+class SignUpViewController: UIViewController {
+    @IBOutlet weak var genderTextField: UITextField!
+    @IBOutlet weak var bodyWeightTextField: UITextField!
+    @IBOutlet weak var leanBodyMassTextField: UITextField!
+    @IBOutlet weak var bodyFatTextField: UITextField!
+    @IBOutlet weak var activityLevelTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var repeatPasswordTextField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    
+    var user: User?
+    
+    // MARK: - Actions
+  
+    @IBAction func saveResultsButtonTapped(_ sender: UIButton) {
+//        proteinCalculator()
+//        fatCalculator()
+//        carbCalculator()
+        
+        guard let gender = genderTextField.text,
+        let bodyWeight = Int(bodyWeightTextField.text!),
+        let leanBodyMass = Int(leanBodyMassTextField.text!),
+        let bodyFatPercentage = Int(bodyFatTextField.text!),
+        let userEmail = emailTextField.text,
+        let userPassword = passwordTextField.text,
+        let repeatPassword = repeatPasswordTextField.text else { return }
+        
+        
+        //check empty fields
+        if userEmail.isEmpty || userPassword.isEmpty || repeatPassword.isEmpty {
+            
+            //display alert message
+            presentSimpleAlert(title: "oops", message: "all textfields required")
+            return
+        }
+        //check if passwords match
+        if (userPassword != repeatPassword) {
+            //display alert message
+            presentSimpleAlert(title: "oops", message: "you messed up the password")
+        } else {
+            
+            //save data
+            UsersController.shared.createNewUserForCurrentUser(email: userEmail, gender: gender, bodyWeight: Double(bodyWeight), leanBodyMass: Double(leanBodyMass), bodyFatPercentage: Double(bodyFatPercentage)) { (success) in
+                print(success)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "toProfileDetail", sender: self)
+                }
+            }
+//            let record = CKRecord(recordType: User.typeKey)
+//
+//            record.setValue(userEmail, forKey: "email")
+//            record.setValue(userPassword, forKey: "password")
+//            record.setValue(gender, forKey: "gender")
+//            record.setValue(bodyWeight, forKey: "bodyweight")
+//            record.setValue(leanBodyMass, forKey: "leanBodyMass")
+//            record.setValue(bodyFatPercentage, forKey: "bodyFatPercentage")
+//
+//            CloudKitManager.shared.publicDB.save(record) { (nil, error) in
+//                if error == nil {
+//                    print("Registered")
+//
+//                } else {
+//                    print("error: \(error)")
+//                }
+//            }
+//            // To Profile View
+//            DispatchQueue.main.async {
+//
+//                self.performSegue(withIdentifier: "toProfileDetail", sender: self)
+//
+//            }
+        }
+        
+    }
+
+    // Macros Calculation Functions
+    func proteinCalculator() {
+        guard let proteinInG = Int(leanBodyMassTextField.text!) else { return }
+        //save to user value
+    }
+    
+    func fatCalculator() {
+        let proteinInG = Int(leanBodyMassTextField.text!)
+        let proteinCals = (proteinInG! * 4)
+        let carbsInG = (Int(Double(leanBodyMassTextField.text!)! * (1.3)))
+        let carbCals = (carbsInG * 4)
+        let maitenanceCal = (Int(bodyWeightTextField.text!)! * 11)
+        let newMC = (maitenanceCal - 250)
+        let fatInG = (newMC - (proteinCals + carbCals)) / Int(9.0)
+        //save to user value
+    }
+    
+    func carbCalculator() {
+        
+        let carbsInG = (Int(Double(leanBodyMassTextField.text!)! * (1.3)))
+        //save to user value
+    }
+    
+
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toProfileDetail" {
+            if let destinationVC = segue.destination as? ProfileViewController {
+                let user = UsersController.shared.currentUser
+                destinationVC.user = user
+            }
+        }
+    }
+    
+    
+    // Simple Alert
+    func presentSimpleAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Dismisss", style: .cancel, handler: nil)
+        alert.addAction(dismissAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+}
