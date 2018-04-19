@@ -21,14 +21,14 @@ class Recipe: CloudKitManager {
     
     // Properties
     var recipeImage: Data?
-    var recipeText: String
+    var recipeText: UITextView
     var cloudkitRecordID: CKRecordID?
     var photo: UIImage? {
         guard let recipeImage = self.recipeImage else { return nil }
         return UIImage(data: recipeImage)
     }
     
-    init(recipeImage: Data?, recipeText: String) {
+    init(recipeImage: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "DefaultProfile")), recipeText: UITextView) {
     
         self.recipeImage = recipeImage
         self.recipeText = recipeText
@@ -37,7 +37,7 @@ class Recipe: CloudKitManager {
     // Used for Fetching records from CloudKit
     
     init?(cloudKitRecord: CKRecord) {
-        guard let recipeText = cloudKitRecord[recipeTextKey] as? String,
+        guard let recipeText = cloudKitRecord[recipeTextKey] as? UITextView,
             let photoAsset = cloudKitRecord[recipeImageKey] as? CKAsset else { return nil}
         let recipeImage = try? Data(contentsOf: photoAsset.fileURL)
         

@@ -22,7 +22,7 @@ class RecipesController {
     
 //     Create New Recipe
     
-    func createRecipe(recipeImage: UIImage?, recipeText: String) {
+    func createRecipe(recipeImage: UIImage?, recipeText: UITextView) {
         guard let recipeImage = recipeImage else { return }
         guard let data = UIImageJPEGRepresentation(recipeImage, 0.8) else { return }
         let newRecipe = Recipe(recipeImage: data, recipeText: recipeText)
@@ -43,10 +43,10 @@ class RecipesController {
 //    }
     
     // Update Recipe
-    func updateRecipe(recipe: Recipe, recipeImage: Data?, recipeText: String){
+    func updateRecipe(recipe: Recipe, recipeImage: Data?/*, recipeText: String*/){
         
         recipe.recipeImage = recipeImage
-        recipe.recipeText = recipeText
+//        recipe.recipeText = recipeText
         
         let record = recipe.cloudKitRecord
         CloudKitManager.shared.modifyRecords([record], database: publicDB, perRecordCompletion: nil, completion: nil)

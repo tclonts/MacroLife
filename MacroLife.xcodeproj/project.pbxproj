@@ -25,7 +25,7 @@
 		BEE17656206177D500177909 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE17655206177D500177909 /* LoginViewController.swift */; };
 		BEE17658206177E800177909 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE17657206177E800177909 /* SignUpViewController.swift */; };
 		BEE1765A206177FC00177909 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE17659206177FC00177909 /* ProfileViewController.swift */; };
-		BEE1765E2061A2F500177909 /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE1765D2061A2F500177909 /* PhotoSelectViewController.swift */; };
+		BEE1765E2061A2F500177909 /* RecipeImagePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE1765D2061A2F500177909 /* RecipeImagePickerHelper.swift */; };
 		BEE176602061AC0900177909 /* RecipeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE1765F2061AC0900177909 /* RecipeCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +52,7 @@
 		BEE17655206177D500177909 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BEE17657206177E800177909 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BEE17659206177FC00177909 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		BEE1765D2061A2F500177909 /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
+		BEE1765D2061A2F500177909 /* RecipeImagePickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeImagePickerHelper.swift; sourceTree = "<group>"; };
 		BEE1765F2061AC0900177909 /* RecipeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewController.swift; sourceTree = "<group>"; };
 		FE60C6ABC255AF84E3A90161 /* Pods-MacroLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacroLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-MacroLife/Pods-MacroLife.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,7 +150,7 @@
 				BE95244E2061B70300722E51 /* ProfileImagePickerHelper.swift */,
 				BEE1765F2061AC0900177909 /* RecipeCollectionViewController.swift */,
 				BE91D56B20670DF20018928F /* RecipeDetailViewController.swift */,
-				BEE1765D2061A2F500177909 /* PhotoSelectViewController.swift */,
+				BEE1765D2061A2F500177909 /* RecipeImagePickerHelper.swift */,
 			);
 			path = VIewControllers;
 			sourceTree = "<group>";
@@ -320,7 +320,7 @@
 				BE0B342C20605771003B026E /* RecipesController.swift in Sources */,
 				BEE176602061AC0900177909 /* RecipeCollectionViewController.swift in Sources */,
 				BE91D56C20670DF20018928F /* RecipeDetailViewController.swift in Sources */,
-				BEE1765E2061A2F500177909 /* PhotoSelectViewController.swift in Sources */,
+				BEE1765E2061A2F500177909 /* RecipeImagePickerHelper.swift in Sources */,
 				BEE1765A206177FC00177909 /* ProfileViewController.swift in Sources */,
 				BE0B3428206056AF003B026E /* User.swift in Sources */,
 				BE0B340D20602120003B026E /* AppDelegate.swift in Sources */,

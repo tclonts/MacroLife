@@ -10,16 +10,17 @@ import UIKit
 import CloudKit
 
 class SignUpViewController: UIViewController {
+
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var genderTextField: UITextField!
-    @IBOutlet weak var bodyWeightTextField: UITextField!
-    @IBOutlet weak var leanBodyMassTextField: UITextField!
-    @IBOutlet weak var bodyFatTextField: UITextField!
-    @IBOutlet weak var activityLevelTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
+    @IBOutlet weak var genderTextField: UITextField!
+    @IBOutlet weak var bodyWeightTextField: UITextField!
+    @IBOutlet weak var leanBodyMassTextField: UITextField!
+    @IBOutlet weak var bodyFatPercentageTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class SignUpViewController: UIViewController {
         let lastName = lastNameTextField.text,
         let bodyWeight = Int(bodyWeightTextField.text!),
         let leanBodyMass = Int(leanBodyMassTextField.text!),
-        let bodyFatPercentage = Int(bodyFatTextField.text!),
+        let bodyFatPercentage = Int(bodyFatPercentageTextField.text!),
         let userEmail = emailTextField.text,
         let userPassword = passwordTextField.text,
         let repeatPassword = repeatPasswordTextField.text else { return }
@@ -65,6 +66,9 @@ class SignUpViewController: UIViewController {
                     self.performSegue(withIdentifier: "toProfileDetail", sender: self)
                 }
             }
+        }
+        
+    }
 //            let record = CKRecord(recordType: User.typeKey)
 //
 //            record.setValue(userEmail, forKey: "email")
@@ -88,9 +92,6 @@ class SignUpViewController: UIViewController {
 //                self.performSegue(withIdentifier: "toProfileDetail", sender: self)
 //
 //            }
-        }
-        
-    }
 
 
     // MARK: - Navigation

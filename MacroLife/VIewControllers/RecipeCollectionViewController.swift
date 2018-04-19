@@ -24,7 +24,6 @@ class RecipeCollectionViewController: UICollectionViewController, UISearchBarDel
     }
     // MARK: -Properties
     
-    var image: UIImage?
     
     // MARK: -Actions
     

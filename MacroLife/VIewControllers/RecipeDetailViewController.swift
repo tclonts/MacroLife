@@ -10,18 +10,37 @@ import UIKit
 
 class RecipeDetailViewController: UIViewController {
 
+    let imagePicker = UIImagePickerController()
+
+    
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var recipeText: UITextView!
+    @IBOutlet weak var recipeTextView: UITextView!
+    @IBOutlet weak var recipeImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
 
         // Do any additional setup after loading the view.
     }
-
+    
+    // MARK: - Properties
     var recipes: Recipe?
     
-
+    
+    // MARK: - Actions
+    
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        guard let recipeImageData = self.recipes?.recipeImage else { return }
+        let image = UIImage(data: recipeImageData)
+        guard let recipeText = recipeTextView else { return }
+        
+        RecipesController.shared.createRecipe(recipeImage: image, recipeText: recipeText)
+    }
+    @IBAction func recipeImagePickerTapped(_ sender: UITapGestureRecognizer) {
+        addRecipeImage()
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -35,10 +54,4 @@ class RecipeDetailViewController: UIViewController {
     
 
 }
-extension RecipeCollectionViewController: PhotoSelectViewControllerDelegate {
-    
-    func photoSelectViewControllerSelected(_ image: UIImage) {
-        
-        self.image = image
-    }
-}
+

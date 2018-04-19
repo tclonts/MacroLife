@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController  {
         super.viewDidLoad()
         imagePicker.delegate = self
         self.user = UsersController.shared.currentUser
+//        profileImageView.image = #imageLiteral(resourceName: "DefaultProfile")
         
         updateForCurrentUser {}
         fatCalculator()
@@ -89,6 +90,9 @@ class ProfileViewController: UIViewController  {
                 self.bodyWeightLabel.text = self.user?.bodyWeight?.description
                 self.leanBodyMassLabel.text = self.user?.leanBodyMass?.description
                 self.bodyFatLabel.text = self.user?.bodyFatPercentage?.description
+                guard let userProfileImageData = self.user?.profileImage else { return }
+                let image = UIImage(data: (userProfileImageData))
+                self.profileImageView.image = image
 //                self.proteinProfileLabel.text = "\(users.first?.protein)"
 //                self.fatProfileLabel.text = "\(users.first?.fat)"
 //                self.carbsProfileLabel.text = "\(users.first?.carbs)"
@@ -107,7 +111,7 @@ class ProfileViewController: UIViewController  {
     }
     
     func fatCalculator() {
-        let proteinInG = (self.user?.leanBodyMass)!
+        guard let proteinInG = self.user?.leanBodyMass else { return }
         let proteinCals = (proteinInG * 4)
         let carbsInG = (self.user?.leanBodyMass)! * (1.2)
         let carbCals = (carbsInG * 4)
@@ -119,15 +123,15 @@ class ProfileViewController: UIViewController  {
     }
     
     func carbCalculator() {
-        
-        let carbsInG = (self.user?.leanBodyMass)! * (1.2)
+        guard let lbm = self.user?.leanBodyMass else { return }
+        let carbsInG = lbm * (1.2)
         //save to user value
         carbsProfileLabel.text = carbsInG.description
     }
     
     func calorieCount() {
-        let proteinInG = self.user?.leanBodyMass
-        let proteinCals = (proteinInG! * 4)
+        guard let proteinInG = self.user?.leanBodyMass else { return }
+        let proteinCals = (proteinInG * 4)
         let carbsInG = (self.user?.leanBodyMass)! * (1.2)
         let carbCals = (carbsInG * 4)
         let maitenanceCal = (self.user?.bodyWeight)! * (12.0)

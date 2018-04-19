@@ -72,8 +72,7 @@ class LoginViewController: UIViewController {
             let query = CKQuery(recordType: "User", predicate: predicate)
             CloudKitManager.shared.publicDB.perform(query, inZoneWith: nil) { (records:[CKRecord]?, error:Error?) in
                 if error == nil {
-                    if (records?.count)! > 0
-                    {
+                    if (records?.count)! > 0 {
                         let record = records?[0]
                         let users = records?.compactMap({User(cloudKitRecord: $0)})
                         UsersController.shared.currentUser = users?.first
@@ -87,16 +86,15 @@ class LoginViewController: UIViewController {
                         
                         //redirect to Profile View
                         DispatchQueue.main.async {
-                         
                         self.performSegue(withIdentifier: "toProfileDetail", sender: self)
-                            
+
                         }
                     } else {
                         print("no such user found. Don't give up.")
                     }
                 } else
                 {
-                    print(error)
+                    print(error?.localizedDescription)
                 }
             }
         }

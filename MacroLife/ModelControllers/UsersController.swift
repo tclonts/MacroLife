@@ -31,7 +31,7 @@ class UsersController {
     }
 
     // Add new user
-    func createNewUserForCurrentUser(firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, /*activityLevel: Int?,*/ /*, protein: Double?, fat: Double?, carbs: Double?*/ completion: @escaping(_ success: Bool) -> Void) {
+    func createNewUserForCurrentUser(firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, /*activityLevel: Int?,*/ completion: @escaping(_ success: Bool) -> Void) {
         
 
         let newUser = User(firstName: firstName, lastName: lastName, email: email, password: password, gender: gender, bodyWeight: bodyWeight, leanBodyMass: leanBodyMass, bodyFatPercentage: bodyFatPercentage)
@@ -44,15 +44,15 @@ class UsersController {
     }
 
     // Update User
-    func updateUser(user: User, gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double /*, protein: Double, fat: Double, carbs: Double,*/, completion: @escaping(_ success: Bool) -> Void) {
+    func updateUser(user: User, profileImage: Data? /*,  gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double ,*/, completion: @escaping(_ success: Bool) -> Void) {
       
-        user.gender = gender
-        user.bodyWeight = bodyWeight
-        user.leanBodyMass = leanBodyMass
-        user.bodyFatPercentage = bodyFatPercentage
-//        user.protein = protein
-//        user.fat = fat
-//        user.carbs = carbs
+//        user.gender = gender
+//        user.bodyWeight = bodyWeight
+//        user.leanBodyMass = leanBodyMass
+//        user.bodyFatPercentage = bodyFatPercentage
+        guard let profileImage = profileImage else { return }
+        user.profileImage = profileImage
+
         
         let record = user.cloudKitRecord
         CloudKitManager.shared.modifyRecords([record], database: publicDB, perRecordCompletion: nil, completion: { (_, error) in

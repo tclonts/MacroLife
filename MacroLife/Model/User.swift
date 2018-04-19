@@ -32,7 +32,7 @@ class User: CloudKitManager {
     
     
     // Properties
-//    var profileImage: Data?
+    var profileImage: Data?
 //    var username: String?
     var firstName: String?
     var lastName: String?
@@ -47,13 +47,12 @@ class User: CloudKitManager {
 //    var carbs: Double?
     var password: String?
     var cloudKitRecordID: CKRecordID?
-//    var photo: UIImage? {
-//        guard let profileImage = self.profileImage else { return nil }
-//        return UIImage(data: profileImage)
-//    }
-    
-    
-    init(/*profileImage: Data? ,*/ /*username: String?, */firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Double? = Double(), leanBodyMass: Double? = Double(), bodyFatPercentage: Double? = Double() /*activityLevel: Int? *//*, protein: Double?, fat: Double?, carbs: Double?*/) {
+    var photo: UIImage? {
+        guard let profileImage = self.profileImage else { return nil }
+        return UIImage(data: profileImage)
+    }
+   
+    init(profileImage: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "DefaultProfile")), firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Double? = Double(), leanBodyMass: Double? = Double(), bodyFatPercentage: Double? = Double() /*activityLevel: Int? */) {
         
 //            self.username = username
             self.firstName = firstName
@@ -65,12 +64,8 @@ class User: CloudKitManager {
             self.leanBodyMass = leanBodyMass
             self.bodyFatPercentage = bodyFatPercentage
 //            self.activityLevel = activityLevel
-//            self.protein = protein
-//            self.fat = fat
-//            self.carbs = carbs
-//            self.profileImage = profileImage
+            self.profileImage = profileImage
     }
-    
     // Used for fetching records from Cloudkit
     init?(cloudKitRecord: CKRecord) {
            guard let email = cloudKitRecord[emailKey] as? String,
@@ -80,12 +75,9 @@ class User: CloudKitManager {
             let bodyWeight = cloudKitRecord[bodyWeightKey] as? Double,
             let leanBodyMass = cloudKitRecord[leanBodyMassKey] as? Double,
             let bodyFatPercentage = cloudKitRecord[bodyFatPercentageKey] as? Double else { return nil }
-//            let activityLevel = cloudKitRecord[activityLevelKey] as? Int,
-//            let protein = cloudKitRecord[proteinKey] as? Double,
-//            let fat = cloudKitRecord[fatKey] as? Double,
-//            let carbs = cloudKitRecord[carbsKey] as? Double,
-//            let photoAsset = cloudKitRecord[profileImageKey] as? CKAsset else { return nil }
+
 //            let profileImage = try? Data(contentsOf: photoAsset.fileURL)
+//            let activityLevel = cloudKitRecord[activityLevelKey] as? Int
         
 //        self.username = username
         self.firstName = firstName
@@ -95,12 +87,12 @@ class User: CloudKitManager {
         self.bodyWeight = bodyWeight
         self.leanBodyMass = leanBodyMass
         self.bodyFatPercentage = bodyFatPercentage
-//        self.activityLevel = activityLevel
-//        self.protein = protein
-//        self.fat = fat
-//        self.carbs = carbs
         self.cloudKitRecordID = cloudKitRecord.recordID
-//        self.profileImage = profileImage
+        
+        guard let photoAsset = cloudKitRecord[profileImageKey] as? CKAsset else { return }
+        
+        self.profileImage = try? Data(contentsOf: photoAsset.fileURL)
+//        self.activityLevel = activityLevel
     }
     
     // Used for Saving to cloudkit
@@ -119,10 +111,10 @@ class User: CloudKitManager {
         record.setValue(leanBodyMass, forKey: leanBodyMassKey)
         record.setValue(bodyFatPercentage, forKey: bodyFatPercentageKey)
 //        record.setValue(activityLevel, forKey: activityLevelKey)
-//        record.setValue(protein, forKey: proteinKey)
-//        record.setValue(fat, forKey: fatKey)
-//        record.setValue(carbs, forKey: carbsKey)
-//        record[profileImageKey] = CKAsset(fileURL: temporaryPhotoURL)
+        
+        if let profileImage = profileImage {
+                    record[profileImageKey] = CKAsset(fileURL: temporaryPhotoURL)
+        }
         
         cloudKitRecordID = recordID
         
@@ -138,7 +130,7 @@ class User: CloudKitManager {
         let temporaryDirectoryURL = URL(fileURLWithPath: temporaryDirectory)
         let fileURL = temporaryDirectoryURL.appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")
         
-//        try? profileImage?.write(to: fileURL, options: [.atomic])
+        try? profileImage?.write(to: fileURL, options: [.atomic])
         
         return fileURL
     }
