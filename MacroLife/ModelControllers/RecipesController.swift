@@ -14,15 +14,25 @@ class RecipesController {
     
     static let shared = RecipesController()
     let publicDB = CKContainer.default().publicCloudDatabase
-    var recipes: [Recipe] = []
+    let tableVCReloadNotification = Notification.Name("reloadTVC")
+
     
     init() {
-        loadFromPersistentStore()
+        loadFromPersistentStore( )
+    }
+    // MARK: - Properites
+    
+    var recipes: [Recipe] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: self.tableVCReloadNotification, object: nil)
+        }
+    }
     }
     
 //     Create New Recipe
     
-    func createRecipe(recipeImage: UIImage?, recipeText: UITextView) {
+    func createRecipe(recipeImage: UIImage?, recipeText: String) {
         guard let recipeImage = recipeImage else { return }
         guard let data = UIImageJPEGRepresentation(recipeImage, 0.8) else { return }
         let newRecipe = Recipe(recipeImage: data, recipeText: recipeText)
@@ -30,28 +40,29 @@ class RecipesController {
         saveToPersistentStore()
     }
 
-//     Delete Recipe
-
-//    func deleteRecipe(recipe: Recipe) {
-//        guard let index = recipes.index(of: recipe) else { return }
-//        recipes.remove(at: index)
-//        CKContainer.default().publicCloudDatabase.delete(withRecordID: recipe.cloudKitRecord.recordID) { (_, error) in
-//            if let error = error {
-//                print("Error deleting recipe record: \(error.localizedDescription)")
-//            }
-//        }
-//    }
     
     // Update Recipe
-    func updateRecipe(recipe: Recipe, recipeImage: Data?/*, recipeText: String*/){
-        
-        recipe.recipeImage = recipeImage
+    func updateRecipe(recipe: Recipe, recipeImage: Data?/*, recipeText: String*/, completion: @escaping(_ success: Bool) -> Void){
+        guard let recipeImage = recipeImage else { return }
+//        recipe.recipeImage = recipeImage
 //        recipe.recipeText = recipeText
         
         let record = recipe.cloudKitRecord
-        CloudKitManager.shared.modifyRecords([record], database: publicDB, perRecordCompletion: nil, completion: nil)
+        CloudKitManager.shared.modifyRecords([record], database: publicDB, perRecordCompletion: nil,  completion: { (_, error) in
+            completion(true)
+        })
     }
-
+    //     Delete Recipe
+    
+    //    func deleteRecipe(recipe: Recipe) {
+    //        guard let index = recipes.index(of: recipe) else { return }
+    //        recipes.remove(at: index)
+    //        CKContainer.default().publicCloudDatabase.delete(withRecordID: recipe.cloudKitRecord.recordID) { (_, error) in
+    //            if let error = error {
+    //                print("Error deleting recipe record: \(error.localizedDescription)")
+    //            }
+    //        }
+    //    }
 
     // Saving Recipes to CloudKit
 
@@ -70,14 +81,14 @@ class RecipesController {
     // Fetching Recipes from CloudKit
 
     func loadFromPersistentStore() {
-        CloudKitManager.shared.fetchRecordsOf(type: User.typeKey, database: publicDB) { (records, error) in
+        CloudKitManager.shared.fetchRecordsOf(type: Recipe.typeKey, database: publicDB) { (records, error) in
             if let error = error {
                 print("Error fetching recipes from cloudkit: \(error.localizedDescription)")
             } else {
                 print("Success fetching recipes from cloudkit")
             }
             guard let records = records else { return }
-            let recipes = records.flatMap{Recipe(cloudKitRecord: $0)}
+            var recipes = records.compactMap{Recipe(cloudKitRecord: $0)}
             self.recipes = recipes
         }
     }

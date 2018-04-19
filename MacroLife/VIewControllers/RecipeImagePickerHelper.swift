@@ -43,13 +43,13 @@ extension RecipeDetailViewController: UIImagePickerControllerDelegate, UINavigat
         
     }
     //    // This looks cleaner but I cant get it to work.
-    //
-    //    func noCameraOnDevice() {
-    //        let alertVC = UIAlertController(title: "No Camera", message: "Sorry, this device has no camera", preferredStyle: .alert)
-    //        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-    //        alertVC.addAction(okAction)
-    //        self.present(alertVC, animated: true, completion: nil)
-    //    }
+    
+        func noCameraOnDevice() {
+            let alertVC = UIAlertController(title: "No Camera", message: "Sorry, this device has no camera", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertVC.addAction(okAction)
+            self.present(alertVC, animated: true, completion: nil)
+        }
     // MARK: UIImagePickerControllerDelegate
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -60,13 +60,14 @@ extension RecipeDetailViewController: UIImagePickerControllerDelegate, UINavigat
             //            let imageName = NSUUID().uuidString
             //            let storageReference = Storage.storage().reference().child("Profile_Images").child("\(imageName).jpg")
             if let uploadData = UIImageJPEGRepresentation(chosenImage, 0.1) {
-                
-                    
+//                guard let recipe = self.recipes else { return }
+//                RecipesController.shared.updateRecipe(recipe: recipe, recipeImage: uploadData) { (true) in
                     DispatchQueue.main.async {
-                        self.recipes?.recipeImage = uploadData
+//                        self.recipes?.recipeImage = uploadData
                         //                        self.profileImageView.contentMode = .scaleAspectFill
                         self.recipeImageView.image = chosenImage
                     }
+                }
                 //                self.dismiss(animated: true, completion: nil)
             }
         }
@@ -78,18 +79,12 @@ extension RecipeDetailViewController: UIImagePickerControllerDelegate, UINavigat
     //
     
     
-    // Function to add new Fish Catch Picture to pull up camera and photo library
-    
-    // Function to store that to Fire Store for each users colletion view ( array of fish catches with Urls to the image inside the array) and then to set the collection view
-    
-    // I need to fetch that and populate the collectionView whenever they pull open the image
-    
-    /// probably need to add this array to the user Model
+
     
     
     
     
-}
+
 
 
 

@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController  {
         self.user = UsersController.shared.currentUser
 //        profileImageView.image = #imageLiteral(resourceName: "DefaultProfile")
         
-        updateForCurrentUser {}
+        
         fatCalculator()
         carbCalculator()
         proteinCalculator()
@@ -29,6 +29,7 @@ class ProfileViewController: UIViewController  {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateForCurrentUser {}
     }
     
     
@@ -55,6 +56,7 @@ class ProfileViewController: UIViewController  {
     }
 
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
+ 
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIBarButtonItem) {
@@ -140,7 +142,6 @@ class ProfileViewController: UIViewController  {
         let totalCalories = (fatInG * 4.0) + (carbsInG * 4.0) + (fatInG * 9.0)
         totalCaloriesLabel.text = totalCalories.description
     }
-}
 
 
 
@@ -160,12 +161,14 @@ class ProfileViewController: UIViewController  {
     
     
 
-    /*
-    // MARK: - Navigation
+// MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "toEditProfile" {
+            let detailVC = segue.destination as? EditProfileViewController
+        let user = UsersController.shared.currentUser
+            detailVC?.user = user
+        }
     }
-    */
+}

@@ -16,6 +16,7 @@ class UsersController {
     let publicDB = CKContainer.default().publicCloudDatabase
     let currentUserWasSetNotification = Notification.Name("currentUserWasSet")
     
+    
     var currentUser: User?
     {
         didSet{
@@ -44,7 +45,7 @@ class UsersController {
     }
 
     // Update User
-    func updateUser(user: User, profileImage: Data? /*,  gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double ,*/, completion: @escaping(_ success: Bool) -> Void) {
+    func updateUserPhoto(user: User, profileImage: Data? /*,  gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double ,*/, completion: @escaping(_ success: Bool) -> Void) {
       
 //        user.gender = gender
 //        user.bodyWeight = bodyWeight
@@ -57,6 +58,23 @@ class UsersController {
         let record = user.cloudKitRecord
         CloudKitManager.shared.modifyRecords([record], database: publicDB, perRecordCompletion: nil, completion: { (_, error) in
             completion(true)
+        })
+    }
+    
+    func updateUserDetails(user: User, firstName: String?, lastName: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?,  completion: @escaping(_ success: Bool) -> Void) {
+        
+            user.firstName = firstName
+            user.lastName = lastName
+            user.gender = gender
+            user.bodyWeight = bodyWeight
+            user.leanBodyMass = leanBodyMass
+            user.bodyFatPercentage = bodyFatPercentage
+    
+        
+        let record = user.cloudKitRecord
+        CloudKitManager.shared.modifyRecords([record], database: publicDB, perRecordCompletion: nil, completion: { (_, error) in
+            completion(true)
+            self.saveToPersistentStore()
         })
     }
     

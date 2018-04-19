@@ -1,57 +1,64 @@
 //
-//  AddRecipeCollectionViewController.swift
+//  CollectionViewController.swift
 //  MacroLife
 //
-//  Created by Tyler Clonts on 3/20/18.
+//  Created by Tyler Clonts on 4/19/18.
 //  Copyright © 2018 Tyler Clonts. All rights reserved.
 //
 
 import UIKit
 
-class RecipeCollectionViewController: UICollectionViewController {
+private let reuseIdentifier = "Cell"
 
-    
+class CollectionViewController: UICollectionViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
         // Register cell classes
-        
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadCVC), name: RecipesController.shared.tableVCReloadNotification, object: nil)
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+
+        // Do any additional setup after loading the view.
     }
-    
-    @objc func reloadCVC() {
-    self.collectionView?.reloadData()
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-    // MARK: -Properties
-    
-    // MARK: -Actions
-    
-    
-//     MARK: UICollectionViewDataSource
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using [segue destinationViewController].
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+    // MARK: UICollectionViewDataSource
+
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        // #warning Incomplete implementation, return the number of sections
+        return 0
     }
-    
+
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return RecipesController.shared.recipes.count
-        
+        // #warning Incomplete implementation, return the number of items
+        return 0
     }
-    
+
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recipeCell", for: indexPath) as? RecipeCollectionViewCell else { return UICollectionViewCell()}
-        
-        let recipe = RecipesController.shared.recipes[indexPath.count]
-        cell.recipe = recipe
-        
-//        cell.backgroundColor = .black
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+    
+        // Configure the cell
+    
         return cell
     }
-
-
-
 
     // MARK: UICollectionViewDelegate
 
@@ -83,4 +90,5 @@ class RecipeCollectionViewController: UICollectionViewController {
     
     }
     */
+
 }

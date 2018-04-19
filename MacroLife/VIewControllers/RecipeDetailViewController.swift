@@ -31,11 +31,13 @@ class RecipeDetailViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        guard let recipeImageData = self.recipes?.recipeImage else { return }
-        let image = UIImage(data: recipeImageData)
-        guard let recipeText = recipeTextView else { return }
+//        guard let recipeImageData = self.recipes?.recipeImage else { return }
+//        let image = UIImage(data: recipeImageData)
+        guard let image = recipeImageView.image else { return }
+        guard let recipeText = recipeTextView.text else { return }
         
         RecipesController.shared.createRecipe(recipeImage: image, recipeText: recipeText)
+        print("success saving record")
     }
     @IBAction func recipeImagePickerTapped(_ sender: UITapGestureRecognizer) {
         addRecipeImage()
