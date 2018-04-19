@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MacroLife/VIewControllers/RecipeImagePickerHelper.swift"
-            timestampString = "545865683.919027"
+            timestampString = "545869194.707808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MacroLife/VIewControllers/EditProfileViewController.swift"
-            timestampString = "545865683.919143"
+            timestampString = "545869194.708159"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MacroLife/VIewControllers/EditProfileViewController.swift"
-            timestampString = "545865683.919234"
+            timestampString = "545869194.708384"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
@@ -58,7 +58,7 @@
                   moduleName = "MacroLife"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tylerclonts/Projects/IOS10/MacroLife/MacroLife/VIewControllers/EditProfileViewController.swift"
-                  timestampString = "545865684.218979"
+                  timestampString = "545869179.622649"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "55"
@@ -73,12 +73,60 @@
                   moduleName = "MacroLife"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tylerclonts/Projects/IOS10/MacroLife/MacroLife/VIewControllers/EditProfileViewController.swift"
-                  timestampString = "545865684.222039"
+                  timestampString = "545869179.624941"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "56"
                   endingLineNumber = "56"
                   offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MacroLife/ModelControllers/UsersController.swift"
+            timestampString = "545869194.708447"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "loadFromPersistentStore()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;__ObjC.CKRecord&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MacroLife.UsersController.loadFromPersistentStore() -&gt; ()"
+                  moduleName = "MacroLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tylerclonts/Projects/IOS10/MacroLife/MacroLife/ModelControllers/UsersController.swift"
+                  timestampString = "545869179.630963"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "1280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.CKRecord) -&gt; Swift.Optional&lt;MacroLife.User&gt; in closure #1 (Swift.Optional&lt;Swift.Array&lt;__ObjC.CKRecord&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MacroLife.UsersController.loadFromPersistentStore() -&gt; ()"
+                  moduleName = "MacroLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tylerclonts/Projects/IOS10/MacroLife/MacroLife/ModelControllers/UsersController.swift"
+                  timestampString = "545869179.634991"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>

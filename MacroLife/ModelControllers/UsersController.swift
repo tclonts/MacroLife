@@ -12,19 +12,19 @@ import CloudKit
 
 class UsersController {
     
+    // MARK: - Properties
     static let shared = UsersController()
     let publicDB = CKContainer.default().publicCloudDatabase
     let currentUserWasSetNotification = Notification.Name("currentUserWasSet")
     
-    
-    var currentUser: User?
-    {
-        didSet{
+    var currentUser: User? {
+        didSet {
             DispatchQueue.main.async {
-            NotificationCenter.default.post(name: self.currentUserWasSetNotification, object: nil)
+                NotificationCenter.default.post(name: self.currentUserWasSetNotification, object: nil)
             }
         }
     }
+    
     var users: [User] = []
     
     init() {
@@ -32,16 +32,21 @@ class UsersController {
     }
 
     // Add new user
-    func createNewUserForCurrentUser(firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, /*activityLevel: Int?,*/ completion: @escaping(_ success: Bool) -> Void) {
+    func createNewUserForCurrentUser(firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, completion: @escaping(_ success: Bool) -> Void) {
         
+        CKContainer.default().fetchUserRecordID { (appleUsersRecordID, error) in
+            guard let appleUsersRecordID = appleUsersRecordID else { return }
+            
+            let appleUserRef = CKReference(recordID: appleUsersRecordID, action: .deleteSelf)
 
-        let newUser = User(firstName: firstName, lastName: lastName, email: email, password: password, gender: gender, bodyWeight: bodyWeight, leanBodyMass: leanBodyMass, bodyFatPercentage: bodyFatPercentage)
+        let newUser = User(firstName: firstName, lastName: lastName, email: email, password: password, gender: gender, bodyWeight: bodyWeight, leanBodyMass: leanBodyMass, bodyFatPercentage: bodyFatPercentage, appleUserRef: appleUserRef)
         
         self.currentUser = newUser
         
-        saveToPersistentStore {
+        self.saveToPersistentStore {
             completion(true)
         }
+    }
     }
 
     // Update User

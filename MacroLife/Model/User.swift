@@ -14,6 +14,7 @@ class User: CloudKitManager {
     
     // CodingKeys
     static let typeKey = "User"
+    static let appleUserRefKey = "appleUserRef"
     private let profileImageKey = "profileImage"
     private let usernameKey = "username"
     private let firstNameKey = "firstname"
@@ -24,6 +25,7 @@ class User: CloudKitManager {
     private let bodyWeightKey = "bodyWeight"
     private let leanBodyMassKey = "leanBodyMass"
     private let bodyFatPercentageKey = "bodyFat"
+    
 //    private let activityLevelKey = "activityLevel"
     private let proteinKey = "protein"
     private let fatKey = "fat"
@@ -33,7 +35,6 @@ class User: CloudKitManager {
     
     // Properties
     var profileImage: Data?
-//    var username: String?
     var firstName: String?
     var lastName: String?
     var email: String?
@@ -41,20 +42,18 @@ class User: CloudKitManager {
     var bodyWeight: Double?
     var leanBodyMass: Double?
     var bodyFatPercentage: Double?
-//    var activityLevel: Int?
-//    var protein: Double?
-//    var fat: Double?
-//    var carbs: Double?
     var password: String?
     var cloudKitRecordID: CKRecordID?
     var photo: UIImage? {
         guard let profileImage = self.profileImage else { return nil }
         return UIImage(data: profileImage)
     }
+    // This is the reference to the default Apple 'Users' record ID
+    let appleUserRef: CKReference
    
-    init(profileImage: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "DefaultProfile")), firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Double? = Double(), leanBodyMass: Double? = Double(), bodyFatPercentage: Double? = Double() /*activityLevel: Int? */) {
+    init(profileImage: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "DefaultProfile")), firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Double? = Double(), leanBodyMass: Double? = Double(), bodyFatPercentage: Double? = Double(), appleUserRef: CKReference) {
         
-//            self.username = username
+            self.appleUserRef = appleUserRef
             self.firstName = firstName
             self.lastName = lastName
             self.email = email
@@ -74,12 +73,10 @@ class User: CloudKitManager {
             let gender = cloudKitRecord[genderKey] as? String,
             let bodyWeight = cloudKitRecord[bodyWeightKey] as? Double,
             let leanBodyMass = cloudKitRecord[leanBodyMassKey] as? Double,
+            let appleUserRef = cloudKitRecord[User.appleUserRefKey] as? CKReference,
             let bodyFatPercentage = cloudKitRecord[bodyFatPercentageKey] as? Double else { return nil }
 
-//            let profileImage = try? Data(contentsOf: photoAsset.fileURL)
-//            let activityLevel = cloudKitRecord[activityLevelKey] as? Int
-        
-//        self.username = username
+        self.appleUserRef = appleUserRef
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
@@ -101,8 +98,8 @@ class User: CloudKitManager {
         let recordID = cloudKitRecordID ?? CKRecordID(recordName: UUID().uuidString)
         let record = CKRecord(recordType: User.typeKey, recordID: recordID)
         
-//        record.setValue(username, forKey: usernameKey)
         record.setValue(firstName, forKey: firstNameKey)
+        record.setValue(appleUserRef, forKey: User.appleUserRefKey)
         record.setValue(lastName, forKey: lastNameKey)
         record.setValue(email, forKey: emailKey)
         record.setValue(password, forKey: passwordKey)
@@ -110,7 +107,6 @@ class User: CloudKitManager {
         record.setValue(bodyWeight, forKey: bodyWeightKey)
         record.setValue(leanBodyMass, forKey: leanBodyMassKey)
         record.setValue(bodyFatPercentage, forKey: bodyFatPercentageKey)
-//        record.setValue(activityLevel, forKey: activityLevelKey)
         
         if let profileImage = profileImage {
                     record[profileImageKey] = CKAsset(fileURL: temporaryPhotoURL)

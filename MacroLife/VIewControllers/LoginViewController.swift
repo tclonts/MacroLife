@@ -27,6 +27,7 @@ class LoginViewController: UIViewController {
         passwordTextField.delegate = self
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
         checkLoginButtonActive()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(segueToProfileDetail), name: UsersController.shared.currentUserWasSetNotification, object: nil)
     }
     

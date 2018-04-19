@@ -14,9 +14,6 @@ class RecipeCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        // Register cell classes
-        
-        
         NotificationCenter.default.addObserver(self, selector: #selector(reloadCVC), name: RecipesController.shared.tableVCReloadNotification, object: nil)
     }
     
