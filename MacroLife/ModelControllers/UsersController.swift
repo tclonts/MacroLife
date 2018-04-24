@@ -32,7 +32,7 @@ class UsersController {
     }
 
     // Add new user
-    func createNewUserForCurrentUser(firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?, completion: @escaping(_ success: Bool) -> Void) {
+    func createNewUserForCurrentUser(firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Int?, leanBodyMass: Int?, bodyFatPercentage: Int?, completion: @escaping(_ success: Bool) -> Void) {
         
         CKContainer.default().fetchUserRecordID { (appleUsersRecordID, error) in
             guard let appleUsersRecordID = appleUsersRecordID else { return }
@@ -66,7 +66,7 @@ class UsersController {
         })
     }
     
-    func updateUserDetails(user: User, firstName: String?, lastName: String?, gender: String?, bodyWeight: Double?, leanBodyMass: Double?, bodyFatPercentage: Double?,  completion: @escaping(_ success: Bool) -> Void) {
+    func updateUserDetails(user: User, firstName: String?, lastName: String?, gender: String?, bodyWeight: Int?, leanBodyMass: Int?, bodyFatPercentage: Int?,  completion: @escaping(_ success: Bool) -> Void) {
         
             user.firstName = firstName
             user.lastName = lastName

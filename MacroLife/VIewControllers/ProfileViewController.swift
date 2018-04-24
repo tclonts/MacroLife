@@ -96,14 +96,9 @@ class ProfileViewController: UIViewController  {
                 guard let userProfileImageData = self.user?.profileImage else { return }
                 let image = UIImage(data: (userProfileImageData))
                 self.profileImageView.image = image
-//                self.proteinProfileLabel.text = "\(users.first?.protein)"
-//                self.fatProfileLabel.text = "\(users.first?.fat)"
-//                self.carbsProfileLabel.text = "\(users.first?.carbs)"
-//                self.activityLevelLabel.text = "\(users.first?.activityLevel)"
-//                self.profilePicture.image = UIImage(data:(users.first?.profileImage)!)
+
                 completion()
         }
-//        }
     }
     // Macros Calculation Functions
     func proteinCalculator() {
@@ -116,18 +111,18 @@ class ProfileViewController: UIViewController  {
     func fatCalculator() {
         guard let proteinInG = self.user?.leanBodyMass else { return }
         let proteinCals = (proteinInG * 4)
-        let carbsInG = (self.user?.leanBodyMass)! * (1.2)
+        let carbsInG = (self.user?.leanBodyMass)! * (Int(1.2))
         let carbCals = (carbsInG * 4)
-        let maitenanceCal = (self.user?.bodyWeight)! * (12.0)
+        let maitenanceCal = (self.user?.bodyWeight)! * (12)
         let newMC = (maitenanceCal - 250)
-        let fatInG = (newMC - (proteinCals + carbCals)) / (9.0)
+        let fatInG = (newMC - (proteinCals + carbCals)) / (9)
         //save to user value
         fatProfileLabel.text = fatInG.description
     }
     
     func carbCalculator() {
         guard let lbm = self.user?.leanBodyMass else { return }
-        let carbsInG = lbm * (1.2)
+        let carbsInG = lbm * (Int(1.2))
         //save to user value
         carbsProfileLabel.text = carbsInG.description
     }
@@ -135,12 +130,12 @@ class ProfileViewController: UIViewController  {
     func calorieCount() {
         guard let proteinInG = self.user?.leanBodyMass else { return }
         let proteinCals = (proteinInG * 4)
-        let carbsInG = (self.user?.leanBodyMass)! * (1.2)
+        let carbsInG = (self.user?.leanBodyMass)! * (Int(1.2))
         let carbCals = (carbsInG * 4)
-        let maitenanceCal = (self.user?.bodyWeight)! * (12.0)
+        let maitenanceCal = (self.user?.bodyWeight)! * (12)
         let newMC = (maitenanceCal - 250)
-        let fatInG = (newMC - (proteinCals + carbCals)) / (9.0)
-        let totalCalories = (fatInG * 4.0) + (carbsInG * 4.0) + (fatInG * 9.0)
+        let fatInG = (newMC - (proteinCals + carbCals)) / (9)
+        let totalCalories = (fatInG * 4) + (carbsInG * 4) + (fatInG * 9)
         totalCaloriesLabel.text = totalCalories.description
     }
 

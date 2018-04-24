@@ -60,7 +60,7 @@ class SignUpViewController: UIViewController {
         } else {
             
             //save data
-            UsersController.shared.createNewUserForCurrentUser(firstName: firstName, lastName: lastName, email: userEmail, password: userPassword, gender: gender, bodyWeight: Double(bodyWeight), leanBodyMass: Double(leanBodyMass), bodyFatPercentage: Double(bodyFatPercentage)) { (success) in
+            UsersController.shared.createNewUserForCurrentUser(firstName: firstName, lastName: lastName, email: userEmail, password: userPassword, gender: gender, bodyWeight: (bodyWeight), leanBodyMass: (leanBodyMass), bodyFatPercentage: (bodyFatPercentage)) { (success) in
                 print(success)
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "toProfileDetail", sender: self)

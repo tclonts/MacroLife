@@ -49,11 +49,11 @@ class EditProfileViewController: UIViewController {
         guard let firstName = firstNameTextField.text,
             let lastName = lastNameTextField.text,
             let gender = genderTextField.text, !(genderTextField.text?.isEmpty)!,
-            let BW = bodyWeightTextField.text,
-            let LBM = leanBodyMassTextField.text,
-            let bodyFat = bodyFatPercentageTextField.text else { return }
+            let BW = Int(bodyWeightTextField.text!),
+            let LBM = Int(leanBodyMassTextField.text!),
+            let bodyFat = Int(bodyFatPercentageTextField.text!) else { return }
         
-        UsersController.shared.updateUserDetails(user: user, firstName: firstName, lastName: lastName, gender: gender, bodyWeight: Double(BW), leanBodyMass: Double(LBM), bodyFatPercentage: Double(bodyFat)) { (true) in}
+        UsersController.shared.updateUserDetails(user: user, firstName: firstName, lastName: lastName, gender: gender, bodyWeight: (BW), leanBodyMass: (LBM), bodyFatPercentage: (bodyFat)) { (true) in}
         let alertController = UIAlertController(title: "Success", message: "Profile Updated!", preferredStyle: .alert)
       
         let okAction = UIAlertAction(title: "Ok", style: .cancel) { (action) in

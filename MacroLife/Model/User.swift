@@ -39,9 +39,9 @@ class User: CloudKitManager {
     var lastName: String?
     var email: String?
     var gender: String?
-    var bodyWeight: Double?
-    var leanBodyMass: Double?
-    var bodyFatPercentage: Double?
+    var bodyWeight: Int?
+    var leanBodyMass: Int?
+    var bodyFatPercentage: Int?
     var password: String?
     var cloudKitRecordID: CKRecordID?
     var photo: UIImage? {
@@ -51,7 +51,7 @@ class User: CloudKitManager {
     // This is the reference to the default Apple 'Users' record ID
     let appleUserRef: CKReference
    
-    init(profileImage: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "DefaultProfile")), firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Double? = Double(), leanBodyMass: Double? = Double(), bodyFatPercentage: Double? = Double(), appleUserRef: CKReference) {
+    init(profileImage: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "DefaultProfile")), firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Int? = Int(), leanBodyMass: Int? = Int(), bodyFatPercentage: Int? = Int(), appleUserRef: CKReference) {
         
             self.appleUserRef = appleUserRef
             self.firstName = firstName
@@ -71,10 +71,10 @@ class User: CloudKitManager {
             let firstName = cloudKitRecord[firstNameKey] as? String,
             let lastName = cloudKitRecord[lastNameKey] as? String,
             let gender = cloudKitRecord[genderKey] as? String,
-            let bodyWeight = cloudKitRecord[bodyWeightKey] as? Double,
-            let leanBodyMass = cloudKitRecord[leanBodyMassKey] as? Double,
+            let bodyWeight = cloudKitRecord[bodyWeightKey] as? Int,
+            let leanBodyMass = cloudKitRecord[leanBodyMassKey] as? Int,
             let appleUserRef = cloudKitRecord[User.appleUserRefKey] as? CKReference,
-            let bodyFatPercentage = cloudKitRecord[bodyFatPercentageKey] as? Double else { return nil }
+            let bodyFatPercentage = cloudKitRecord[bodyFatPercentageKey] as? Int else { return nil }
 
         self.appleUserRef = appleUserRef
         self.firstName = firstName
