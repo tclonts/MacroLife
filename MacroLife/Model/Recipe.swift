@@ -16,11 +16,15 @@ class Recipe: CloudKitManager {
     // CodingKeys
     static let typeKey = "Recipe"
     private let recipeImageKey = "recipeImage"
+    private let recipeTitleKey = "recipeTitle"
+    private let recipeIngredientsKey = "recipeIngredients"
     private let recipeTextKey = "recipeText"
     
     
     // Properties
     var recipeImage: Data?
+    var recipeTitle: String
+    var recipeIngredients: String
     var recipeText: String
     var cloudkitRecordID: CKRecordID?
     var photo: UIImage? {
@@ -28,9 +32,11 @@ class Recipe: CloudKitManager {
         return UIImage(data: recipeImage)
     }
     
-    init(recipeImage: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "DefaultProfile")), recipeText: String) {
+    init(recipeImage: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "DefaultProfile")),recipeTitle: String, recipeIngredients: String, recipeText: String) {
     
         self.recipeImage = recipeImage
+        self.recipeTitle = recipeTitle
+        self.recipeIngredients = recipeIngredients
         self.recipeText = recipeText
     }
     
@@ -38,10 +44,14 @@ class Recipe: CloudKitManager {
     
     init?(cloudKitRecord: CKRecord) {
         guard let recipeText = cloudKitRecord[recipeTextKey] as? String,
+            let recipeTitle = cloudKitRecord[recipeTitleKey] as? String,
+            let recipeIngredients = cloudKitRecord[recipeIngredientsKey] as? String,
             let photoAsset = cloudKitRecord[recipeImageKey] as? CKAsset else { return nil}
         let recipeImage = try? Data(contentsOf: photoAsset.fileURL)
         
             self.recipeImage = recipeImage
+            self.recipeTitle = recipeTitle
+            self.recipeIngredients = recipeIngredients
             self.recipeText = recipeText
             self.cloudkitRecordID = cloudKitRecord.recordID
     }
@@ -52,7 +62,9 @@ class Recipe: CloudKitManager {
         let recordID = cloudkitRecordID ?? CKRecordID(recordName: UUID().uuidString)
         let record = CKRecord(recordType: Recipe.typeKey)
         
+        record.setValue(recipeTitle, forKey: recipeTitleKey)
         record.setValue(recipeText, forKey: recipeTextKey)
+        record.setValue(recipeIngredients, forKey: recipeIngredientsKey)
         
         if let recipeIamge = recipeImage{
          record[recipeImageKey] = CKAsset(fileURL: temporaryPhotoURL)
@@ -73,9 +85,9 @@ class Recipe: CloudKitManager {
         
         return fileURL
     }
+}
     
 //    // Equatable
 //    static func ==(lhs: Recipe, rhs: Recipe) -> Bool {
 //        return lhs.recipeImage == rhs.recipeImage && lhs.recipeText == rhs.recipeText
 //    }
-}

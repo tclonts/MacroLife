@@ -32,12 +32,13 @@ class RecipesController {
     
 //     Create New Recipe
     
-    func createRecipe(recipeImage: UIImage?, recipeText: String) {
+    func createRecipe(recipeImage: UIImage?, recipeTitle: String, recipeIngredients: String, recipeText: String, completion: @escaping(_ success: Bool) -> Void) {
         guard let recipeImage = recipeImage else { return }
         guard let data = UIImageJPEGRepresentation(recipeImage, 0.8) else { return }
-        let newRecipe = Recipe(recipeImage: data, recipeText: recipeText)
+        let newRecipe = Recipe(recipeImage: data, recipeTitle: recipeTitle, recipeIngredients: recipeIngredients, recipeText: recipeText)
         recipes.append(newRecipe)
         saveToPersistentStore()
+        completion(true)
     }
 
     

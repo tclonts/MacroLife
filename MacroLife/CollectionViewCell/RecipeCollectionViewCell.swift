@@ -12,7 +12,8 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     
         
     @IBOutlet weak var recipeImageView: UIImageView!
-    @IBOutlet weak var recipeTextLabel: UILabel!
+    @IBOutlet weak var recipeTitleLabel: UILabel!
+    
     
         
         var recipe: Recipe? {
@@ -27,7 +28,8 @@ class RecipeCollectionViewCell: UICollectionViewCell {
                guard let recipeImageData = recipe.recipeImage else { return }
                 let recipeImage = UIImage(data: recipeImageData)
                 recipeImageView.image = recipeImage
-                recipeTextLabel.text = recipe.recipeText
+                recipeTitleLabel.text = recipe.recipeTitle
+                
                 
             }
         }

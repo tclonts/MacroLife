@@ -1,5 +1,5 @@
 //
-//  PhotoSelectViewController.swift
+//  RecipeEditDetailViewController.swift
 //  MacroLife
 //
 //  Created by Tyler Clonts on 3/20/18.
@@ -10,10 +10,10 @@ import UIKit
 import CloudKit
 
 
-extension RecipeDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension RecipeEditDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
-    //    // MARK: - Actions
+    // MARK: - Actions
     
     func addRecipeImage() {
         
@@ -40,6 +40,7 @@ extension RecipeDetailViewController: UIImagePickerControllerDelegate, UINavigat
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(alert, animated: true, completion: nil)
+//        present(alert, animated: true, completion: nil)
         
     }
     //    // This looks cleaner but I cant get it to work.
@@ -59,7 +60,7 @@ extension RecipeDetailViewController: UIImagePickerControllerDelegate, UINavigat
         if chosenImage != nil {
             //            let imageName = NSUUID().uuidString
             //            let storageReference = Storage.storage().reference().child("Profile_Images").child("\(imageName).jpg")
-            if let uploadData = UIImageJPEGRepresentation(chosenImage, 0.1) {
+            if let uploadData = UIImageJPEGRepresentation(chosenImage, 0.01) {
 //                guard let recipe = self.recipes else { return }
 //                RecipesController.shared.updateRecipe(recipe: recipe, recipeImage: uploadData) { (true) in
                     DispatchQueue.main.async {

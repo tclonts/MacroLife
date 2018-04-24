@@ -9,124 +9,104 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MacroLife/VIewControllers/RecipeImagePickerHelper.swift"
-            timestampString = "545869194.707808"
+            filePath = "MacroLife/Model/User.swift"
+            timestampString = "546233381.219167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroLife/VIewControllers/EditProfileViewController.swift"
-            timestampString = "545869194.708159"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "saveButtonTapped(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroLife/VIewControllers/EditProfileViewController.swift"
-            timestampString = "545869194.708384"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "saveButtonTapped(_:)"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "init(profileImage:firstName:lastName:email:password:gender:bodyWeight:leanBodyMass:bodyFatPercentage:appleUserRef:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MacroLife.EditProfileViewController.saveButtonTapped(__ObjC.UIButton) -&gt; ()"
+                  symbolName = "default argument 0 of MacroLife.User.init(profileImage: Swift.Optional&lt;Foundation.Data&gt;, firstName: Swift.Optional&lt;Swift.String&gt;, lastName: Swift.Optional&lt;Swift.String&gt;, email: Swift.Optional&lt;Swift.String&gt;, password: Swift.Optional&lt;Swift.String&gt;, gender: Swift.Optional&lt;Swift.String&gt;, bodyWeight: Swift.Optional&lt;Swift.Double&gt;, leanBodyMass: Swift.Optional&lt;Swift.Double&gt;, bodyFatPercentage: Swift.Optional&lt;Swift.Double&gt;, appleUserRef: __ObjC.CKReference) -&gt; MacroLife.User"
                   moduleName = "MacroLife"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tylerclonts/Projects/IOS10/MacroLife/MacroLife/VIewControllers/EditProfileViewController.swift"
-                  timestampString = "545869179.622649"
+                  urlString = "file:///Users/tylerclonts/Projects/IOS10/MacroLife/MacroLife/Model/User.swift"
+                  timestampString = "546237732.306756"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "5832">
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "16">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Bool) -&gt; () in MacroLife.EditProfileViewController.saveButtonTapped(__ObjC.UIButton) -&gt; ()"
+                  symbolName = "default argument 6 of MacroLife.User.init(profileImage: Swift.Optional&lt;Foundation.Data&gt;, firstName: Swift.Optional&lt;Swift.String&gt;, lastName: Swift.Optional&lt;Swift.String&gt;, email: Swift.Optional&lt;Swift.String&gt;, password: Swift.Optional&lt;Swift.String&gt;, gender: Swift.Optional&lt;Swift.String&gt;, bodyWeight: Swift.Optional&lt;Swift.Double&gt;, leanBodyMass: Swift.Optional&lt;Swift.Double&gt;, bodyFatPercentage: Swift.Optional&lt;Swift.Double&gt;, appleUserRef: __ObjC.CKReference) -&gt; MacroLife.User"
                   moduleName = "MacroLife"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tylerclonts/Projects/IOS10/MacroLife/MacroLife/VIewControllers/EditProfileViewController.swift"
-                  timestampString = "545869179.624941"
+                  urlString = "file:///Users/tylerclonts/Projects/IOS10/MacroLife/MacroLife/Model/User.swift"
+                  timestampString = "546237732.30987"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "56"
-                  endingLineNumber = "56"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroLife/ModelControllers/UsersController.swift"
-            timestampString = "545869194.708447"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "loadFromPersistentStore()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;__ObjC.CKRecord&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MacroLife.UsersController.loadFromPersistentStore() -&gt; ()"
-                  moduleName = "MacroLife"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tylerclonts/Projects/IOS10/MacroLife/MacroLife/ModelControllers/UsersController.swift"
-                  timestampString = "545869179.630963"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "116"
-                  endingLineNumber = "116"
-                  offsetFromSymbolStart = "1280">
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "0">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__ObjC.CKRecord) -&gt; Swift.Optional&lt;MacroLife.User&gt; in closure #1 (Swift.Optional&lt;Swift.Array&lt;__ObjC.CKRecord&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MacroLife.UsersController.loadFromPersistentStore() -&gt; ()"
+                  symbolName = "default argument 7 of MacroLife.User.init(profileImage: Swift.Optional&lt;Foundation.Data&gt;, firstName: Swift.Optional&lt;Swift.String&gt;, lastName: Swift.Optional&lt;Swift.String&gt;, email: Swift.Optional&lt;Swift.String&gt;, password: Swift.Optional&lt;Swift.String&gt;, gender: Swift.Optional&lt;Swift.String&gt;, bodyWeight: Swift.Optional&lt;Swift.Double&gt;, leanBodyMass: Swift.Optional&lt;Swift.Double&gt;, bodyFatPercentage: Swift.Optional&lt;Swift.Double&gt;, appleUserRef: __ObjC.CKReference) -&gt; MacroLife.User"
                   moduleName = "MacroLife"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tylerclonts/Projects/IOS10/MacroLife/MacroLife/ModelControllers/UsersController.swift"
-                  timestampString = "545869179.634991"
+                  urlString = "file:///Users/tylerclonts/Projects/IOS10/MacroLife/MacroLife/Model/User.swift"
+                  timestampString = "546237732.313742"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "116"
-                  endingLineNumber = "116"
-                  offsetFromSymbolStart = "20">
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 8 of MacroLife.User.init(profileImage: Swift.Optional&lt;Foundation.Data&gt;, firstName: Swift.Optional&lt;Swift.String&gt;, lastName: Swift.Optional&lt;Swift.String&gt;, email: Swift.Optional&lt;Swift.String&gt;, password: Swift.Optional&lt;Swift.String&gt;, gender: Swift.Optional&lt;Swift.String&gt;, bodyWeight: Swift.Optional&lt;Swift.Double&gt;, leanBodyMass: Swift.Optional&lt;Swift.Double&gt;, bodyFatPercentage: Swift.Optional&lt;Swift.Double&gt;, appleUserRef: __ObjC.CKReference) -&gt; MacroLife.User"
+                  moduleName = "MacroLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tylerclonts/Projects/IOS10/MacroLife/MacroLife/Model/User.swift"
+                  timestampString = "546237732.3174551"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroLife.User.__allocating_init(profileImage: Swift.Optional&lt;Foundation.Data&gt;, firstName: Swift.Optional&lt;Swift.String&gt;, lastName: Swift.Optional&lt;Swift.String&gt;, email: Swift.Optional&lt;Swift.String&gt;, password: Swift.Optional&lt;Swift.String&gt;, gender: Swift.Optional&lt;Swift.String&gt;, bodyWeight: Swift.Optional&lt;Swift.Double&gt;, leanBodyMass: Swift.Optional&lt;Swift.Double&gt;, bodyFatPercentage: Swift.Optional&lt;Swift.Double&gt;, appleUserRef: __ObjC.CKReference) -&gt; MacroLife.User"
+                  moduleName = "MacroLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tylerclonts/Projects/IOS10/MacroLife/MacroLife/Model/User.swift"
+                  timestampString = "546237732.3212039"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroLife.User.init(profileImage: Swift.Optional&lt;Foundation.Data&gt;, firstName: Swift.Optional&lt;Swift.String&gt;, lastName: Swift.Optional&lt;Swift.String&gt;, email: Swift.Optional&lt;Swift.String&gt;, password: Swift.Optional&lt;Swift.String&gt;, gender: Swift.Optional&lt;Swift.String&gt;, bodyWeight: Swift.Optional&lt;Swift.Double&gt;, leanBodyMass: Swift.Optional&lt;Swift.Double&gt;, bodyFatPercentage: Swift.Optional&lt;Swift.Double&gt;, appleUserRef: __ObjC.CKReference) -&gt; MacroLife.User"
+                  moduleName = "MacroLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tylerclonts/Projects/IOS10/MacroLife/MacroLife/Model/User.swift"
+                  timestampString = "546237732.324694"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "300">
                </Location>
             </Locations>
          </BreakpointContent>

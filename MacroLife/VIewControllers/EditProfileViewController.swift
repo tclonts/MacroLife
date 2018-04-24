@@ -37,7 +37,7 @@ class EditProfileViewController: UIViewController {
 //        bodyFatPercentageTextField.text = user.bodyFatPercentage?.description
 //    }
     
-    @IBAction func saveButtonTapped(_ sender: UIButton) {
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let user = user else { return }
         guard firstNameTextField.text != "", lastNameTextField.text != "", genderTextField.text != "", bodyWeightTextField.text != "", leanBodyMassTextField.text != "", bodyFatPercentageTextField.text != "" else {
             let alertController = UIAlertController(title: "Sorry", message: "Please fill in all of the text fields", preferredStyle: .alert)
@@ -45,6 +45,7 @@ class EditProfileViewController: UIViewController {
             alertController.addAction(okAction)
             present(alertController, animated: true, completion: nil)
             return }
+        
         guard let firstName = firstNameTextField.text,
             let lastName = lastNameTextField.text,
             let gender = genderTextField.text, !(genderTextField.text?.isEmpty)!,
@@ -52,12 +53,16 @@ class EditProfileViewController: UIViewController {
             let LBM = leanBodyMassTextField.text,
             let bodyFat = bodyFatPercentageTextField.text else { return }
         
-        UsersController.shared.updateUserDetails(user: user, firstName: firstName, lastName: lastName, gender: gender, bodyWeight: Double(BW), leanBodyMass: Double(LBM), bodyFatPercentage: Double(bodyFat)) { (true) in
-        }
+        UsersController.shared.updateUserDetails(user: user, firstName: firstName, lastName: lastName, gender: gender, bodyWeight: Double(BW), leanBodyMass: Double(LBM), bodyFatPercentage: Double(bodyFat)) { (true) in}
         let alertController = UIAlertController(title: "Success", message: "Profile Updated!", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .cancel,handler: { action in self.dismiss(animated: true, completion: nil) })
+      
+        let okAction = UIAlertAction(title: "Ok", style: .cancel) { (action) in
+            self.performSegue(withIdentifier: "tpd", sender: self)
+        }
+//        let okAction = UIAlertAction(title: "Ok", style: .cancel,handler: { action in self.dismiss(animated: true, completion: nil) })
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
         print("Success Saving")
     }
 }
+

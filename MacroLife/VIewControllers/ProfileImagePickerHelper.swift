@@ -60,7 +60,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         if chosenImage != nil {
 //            let imageName = NSUUID().uuidString
 //            let storageReference = Storage.storage().reference().child("Profile_Images").child("\(imageName).jpg")
-            if let uploadData = UIImageJPEGRepresentation(chosenImage, 0.1) {
+            if let uploadData = UIImageJPEGRepresentation(chosenImage, 0.01) {
                 
                 UsersController.shared.updateUserPhoto(user: user!, profileImage: uploadData) { (true) in
                   

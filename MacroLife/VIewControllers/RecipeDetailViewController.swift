@@ -2,58 +2,37 @@
 //  RecipeDetailViewController.swift
 //  MacroLife
 //
-//  Created by Tyler Clonts on 3/24/18.
+//  Created by Tyler Clonts on 4/23/18.
 //  Copyright © 2018 Tyler Clonts. All rights reserved.
 //
 
 import UIKit
 
 class RecipeDetailViewController: UIViewController {
-
-    let imagePicker = UIImagePickerController()
-
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var recipeTextView: UITextView!
     @IBOutlet weak var recipeImageView: UIImageView!
+    @IBOutlet weak var recipeTitleTextField: UITextField!
+    @IBOutlet weak var recipeIngredientsTextField: UITextField!
+    @IBOutlet weak var recipeInstructionsTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagePicker.delegate = self
-
-        // Do any additional setup after loading the view.
+        updateViews()
     }
-    
-    // MARK: - Properties
+
     var recipes: Recipe?
+  
     
-    
-    // MARK: - Actions
-    
-    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-//        guard let recipeImageData = self.recipes?.recipeImage else { return }
-//        let image = UIImage(data: recipeImageData)
-        guard let image = recipeImageView.image else { return }
-        guard let recipeText = recipeTextView.text else { return }
+    private func updateViews() {
+        guard let recipe = recipes else { return }
+        guard let recipeImageData = recipe.recipeImage else { return }
+        let recipeImage = UIImage(data: recipeImageData)
         
-        RecipesController.shared.createRecipe(recipeImage: image, recipeText: recipeText)
-        print("success saving record")
+        recipeImageView.image = recipeImage
+        
+        recipeTitleTextField.text = recipe.recipeTitle
+        recipeIngredientsTextField.text = recipe.recipeIngredients
+        recipeInstructionsTextField.text = recipe.recipeText
+        
     }
-    @IBAction func recipeImagePickerTapped(_ sender: UITapGestureRecognizer) {
-        addRecipeImage()
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
-
 }
-

@@ -56,7 +56,8 @@ class ProfileViewController: UIViewController  {
     }
 
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
- 
+        performSegue(withIdentifier: "toEditDetails", sender: self)
+
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIBarButtonItem) {
@@ -165,7 +166,7 @@ class ProfileViewController: UIViewController  {
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "toEditProfile" {
+    if segue.identifier == "toEditDetails" {
             let detailVC = segue.destination as? EditProfileViewController
         let user = UsersController.shared.currentUser
             detailVC?.user = user
