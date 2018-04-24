@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.isHidden = true
         emailTextField.delegate = self
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
         passwordTextField.delegate = self
@@ -91,7 +92,10 @@ class LoginViewController: UIViewController {
 
                         }
                     } else {
-                        print("no such user found. Don't give up.")
+                        DispatchQueue.main.async {
+                            self.presentSimpleAlert(title: "User Not Found!", message: "Try again")
+                            print("no such user found. Don't give up.")
+                        }
                     }
                 } else
                 {

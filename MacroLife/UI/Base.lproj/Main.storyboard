@@ -376,7 +376,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmn-tB-NYf">
                                         <rect key="frame" x="0.0" y="80" width="300" height="30"/>
@@ -488,7 +488,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Calories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyp-Ke-cN9">
-                                <rect key="frame" x="136" y="400" width="104" height="21"/>
+                                <rect key="frame" x="136" y="351" width="104" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Ydj-jo-WMI"/>
                                 </constraints>
@@ -568,7 +568,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calorie Breakdown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhQ-Ag-lAE">
-                                <rect key="frame" x="116" y="377.5" width="143" height="20.5"/>
+                                <rect key="frame" x="116" y="328.5" width="143" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -584,7 +584,7 @@
                                 </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qVt-vW-X1C">
-                                <rect key="frame" x="0.0" y="553" width="130" height="113.5"/>
+                                <rect key="frame" x="0.0" y="504" width="130" height="113.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrg-Ta-aSD">
                                         <rect key="frame" x="0.0" y="0.0" width="61.5" height="21"/>
@@ -878,8 +878,7 @@
         <image name="DefaultProfile" width="112" height="112"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d6L-vh-js5"/>
         <segue reference="U3y-Zc-rda"/>
-        <segue reference="Vzv-zG-xIh"/>
+        <segue reference="dfd-6q-zxu"/>
     </inferredMetricsTieBreakers>
 </document>

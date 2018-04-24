@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -24,6 +24,9 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bodyWeightTextField.delegate = self
+        leanBodyMassTextField.delegate = self
+        bodyFatPercentageTextField.delegate = self
     }
 
     // MARK: - Properties
@@ -32,6 +35,11 @@ class SignUpViewController: UIViewController {
     
     // MARK: - Actions
   
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
+        return string.rangeOfCharacter(from: invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
+    }
+    
     @IBAction func saveResultsButtonTapped(_ sender: UIButton) {
 
         
@@ -47,7 +55,7 @@ class SignUpViewController: UIViewController {
         
         
         //check empty fields
-        if userEmail.isEmpty || userPassword.isEmpty || repeatPassword.isEmpty {
+        if userEmail.isEmpty || userPassword.isEmpty || repeatPassword.isEmpty || gender.isEmpty || firstName.isEmpty || lastName.isEmpty || (bodyWeightTextField.text?.isEmpty)! || (leanBodyMassTextField.text?.isEmpty)! || (bodyFatPercentageTextField.text?.isEmpty)! {
             
             //display alert message
             presentSimpleAlert(title: "oops", message: "all textfields required")
