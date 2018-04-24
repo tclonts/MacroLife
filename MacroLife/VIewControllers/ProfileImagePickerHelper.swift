@@ -12,10 +12,9 @@ import CloudKit
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-//    let imagePicker = UIImagePickerController()
-//
+
 //    // MARK: - Actions
-//
+
     func addProfileImage() {
 
         let alert = UIAlertController(title: "Select Photo Location", message: nil, preferredStyle: .actionSheet)
@@ -43,14 +42,15 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         present(alert, animated: true, completion: nil)
 
     }
-//    // This looks cleaner but I cant get it to work.
-//
-//    func noCameraOnDevice() {
-//        let alertVC = UIAlertController(title: "No Camera", message: "Sorry, this device has no camera", preferredStyle: .alert)
-//        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-//        alertVC.addAction(okAction)
-//        self.present(alertVC, animated: true, completion: nil)
-//    }
+    // This looks cleaner but I cant get it to work.
+
+    func noCameraOnDevice() {
+        let alertVC = UIAlertController(title: "No Camera", message: "Sorry, this device has no camera", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertVC.addAction(okAction)
+        self.present(alertVC, animated: true, completion: nil)
+    }
+    
     // MARK: UIImagePickerControllerDelegate
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -58,8 +58,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
         guard let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
         if chosenImage != nil {
-//            let imageName = NSUUID().uuidString
-//            let storageReference = Storage.storage().reference().child("Profile_Images").child("\(imageName).jpg")
+
             if let uploadData = UIImageJPEGRepresentation(chosenImage, 0.01) {
                 
                 UsersController.shared.updateUserPhoto(user: user!, profileImage: uploadData) { (true) in
@@ -81,15 +80,6 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 //    }
 //
 
-    
-    // Function to add new Fish Catch Picture to pull up camera and photo library
-    
-    // Function to store that to Fire Store for each users colletion view ( array of fish catches with Urls to the image inside the array) and then to set the collection view
-    
-    // I need to fetch that and populate the collectionView whenever they pull open the image
-    
-    /// probably need to add this array to the user Model
-    
     
     
     

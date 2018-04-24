@@ -35,10 +35,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Actions
   
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
-        return string.rangeOfCharacter(from: invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
-    }
     
     @IBAction func saveResultsButtonTapped(_ sender: UIButton) {
 
@@ -77,30 +73,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
-//            let record = CKRecord(recordType: User.typeKey)
-//
-//            record.setValue(userEmail, forKey: "email")
-//            record.setValue(userPassword, forKey: "password")
-//            record.setValue(gender, forKey: "gender")
-//            record.setValue(bodyWeight, forKey: "bodyweight")
-//            record.setValue(leanBodyMass, forKey: "leanBodyMass")
-//            record.setValue(bodyFatPercentage, forKey: "bodyFatPercentage")
-//
-//            CloudKitManager.shared.publicDB.save(record) { (nil, error) in
-//                if error == nil {
-//                    print("Registered")
-//
-//                } else {
-//                    print("error: \(error)")
-//                }
-//            }
-//            // To Profile View
-//            DispatchQueue.main.async {
-//
-//                self.performSegue(withIdentifier: "toProfileDetail", sender: self)
-//
-//            }
+    
+    // MARK: - Functions
 
+    // Texfields can only be numbers for the number ones
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
+        return string.rangeOfCharacter(from: invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
+    }
+    // Simple Alert
+    func presentSimpleAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Dismisss", style: .cancel, handler: nil)
+        alert.addAction(dismissAction)
+        self.present(alert, animated: true, completion: nil)
+    }
 
     // MARK: - Navigation
 
@@ -114,12 +101,4 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
-    // Simple Alert
-    func presentSimpleAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Dismisss", style: .cancel, handler: nil)
-        alert.addAction(dismissAction)
-        self.present(alert, animated: true, completion: nil)
-    }
 }

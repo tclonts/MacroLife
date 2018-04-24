@@ -40,10 +40,8 @@ extension RecipeEditDetailViewController: UIImagePickerControllerDelegate, UINav
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(alert, animated: true, completion: nil)
-//        present(alert, animated: true, completion: nil)
-        
     }
-    //    // This looks cleaner but I cant get it to work.
+    // This looks cleaner but I cant get it to work.
     
         func noCameraOnDevice() {
             let alertVC = UIAlertController(title: "No Camera", message: "Sorry, this device has no camera", preferredStyle: .alert)
@@ -58,8 +56,7 @@ extension RecipeEditDetailViewController: UIImagePickerControllerDelegate, UINav
         
         guard let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
         if chosenImage != nil {
-            //            let imageName = NSUUID().uuidString
-            //            let storageReference = Storage.storage().reference().child("Profile_Images").child("\(imageName).jpg")
+ 
             if let uploadData = UIImageJPEGRepresentation(chosenImage, 0.01) {
 //                guard let recipe = self.recipes else { return }
 //                RecipesController.shared.updateRecipe(recipe: recipe, recipeImage: uploadData) { (true) in

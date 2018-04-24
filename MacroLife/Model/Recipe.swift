@@ -60,7 +60,7 @@ class Recipe: CloudKitManager {
     
     var cloudKitRecord: CKRecord {
         let recordID = cloudkitRecordID ?? CKRecordID(recordName: UUID().uuidString)
-        let record = CKRecord(recordType: Recipe.typeKey)
+        let record = CKRecord(recordType: Recipe.typeKey, recordID: recordID)
         
         record.setValue(recipeTitle, forKey: recipeTitleKey)
         record.setValue(recipeText, forKey: recipeTextKey)

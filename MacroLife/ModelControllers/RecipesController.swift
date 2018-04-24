@@ -22,7 +22,8 @@ class RecipesController {
     }
     // MARK: - Properites
     
-    var recipes: [Recipe] = [] {
+    var recipes: [Recipe] = []
+    {
         didSet {
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: self.tableVCReloadNotification, object: nil)
@@ -45,8 +46,7 @@ class RecipesController {
     // Update Recipe
     func updateRecipe(recipe: Recipe, recipeImage: Data?/*, recipeText: String*/, completion: @escaping(_ success: Bool) -> Void){
         guard let recipeImage = recipeImage else { return }
-//        recipe.recipeImage = recipeImage
-//        recipe.recipeText = recipeText
+
         
         let record = recipe.cloudKitRecord
         CloudKitManager.shared.modifyRecords([record], database: publicDB, perRecordCompletion: nil,  completion: { (_, error) in

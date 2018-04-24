@@ -54,6 +54,7 @@ class LoginViewController: UIViewController {
     // MARK: -Actions
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
+        
         let userEmail = emailTextField.text!;
         let userPassword = passwordTextField.text!;
         

@@ -8,7 +8,7 @@
 import UIKit
 
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -21,8 +21,13 @@ class EditProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bodyWeightTextField.delegate = self
+        leanBodyMassTextField.delegate = self
+        bodyFatPercentageTextField.delegate = self
 //        self.user = UsersController.shared.currentUser
     }
+    
+    // MARK: - Properties
     
     var user: User?
     
@@ -36,6 +41,8 @@ class EditProfileViewController: UIViewController {
 //        leanBodyMassTextField.text = user.leanBodyMass?.description
 //        bodyFatPercentageTextField.text = user.bodyFatPercentage?.description
 //    }
+    
+    // MARK: - Actions
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let user = user else { return }
@@ -59,10 +66,19 @@ class EditProfileViewController: UIViewController {
         let okAction = UIAlertAction(title: "Ok", style: .cancel) { (action) in
             self.performSegue(withIdentifier: "tpd", sender: self)
         }
-//        let okAction = UIAlertAction(title: "Ok", style: .cancel,handler: { action in self.dismiss(animated: true, completion: nil) })
+
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
         print("Success Saving")
     }
+    
+    // MARK: - Functions
+    
+    // Texfields can only be numbers for the number ones
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
+        return string.rangeOfCharacter(from: invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
+    }
+
 }
 

@@ -17,10 +17,17 @@ class RecipeCollectionViewController: UICollectionViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadCVC), name: RecipesController.shared.tableVCReloadNotification, object: nil)
     }
     
+    // Function for reloading tableview
     @objc func reloadCVC() {
     self.collectionView?.reloadData()
     }
+    
     // MARK: -Properties
+    let messageFrame = UIView()
+    var activityIndicator = UIActivityIndicatorView()
+    var strLabel = UILabel()
+    let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+
     
     // MARK: -Actions
     
@@ -29,12 +36,20 @@ class RecipeCollectionViewController: UICollectionViewController {
     }
     
     
-//     MARK: UICollectionViewDataSource
+    // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        DispatchQueue.main.async {
+            self.activityIndicator("Loading Images")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+            // Put your code which should be executed with a delay here
+            self.effectView.removeFromSuperview()
+        })
+        }
         
         return RecipesController.shared.recipes.count
         
@@ -51,8 +66,34 @@ class RecipeCollectionViewController: UICollectionViewController {
         return cell
     }
 
+    // MARK: -Functions
+    
+    func activityIndicator(_ title: String) {
+        
+        strLabel.removeFromSuperview()
+        activityIndicator.removeFromSuperview()
+        effectView.removeFromSuperview()
+        
+        strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 160, height: 46))
+        strLabel.text = title
+        strLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium)
+        strLabel.textColor = UIColor(white: 0.9, alpha: 0.7)
+        
+        effectView.frame = CGRect(x: view.frame.midX - strLabel.frame.width/2, y: view.frame.midY - strLabel.frame.height/2 , width: 160, height: 46)
+        effectView.layer.cornerRadius = 15
+        effectView.layer.masksToBounds = true
+        
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 46, height: 46)
+        activityIndicator.startAnimating()
+        
+        effectView.contentView.addSubview(activityIndicator)
+        effectView.contentView.addSubview(strLabel)
+        view.addSubview(effectView)
+    }
 
-
+    // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toShowRecipeDetail" {
             if let destinationVC = segue.destination as? RecipeDetailViewController,
