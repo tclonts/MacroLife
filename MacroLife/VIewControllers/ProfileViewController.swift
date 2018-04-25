@@ -13,26 +13,6 @@ import CloudKit
 
 class ProfileViewController: UIViewController  {
 
-    let imagePicker = UIImagePickerController()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        imagePicker.delegate = self
-        self.user = UsersController.shared.currentUser
-//        profileImageView.image = #imageLiteral(resourceName: "DefaultProfile")
-        
-        
-        fatCalculator()
-        carbCalculator()
-        proteinCalculator()
-        calorieCount()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateForCurrentUser {}
-    }
-    
-    
     // MARK: - Outlets
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -45,9 +25,51 @@ class ProfileViewController: UIViewController  {
     @IBOutlet weak var carbsProfileLabel: UILabel!
     @IBOutlet weak var totalCaloriesLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var macroNumbersStackView: UIStackView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var proteinTextLabel: UILabel!
+    @IBOutlet weak var fatTextLabel: UILabel!
+    @IBOutlet weak var carbsTextLabel: UILabel!
+    @IBOutlet weak var caloriesTextLabel: UILabel!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        imagePicker.delegate = self
+        self.user = UsersController.shared.currentUser
+//        profileImageView.image = #imageLiteral(resourceName: "DefaultProfile")
+        
+//        addLines(stackView: macroNumbersStackView)
+        firstNameLabel.textColor = UIColor.mLoffWhite
+        emailLabel.textColor = UIColor.mLoffWhite
+        proteinTextLabel.textColor = UIColor.mLoffWhite
+        proteinProfileLabel.textColor = UIColor.mLoffWhite
+        fatTextLabel.textColor = UIColor.mLoffWhite
+        fatProfileLabel.textColor = UIColor.mLoffWhite
+        carbsTextLabel.textColor = UIColor.mLoffWhite
+        carbsProfileLabel.textColor = UIColor.mLoffWhite
+        caloriesTextLabel.textColor = UIColor.mLoffWhite
+        totalCaloriesLabel.textColor = UIColor.mLoffWhite
+        
+        profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
+        profileImageView.clipsToBounds = true
+        
+        contentView.backgroundColor = UIColor.mLpurpleGray
+        fatCalculator()
+        carbCalculator()
+        proteinCalculator()
+        calorieCount()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateForCurrentUser {}
+    }
+    
     
     // MARK: - Properties
     var user: User?
+    let imagePicker = UIImagePickerController()
     
     // MARK: - Actions
     
@@ -140,23 +162,19 @@ class ProfileViewController: UIViewController  {
     }
 
 
-
-
-//    func updateViews() {
-//        guard let user = user else { return }
-//        self.usernameLabel.text = user.email
-//            self.genderLabel.text = user.gender
-////            self.bodyWeightLabel.text = "\(user.bodyWeight)"
-////            self.leanBodyMassLabel.text = "\(user.leanBodyMass)"
-////            self.bodyFatLabel.text = "\(user.bodyFatPercentage)"
-////            self.activityLevelLabel.text = "\(user.activityLevel)"
-//        }
-//    }
+    func makeImageCircle(image: UIImageView) {
+//        var image = UIImage(image)
+//        image.layer.borderWidth = 1
+//        image.layer.masksToBounds = false
+//        image.layer.borderColor = UIColor.black.cgColor
+//        image.layer.cornerRadius = image.frame.height/2
+//        image.clipsToBounds = true
+//        image.addSubview(image)
+        
+    }
 
 
     
-    
-
 // MARK: - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -168,3 +186,16 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         }
     }
 }
+
+//func addLines(stackView: UIStackView){
+//    if stackView.arrangedSubviews.count > 0 {
+//        let separator = UIView()
+//        separator.widthAnchor.constraint(equalToConstant: 1).isActive = true
+//        separator.backgroundColor = .black
+//        stackView.addArrangedSubview(separator)
+//        separator.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.6).isActive = true
+//    }
+//    if let firstLabel = stackView.arrangedSubviews.first as? UILabel {
+//        proteinLabel.widthAnchor.constraint(equalTo: firstLabel.widthAnchor).isActive = true
+//    }
+//}
