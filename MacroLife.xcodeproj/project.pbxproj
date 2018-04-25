@@ -20,6 +20,8 @@
 		BE13C7B520609C9E004DB4C7 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE13C7B420609C9E004DB4C7 /* CloudKitManager.swift */; };
 		BE1DCF002082B7B6003148BE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BE1DCEFF2082B7B6003148BE /* Podfile */; };
 		BE26F4A5208E74D70084B06C /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26F4A4208E74D70084B06C /* RecipeDetailViewController.swift */; };
+		BE26F4A72090D5D30084B06C /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26F4A62090D5D30084B06C /* ColorHelper.swift */; };
+		BE26F4A92090E8300084B06C /* UIViewGradientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26F4A82090E8300084B06C /* UIViewGradientHelper.swift */; };
 		BE91D56C20670DF20018928F /* RecipeEditDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE91D56B20670DF20018928F /* RecipeEditDetailViewController.swift */; };
 		BE95244F2061B70300722E51 /* ProfileImagePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE95244E2061B70300722E51 /* ProfileImagePickerHelper.swift */; };
 		BEAE3149208669FE00A180A1 /* LoginViewController+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAE3148208669FE00A180A1 /* LoginViewController+TextField.swift */; };
@@ -50,6 +52,8 @@
 		BE13C7B420609C9E004DB4C7 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		BE1DCEFF2082B7B6003148BE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BE26F4A4208E74D70084B06C /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		BE26F4A62090D5D30084B06C /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
+		BE26F4A82090E8300084B06C /* UIViewGradientHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewGradientHelper.swift; sourceTree = "<group>"; };
 		BE91D56B20670DF20018928F /* RecipeEditDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEditDetailViewController.swift; sourceTree = "<group>"; };
 		BE95244E2061B70300722E51 /* ProfileImagePickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImagePickerHelper.swift; sourceTree = "<group>"; };
 		BEAE3148208669FE00A180A1 /* LoginViewController+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+TextField.swift"; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 				BE0B341320602120003B026E /* Assets.xcassets */,
 				BE0B341520602120003B026E /* LaunchScreen.storyboard */,
 				BE0B341820602120003B026E /* Info.plist */,
+				BE26F4A62090D5D30084B06C /* ColorHelper.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				BEAE3148208669FE00A180A1 /* LoginViewController+TextField.swift */,
+				BE26F4A82090E8300084B06C /* UIViewGradientHelper.swift */,
 			);
 			name = Extensions;
 			path = ../Extensions;
@@ -342,10 +348,12 @@
 				BEE1765A206177FC00177909 /* ProfileViewController.swift in Sources */,
 				BE0B3428206056AF003B026E /* User.swift in Sources */,
 				BE0B340D20602120003B026E /* AppDelegate.swift in Sources */,
+				BE26F4A72090D5D30084B06C /* ColorHelper.swift in Sources */,
 				BEAE314C2088FD0B00A180A1 /* RecipeCollectionViewCell.swift in Sources */,
 				BE26F4A5208E74D70084B06C /* RecipeDetailViewController.swift in Sources */,
 				BEAE3149208669FE00A180A1 /* LoginViewController+TextField.swift in Sources */,
 				BE95244F2061B70300722E51 /* ProfileImagePickerHelper.swift in Sources */,
+				BE26F4A92090E8300084B06C /* UIViewGradientHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

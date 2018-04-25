@@ -20,13 +20,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var bodyWeightTextField: UITextField!
     @IBOutlet weak var leanBodyMassTextField: UITextField!
     @IBOutlet weak var bodyFatPercentageTextField: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
         bodyWeightTextField.delegate = self
         leanBodyMassTextField.delegate = self
         bodyFatPercentageTextField.delegate = self
+        
+        saveButton.setButtonGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLoffWhite)
+        saveButton.setTitleColor(UIColor.mLblack, for: .normal)
+        saveButton.layer.cornerRadius = saveButton.frame.size.height/2
+        saveButton.layer.masksToBounds = true
+
     }
 
     // MARK: - Properties
@@ -34,7 +42,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     var user: User?
     
     // MARK: - Actions
-  
     
     @IBAction func saveResultsButtonTapped(_ sender: UIButton) {
 
@@ -88,6 +95,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(dismissAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
 
     // MARK: - Navigation
 

@@ -22,12 +22,26 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
+        checkLoginButtonActive()
         activityIndicator.isHidden = true
+        
+        loginButton.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLoffWhite)
+        loginButton.setTitleColor(UIColor.mLlightGray, for: .normal)
+        loginButton.layer.cornerRadius = loginButton.frame.size.height/2
+        loginButton.layer.masksToBounds = true
+        
+        signUpButton.setButtonGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLoffWhite)
+        signUpButton.setTitleColor(UIColor.mLblack, for: .normal)
+        signUpButton.layer.cornerRadius = signUpButton.frame.size.height/2
+        signUpButton.layer.masksToBounds = true
+        
+        
         emailTextField.delegate = self
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
+        
         passwordTextField.delegate = self
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
-        checkLoginButtonActive()
         
         NotificationCenter.default.addObserver(self, selector: #selector(segueToProfileDetail), name: UsersController.shared.currentUserWasSetNotification, object: nil)
     }
@@ -41,8 +55,10 @@ class LoginViewController: UIViewController {
     func checkLoginButtonActive() {
         if (emailTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! {
             loginButton.isEnabled = false
+            loginButton.setTitleColor(UIColor.mLlightGray, for: .normal)
         } else {
             loginButton.isEnabled = true
+            loginButton.setTitleColor(UIColor.mLblack, for: .normal)
         }
     }
     
@@ -106,6 +122,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // MARK: - Simple Alert
     func presentSimpleAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "Dismisss", style: .cancel, handler: nil)
@@ -113,8 +130,14 @@ class LoginViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         }
     
-    @IBAction func signUpButtonTapped(_ sender: UIButton) {    
+    @IBAction func signUpButtonTapped(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "toSignUp", sender: self)
     }
+    
+    
+    // MARK: - Background gradient
+
+}
     
     
     // MARK: Navigation
@@ -128,7 +151,7 @@ class LoginViewController: UIViewController {
 //            }
 //        }
 //    }
-}
+
 
 
 

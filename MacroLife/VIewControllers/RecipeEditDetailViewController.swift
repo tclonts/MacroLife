@@ -28,15 +28,19 @@ class RecipeEditDetailViewController: UIViewController {
         recipeTitleTextField.layer.borderWidth = 1.0
         recipeIngredientsTextView.layer.borderWidth = 1.0
         recipeInstructionsTextView.layer.borderWidth = 1.0
-        recipeInstructionsTextView.text = "Placeholder"
+//        recipeInstructionsTextView.text = "Placeholder"
         recipeIngredientsTextView.textColor = UIColor.lightGray
-        recipeIngredientsTextView.text = "Placeholder"
+//        recipeIngredientsTextView.text = "Placeholder"
         recipeInstructionsTextView.textColor = UIColor.lightGray
       
         // Do any additional setup after loading the view.
         textViewDidChange(recipeIngredientsTextView)
         textViewDidChange(recipeInstructionsTextView)
-        textViewDidBeginEditing(recipeInstructionsTextView)
+        
+        TextViewDidBeginEditing(recipeInstructionsTextView)
+        TextViewDidEndEditing(recipeInstructionsTextView)
+        
+        textViewDidBeginEditing(recipeIngredientsTextView)
         textViewDidEndEditing(recipeIngredientsTextView)
     }
     
@@ -117,6 +121,11 @@ extension RecipeEditDetailViewController: UITextViewDelegate, UITextFieldDelegat
         }
     }
     
+    func TextViewDidBeginEditing(_ textView: UITextView) {
+        if (textView.text == "Enter info...")  {
+            textView.text = ""
+        }
+    }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         
@@ -126,6 +135,13 @@ extension RecipeEditDetailViewController: UITextViewDelegate, UITextFieldDelegat
 //        textView.becomeFirstResponder()
     }
     
+    func TextViewDidEndEditing(_ textView: UITextView) {
+        
+        if (textView.text == "") {
+            textView.text = "Enter info..."
+        }
+        //        textView.becomeFirstResponder()
+    }
     
     
 }
