@@ -17,6 +17,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var bodyWeightTextField: UITextField!
     @IBOutlet weak var leanBodyMassTextField: UITextField!
     @IBOutlet weak var bodyFatPercentageTextField: UITextField!
+  
     
     
     override func viewDidLoad() {
@@ -24,6 +25,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
         bodyWeightTextField.delegate = self
         leanBodyMassTextField.delegate = self
         bodyFatPercentageTextField.delegate = self
+        view.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
 //        self.user = UsersController.shared.currentUser
     }
     

@@ -37,9 +37,7 @@ class ProfileViewController: UIViewController  {
         super.viewDidLoad()
         imagePicker.delegate = self
         self.user = UsersController.shared.currentUser
-//        profileImageView.image = #imageLiteral(resourceName: "DefaultProfile")
         
-//        addLines(stackView: macroNumbersStackView)
         firstNameLabel.textColor = UIColor.mLoffWhite
         emailLabel.textColor = UIColor.mLoffWhite
         proteinTextLabel.textColor = UIColor.mLoffWhite
@@ -54,7 +52,7 @@ class ProfileViewController: UIViewController  {
         profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
         profileImageView.clipsToBounds = true
         
-        contentView.backgroundColor = UIColor.mLpurpleGray
+        contentView.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
         fatCalculator()
         carbCalculator()
         proteinCalculator()
