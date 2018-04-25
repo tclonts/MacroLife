@@ -8,17 +8,38 @@
 
 import UIKit
 
-class RecipeDetailViewController: UIViewController {
+class RecipeDetailViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var recipeImageView: UIImageView!
-    @IBOutlet weak var recipeTitleTextField: UITextField!
-    @IBOutlet weak var recipeIngredientsTextField: UITextField!
-    @IBOutlet weak var recipeInstructionsTextField: UITextField!
+    @IBOutlet weak var recipeTitleLabel: UILabel!
+    @IBOutlet weak var recipeIngredientsTextView: UITextView!
+    @IBOutlet weak var recipeInstructionsTextView: UITextView!
+    @IBOutlet weak var contentView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recipeIngredientsTextView.delegate = self 
+        recipeInstructionsTextView.delegate = self
         updateViews()
+        
     }
+    
+
+
+//    func resizeRecipeIngredientsTextView() {
+//
+//        recipeIngredientsTextView.delegate = self
+//
+//        let fixedWidth = recipeIngredientsTextView.frame.size.width
+//        let newSize: CGSize = recipeIngredientsTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat(MAXFLOAT)))
+//        var newFrame = recipeIngredientsTextView.frame
+//        newFrame.size = CGSize(width: CGFloat(fmaxf(Float(newSize.width), Float(fixedWidth))), height: newSize.height)
+//        recipeIngredientsTextView.frame = newFrame
+//    }
+//
+  
+    // MARK: - Properties
 
     var recipes: Recipe?
   
@@ -30,9 +51,10 @@ class RecipeDetailViewController: UIViewController {
         
         recipeImageView.image = recipeImage
         
-        recipeTitleTextField.text = recipe.recipeTitle
-        recipeIngredientsTextField.text = recipe.recipeIngredients
-        recipeInstructionsTextField.text = recipe.recipeText
+        recipeTitleLabel.text = recipe.recipeTitle
+        recipeIngredientsTextView.text = recipe.recipeIngredients
+        recipeInstructionsTextView.text = recipe.recipeText
         
+//        contentView.layoutIfNeeded()
     }
 }
