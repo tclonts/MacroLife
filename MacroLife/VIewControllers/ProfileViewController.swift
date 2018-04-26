@@ -8,8 +8,7 @@
 
 import UIKit
 import CloudKit
-
-
+import RKPieChart
 
 class ProfileViewController: UIViewController  {
 
@@ -31,6 +30,7 @@ class ProfileViewController: UIViewController  {
     @IBOutlet weak var fatTextLabel: UILabel!
     @IBOutlet weak var carbsTextLabel: UILabel!
     @IBOutlet weak var caloriesTextLabel: UILabel!
+    @IBOutlet weak var userDetailsStackView: UIStackView!
     
     
     override func viewDidLoad() {
@@ -57,6 +57,46 @@ class ProfileViewController: UIViewController  {
         carbCalculator()
         proteinCalculator()
         calorieCount()
+        
+        // Pie chart Set up
+        let firstItem: RKPieChartItem = RKPieChartItem(ratio: 50, color: UIColor.mLdarkGray, title: "protein")
+        let secondItem: RKPieChartItem = RKPieChartItem(ratio: 30, color: UIColor.mLlightGray, title: "carbs")
+        let thirdItem: RKPieChartItem = RKPieChartItem(ratio: 20, color: UIColor.mLblack, title: "fat")
+        
+        let chartView = RKPieChartView(items: [firstItem, secondItem, thirdItem], centerTitle: "Breakdown")
+        chartView.circleColor = .clear
+        chartView.translatesAutoresizingMaskIntoConstraints = false
+        chartView.arcWidth = 40
+        chartView.isIntensityActivated = false
+        chartView.style = .butt
+        chartView.isTitleViewHidden = false
+        chartView.isAnimationActivated = true
+        self.view.addSubview(chartView)
+
+        
+        // Pie Chart Constraints
+        var chartWidthAnchor = chartView.widthAnchor.constraint(equalToConstant: 100)
+        chartWidthAnchor.priority = UILayoutPriority(rawValue: 998)
+        chartWidthAnchor.isActive = true
+        var chartHeightAnchor = chartView.heightAnchor.constraint(equalToConstant: 100)
+        chartWidthAnchor.priority = UILayoutPriority(rawValue: 998)
+        chartHeightAnchor.isActive = true
+        
+//        chartView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+//        chartView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        chartView.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 10).isActive = true
+        chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        chartView.leadingAnchor.constraint(equalTo: userDetailsStackView.trailingAnchor).isActive = true
+        
+        
+//        let leading = NSLayoutConstraint(item: chartView, attribute: .leading, relatedBy: .equal, toItem: userDetailsStackView, attribute: .trailing, multiplier: 1, constant: 0)
+//         let trailing = NSLayoutConstraint(item: chartView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
+//         let top = NSLayoutConstraint(item: chartView, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 0)
+//         let bottom = NSLayoutConstraint(item: chartView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+//
+//        view.addConstraints([leading, trailing, top, bottom])
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

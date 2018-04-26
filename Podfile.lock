@@ -1,16 +1,20 @@
 PODS:
   - IQKeyboardManagerSwift (5.0.8)
+  - RKPieChart (0.0.1)
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift
+  - RKPieChart
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - IQKeyboardManagerSwift
+    - RKPieChart
 
 SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 2e7dc7f98c111458c1ea2b373f893e8cf95e2b97
+  RKPieChart: 8e643c505d24e61574f3a2fd6bd807403840b24b
 
-PODFILE CHECKSUM: f8224f29372c23adaa53d333b413d532eeb092a3
+PODFILE CHECKSUM: 748028488c1083882185fc385c3c2ce589a0821e
 
 COCOAPODS: 1.5.0

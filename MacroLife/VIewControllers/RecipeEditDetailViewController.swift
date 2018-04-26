@@ -13,7 +13,7 @@ class RecipeEditDetailViewController: UIViewController {
     let imagePicker = UIImagePickerController()
 
     
-    @IBOutlet weak var scrollView: UIScrollView!
+//    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var recipeTitleTextField: UITextField!
     @IBOutlet weak var recipeIngredientsTextView: UITextView!
     @IBOutlet weak var recipeInstructionsTextView: UITextView!
@@ -22,26 +22,32 @@ class RecipeEditDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        view.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
         recipeTitleTextField.delegate = self
         recipeInstructionsTextView.delegate = self
         recipeIngredientsTextView.delegate = self
-        recipeTitleTextField.layer.borderWidth = 1.0
-        recipeIngredientsTextView.layer.borderWidth = 1.0
-        recipeInstructionsTextView.layer.borderWidth = 1.0
-//        recipeInstructionsTextView.text = "Placeholder"
+        
+        recipeTitleTextField.text = "Recipe title..."
+        recipeIngredientsTextView.text = "Recipe ingredients..."
+        recipeInstructionsTextView.text = "Recipe instructions..."
+        recipeTitleTextField.textColor = UIColor.lightGray
         recipeIngredientsTextView.textColor = UIColor.lightGray
-//        recipeIngredientsTextView.text = "Placeholder"
         recipeInstructionsTextView.textColor = UIColor.lightGray
       
         // Do any additional setup after loading the view.
-        textViewDidChange(recipeIngredientsTextView)
         textViewDidChange(recipeInstructionsTextView)
+        textViewDidChange(recipeIngredientsTextView)
         
-        TextViewDidBeginEditing(recipeInstructionsTextView)
-        TextViewDidEndEditing(recipeInstructionsTextView)
+        textViewDidBeginEditing(recipeInstructionsTextView)
+        textViewDidEndEditing(recipeInstructionsTextView)
         
         textViewDidBeginEditing(recipeIngredientsTextView)
         textViewDidEndEditing(recipeIngredientsTextView)
+        
+        textFieldDidBeginEditing(recipeTitleTextField)
+        textFieldDidEndEditing(recipeTitleTextField)
+        
+        
     }
     
     // MARK: - Properties
@@ -96,6 +102,7 @@ class RecipeEditDetailViewController: UIViewController {
 }
 
 extension RecipeEditDetailViewController: UITextViewDelegate, UITextFieldDelegate {
+    
     func textViewDidChange(_ textView: UITextView) {
         print(textView.text)
         let size = CGSize(width: view.frame.width, height: .infinity)
@@ -108,41 +115,51 @@ extension RecipeEditDetailViewController: UITextViewDelegate, UITextFieldDelegat
         }
     }
     
-//    func textViewDidBeginEditing(_ textView: UITextView) {
-//        if textView.textColor == UIColor.lightGray {
-//            textView.text = nil
-//            textView.textColor = UIColor.black
-//        }
-//    }
-    
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if (textView.text == "Enter info...")  {
+        if recipeInstructionsTextView.textColor == UIColor.lightGray {
+            recipeInstructionsTextView.text = nil
+            recipeInstructionsTextView.textColor = UIColor.black
+        }
+        if recipeIngredientsTextView.textColor == UIColor.lightGray {
+            recipeIngredientsTextView.text = nil
+            recipeIngredientsTextView.textColor = UIColor.black
+        }
+        if (textView.text == "Recipe instructions...")   {
             textView.text = ""
         }
-    }
-    
-    func TextViewDidBeginEditing(_ textView: UITextView) {
-        if (textView.text == "Enter info...")  {
+        if (textView.text == "Recipe ingredients..."){
             textView.text = ""
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         
-        if (textView.text == "") {
-                textView.text = "Enter info..."
+        if recipeInstructionsTextView.text.isEmpty {
+            recipeInstructionsTextView.text = "Recipe instructions..."
+            recipeInstructionsTextView.textColor = UIColor.lightGray
         }
-//        textView.becomeFirstResponder()
+        if recipeIngredientsTextView.text.isEmpty {
+            recipeIngredientsTextView.text = "Recipe ingredients..."
+            recipeIngredientsTextView.textColor = UIColor.lightGray
+        }
     }
     
-    func TextViewDidEndEditing(_ textView: UITextView) {
-        
-        if (textView.text == "") {
-            textView.text = "Enter info..."
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if recipeTitleTextField.textColor == UIColor.lightGray {
+            recipeTitleTextField.text = nil
+            recipeTitleTextField.textColor = UIColor.black
         }
-        //        textView.becomeFirstResponder()
+        if (recipeTitleTextField.text == "Recipe title...")   {
+            recipeTitleTextField.text = ""
+        }
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if (recipeTitleTextField.text?.isEmpty)! {
+            recipeTitleTextField.text = "Recipe title..."
+            recipeTitleTextField.textColor = UIColor.lightGray
+        }
+    }
     
 }
 
