@@ -24,6 +24,7 @@ extension RecipeEditDetailViewController: UIImagePickerControllerDelegate, UINav
                 self.imagePicker.sourceType = .photoLibrary
                 self.imagePicker.allowsEditing = true
                 
+                
                 self.present(self.imagePicker, animated: true, completion: nil)
             }))
         }
@@ -62,7 +63,7 @@ extension RecipeEditDetailViewController: UIImagePickerControllerDelegate, UINav
 //                RecipesController.shared.updateRecipe(recipe: recipe, recipeImage: uploadData) { (true) in
                     DispatchQueue.main.async {
 //                        self.recipes?.recipeImage = uploadData
-                        //                        self.profileImageView.contentMode = .scaleAspectFill
+                        self.recipeImageView.contentMode = .scaleAspectFill
                         self.recipeImageView.image = chosenImage
                     }
                 }

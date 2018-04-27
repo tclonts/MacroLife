@@ -14,8 +14,6 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeTitleLabel: UILabel!
     
-    
-        
         var recipe: Recipe? {
             didSet {
                 updateViews()
@@ -32,6 +30,9 @@ class RecipeCollectionViewCell: UICollectionViewCell {
                 
                 
             }
+            recipeTitleLabel.backgroundColor = UIColor.mLdarkGray.withAlphaComponent(0.8)
+            recipeTitleLabel.textColor = UIColor.mLoffWhite
+            recipeImageView.contentMode = .scaleAspectFill
         }
     }
 

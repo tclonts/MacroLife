@@ -20,4 +20,6 @@ extension UIColor {
     
     static let mLpurpleGray = UIColor(red: 121.0/255.0, green: 127.0/255.0, blue: 157.0/255.0, alpha: 1.0)
     
+    static let mLBrightPurple = UIColor(red: 65.0/255.0, green: 63.0/255.0, blue: 152.0/255.0, alpha: 1.0)
+    
 }

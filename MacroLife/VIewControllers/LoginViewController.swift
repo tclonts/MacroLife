@@ -22,19 +22,21 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         view.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
         checkLoginButtonActive()
         activityIndicator.isHidden = true
         
-        loginButton.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLoffWhite)
+        loginButton.setGradientBackground(colorTop: UIColor.mLBrightPurple, colorBottom: UIColor.mLBrightPurple)
         loginButton.setTitleColor(UIColor.mLlightGray, for: .normal)
         loginButton.layer.cornerRadius = loginButton.frame.size.height/2
         loginButton.layer.masksToBounds = true
         
-        signUpButton.setButtonGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLoffWhite)
-        signUpButton.setTitleColor(UIColor.mLblack, for: .normal)
+        signUpButton.setButtonGradientBackground(colorTop: UIColor.mLBrightPurple, colorBottom: UIColor.mLBrightPurple)
+        signUpButton.setTitleColor(UIColor.mLoffWhite, for: .normal)
         signUpButton.layer.cornerRadius = signUpButton.frame.size.height/2
         signUpButton.layer.masksToBounds = true
+        
         
         
         emailTextField.delegate = self
@@ -58,7 +60,7 @@ class LoginViewController: UIViewController {
             loginButton.setTitleColor(UIColor.mLlightGray, for: .normal)
         } else {
             loginButton.isEnabled = true
-            loginButton.setTitleColor(UIColor.mLblack, for: .normal)
+            loginButton.setTitleColor(UIColor.mLoffWhite, for: .normal)
         }
     }
     

@@ -21,7 +21,6 @@ class RecipesController {
         loadFromPersistentStore( )
     }
     // MARK: - Properites
-    
     var recipes: [Recipe] = []
     {
         didSet {
@@ -33,20 +32,32 @@ class RecipesController {
     
 //     Create New Recipe
     
-    func createRecipe(recipeImage: UIImage?, recipeTitle: String, recipeIngredients: String, recipeText: String, completion: @escaping(_ success: Bool) -> Void) {
+    func createRecipe(recipeImage: UIImage?, recipeTitle: String, recipeInstructions: String, recipeIngredients: [Ingredient], completion: @escaping(_ success: Bool, _ recipe: Recipe?) -> Void) {
         guard let recipeImage = recipeImage else { return }
         guard let data = UIImageJPEGRepresentation(recipeImage, 0.8) else { return }
-        let newRecipe = Recipe(recipeImage: data, recipeTitle: recipeTitle, recipeIngredients: recipeIngredients, recipeText: recipeText)
+        let newRecipe = Recipe(recipeImage: data, recipeTitle: recipeTitle, recipeInstructions: recipeInstructions, recipeIngredients: recipeIngredients)
         recipes.append(newRecipe)
         saveToPersistentStore()
-        completion(true)
+        completion(true, newRecipe)
     }
+    
+    func update(ingredient: Ingredient, ingredientName : String) {
+        ingredient.ingredientName = ingredientName
+    }
+    
+    // Add a recipe to the Recipes array for a certain recipe
+    func addIngredientWith(ingredientName: String, recipe: Recipe) {
+        let newIngredient = Ingredient(ingredientName: ingredientName)
+        recipe.recipeIngredientsList?.append(newIngredient)
+        saveToPersistentStore()
+    }
+    
 
     
     // Update Recipe
-    func updateRecipe(recipe: Recipe, recipeImage: Data?/*, recipeText: String*/, completion: @escaping(_ success: Bool) -> Void){
+    func updateRecipe(recipe: Recipe, recipeImage: Data?, recipeTitle: String, recipeIngredients: [Ingredient], recipeInstructions: String, completion: @escaping(_ success: Bool) -> Void) {
+    
         guard let recipeImage = recipeImage else { return }
-
         
         let record = recipe.cloudKitRecord
         CloudKitManager.shared.modifyRecords([record], database: publicDB, perRecordCompletion: nil,  completion: { (_, error) in

@@ -17,42 +17,47 @@ class Recipe: CloudKitManager {
     static let typeKey = "Recipe"
     private let recipeImageKey = "recipeImage"
     private let recipeTitleKey = "recipeTitle"
-    private let recipeIngredientsKey = "recipeIngredients"
-    private let recipeTextKey = "recipeText"
+    private let recipeIngredientsListKey = "recipeIngredients"
+    private let recipeInstructionsKey = "recipeInstructions"
     
     
     // Properties
     var recipeImage: Data?
     var recipeTitle: String
-    var recipeIngredients: String
-    var recipeText: String
+    var recipeIngredientsList: [Ingredient]?
+    var recipeInstructions: String
     var cloudkitRecordID: CKRecordID?
     var photo: UIImage? {
         guard let recipeImage = self.recipeImage else { return nil }
         return UIImage(data: recipeImage)
     }
     
-    init(recipeImage: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "DefaultProfile")),recipeTitle: String, recipeIngredients: String, recipeText: String) {
+    init(recipeImage: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "DefaultProfile")),recipeTitle: String, recipeInstructions: String, recipeIngredients: [Ingredient]) {
     
         self.recipeImage = recipeImage
         self.recipeTitle = recipeTitle
-        self.recipeIngredients = recipeIngredients
-        self.recipeText = recipeText
+        self.recipeIngredientsList = []
+        self.recipeInstructions = recipeInstructions
     }
     
     // Used for Fetching records from CloudKit
     
     init?(cloudKitRecord: CKRecord) {
-        guard let recipeText = cloudKitRecord[recipeTextKey] as? String,
+        guard let recipeInstructions = cloudKitRecord[recipeInstructionsKey] as? String,
             let recipeTitle = cloudKitRecord[recipeTitleKey] as? String,
-            let recipeIngredients = cloudKitRecord[recipeIngredientsKey] as? String,
+            let recipeIngredientsList = cloudKitRecord[recipeIngredientsListKey] as? [Ingredient],
             let photoAsset = cloudKitRecord[recipeImageKey] as? CKAsset else { return nil}
-        let recipeImage = try? Data(contentsOf: photoAsset.fileURL)
+            let recipeImage = try? Data(contentsOf: photoAsset.fileURL)
         
+//        if let recipeDictionary = cloudKitRecord[recipeIngredientsKey] as? [String : [String : String]] {
+//            let ingredients = recipeDictionary.compactMap{ Ingredients(dictionary: $0.value) }
+//            self.recipeIngredients = ingredients
+//        }
+//
             self.recipeImage = recipeImage
             self.recipeTitle = recipeTitle
-            self.recipeIngredients = recipeIngredients
-            self.recipeText = recipeText
+            self.recipeIngredientsList = []
+            self.recipeInstructions = recipeInstructions
             self.cloudkitRecordID = cloudKitRecord.recordID
     }
     
@@ -63,8 +68,9 @@ class Recipe: CloudKitManager {
         let record = CKRecord(recordType: Recipe.typeKey, recordID: recordID)
         
         record.setValue(recipeTitle, forKey: recipeTitleKey)
-        record.setValue(recipeText, forKey: recipeTextKey)
-        record.setValue(recipeIngredients, forKey: recipeIngredientsKey)
+        record.setValue(recipeInstructions, forKey: recipeInstructionsKey)
+        record.setValue(recipeIngredientsList, forKey: recipeIngredientsListKey)
+        
         
         if let recipeIamge = recipeImage{
          record[recipeImageKey] = CKAsset(fileURL: temporaryPhotoURL)

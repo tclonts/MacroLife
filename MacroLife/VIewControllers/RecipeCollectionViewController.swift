@@ -10,13 +10,19 @@ import UIKit
 
 class RecipeCollectionViewController: UICollectionViewController {
 
+    @IBOutlet weak var barButtonItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.tintColor = UIColor.mLBrightPurple
+    
+//        collectionView?.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reloadCVC), name: RecipesController.shared.tableVCReloadNotification, object: nil)
     }
     
+ 
     // Function for reloading tableview
     @objc func reloadCVC() {
     self.collectionView?.reloadData()
@@ -42,15 +48,15 @@ class RecipeCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         DispatchQueue.main.async {
             self.activityIndicator("Loading Images")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
             // Put your code which should be executed with a delay here
             self.effectView.removeFromSuperview()
-        })
+            })
         }
-        
         return RecipesController.shared.recipes.count
         
     }
@@ -59,11 +65,10 @@ class RecipeCollectionViewController: UICollectionViewController {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recipeCell", for: indexPath) as? RecipeCollectionViewCell else { return UICollectionViewCell()}
         
-        let recipe = RecipesController.shared.recipes[indexPath.row]
-        cell.recipe = recipe
+            let recipe = RecipesController.shared.recipes[indexPath.row]
+            cell.recipe = recipe
         
-//        cell.backgroundColor = .black
-        return cell
+            return cell
     }
 
     // MARK: -Functions
@@ -92,6 +97,7 @@ class RecipeCollectionViewController: UICollectionViewController {
         view.addSubview(effectView)
     }
 
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

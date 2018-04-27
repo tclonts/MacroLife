@@ -12,15 +12,17 @@ class RecipeDetailViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeTitleLabel: UILabel!
-    @IBOutlet weak var recipeIngredientsTextView: UITextView!
+//    @IBOutlet weak var recipeIngredientsTextView: UITextView!
     @IBOutlet weak var recipeInstructionsTextView: UITextView!
     @IBOutlet weak var contentView: UIView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        recipeIngredientsTextView.delegate = self 
+//        recipeIngredientsTextView.delegate = self 
         recipeInstructionsTextView.delegate = self
+        recipeImageView.contentMode = .scaleAspectFill
+        contentView.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
         updateViews()
         
     }
@@ -51,9 +53,10 @@ class RecipeDetailViewController: UIViewController, UITextViewDelegate {
         
         recipeImageView.image = recipeImage
         
+        
         recipeTitleLabel.text = recipe.recipeTitle
-        recipeIngredientsTextView.text = recipe.recipeIngredients
-        recipeInstructionsTextView.text = recipe.recipeText
+//        recipeIngredientsTextView.text = recipe.recipeIngredients
+        recipeInstructionsTextView.text = recipe.recipeInstructions
         
 //        contentView.layoutIfNeeded()
     }

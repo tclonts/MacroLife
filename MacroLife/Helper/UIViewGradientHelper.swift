@@ -20,6 +20,7 @@ extension UIView {
         gradientLayer.frame = bounds
         
         layer.insertSublayer(gradientLayer, at: 0)
+//        layer.addSublayer(gradientLayer)
     }
     func setButtonGradientBackground(colorTop: UIColor, colorBottom: UIColor) {
         

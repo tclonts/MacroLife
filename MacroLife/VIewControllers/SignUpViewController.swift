@@ -30,8 +30,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         leanBodyMassTextField.delegate = self
         bodyFatPercentageTextField.delegate = self
         
-        saveButton.setButtonGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLoffWhite)
-        saveButton.setTitleColor(UIColor.mLblack, for: .normal)
+        saveButton.setButtonGradientBackground(colorTop: UIColor.mLBrightPurple, colorBottom: UIColor.mLBrightPurple)
+        saveButton.setTitleColor(UIColor.mLoffWhite, for: .normal)
         saveButton.layer.cornerRadius = saveButton.frame.size.height/2
         saveButton.layer.masksToBounds = true
 

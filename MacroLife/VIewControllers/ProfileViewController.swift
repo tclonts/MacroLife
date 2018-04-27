@@ -31,6 +31,8 @@ class ProfileViewController: UIViewController  {
     @IBOutlet weak var carbsTextLabel: UILabel!
     @IBOutlet weak var caloriesTextLabel: UILabel!
     @IBOutlet weak var userDetailsStackView: UIStackView!
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     
     
     override func viewDidLoad() {
@@ -48,7 +50,11 @@ class ProfileViewController: UIViewController  {
         carbsProfileLabel.textColor = UIColor.mLoffWhite
         caloriesTextLabel.textColor = UIColor.mLoffWhite
         totalCaloriesLabel.textColor = UIColor.mLoffWhite
+        navigationController?.navigationBar.tintColor = UIColor.mLBrightPurple
+//        navigationController?.navigationBar.barTintColor = UIColor.mLBrightPurple
+
         
+
         profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
         profileImageView.clipsToBounds = true
         
@@ -59,14 +65,15 @@ class ProfileViewController: UIViewController  {
         calorieCount()
         
         // Pie chart Set up
-        let firstItem: RKPieChartItem = RKPieChartItem(ratio: 50, color: UIColor.mLdarkGray, title: "protein")
-        let secondItem: RKPieChartItem = RKPieChartItem(ratio: 30, color: UIColor.mLlightGray, title: "carbs")
-        let thirdItem: RKPieChartItem = RKPieChartItem(ratio: 20, color: UIColor.mLblack, title: "fat")
+        let firstItem: RKPieChartItem = RKPieChartItem(ratio: (uint(proteinRatio)), color: UIColor.mLdarkGray, title: "protein")
+        let secondItem: RKPieChartItem = RKPieChartItem(ratio: (uint(carbsRatio)), color: UIColor.mLlightGray, title: "carbs")
+        let thirdItem: RKPieChartItem = RKPieChartItem(ratio: (uint(fatRatio)), color: UIColor.mLpurpleGray, title: "fat")
         
-        let chartView = RKPieChartView(items: [firstItem, secondItem, thirdItem], centerTitle: "Breakdown")
+        let chartView = RKPieChartView(items: [firstItem, secondItem, thirdItem], centerTitle: "Macro Breakdown")
+        
         chartView.circleColor = .clear
         chartView.translatesAutoresizingMaskIntoConstraints = false
-        chartView.arcWidth = 40
+        chartView.arcWidth = 23
         chartView.isIntensityActivated = false
         chartView.style = .butt
         chartView.isTitleViewHidden = false
@@ -75,28 +82,54 @@ class ProfileViewController: UIViewController  {
 
         
         // Pie Chart Constraints
-        var chartWidthAnchor = chartView.widthAnchor.constraint(equalToConstant: 100)
-        chartWidthAnchor.priority = UILayoutPriority(rawValue: 998)
-        chartWidthAnchor.isActive = true
-        var chartHeightAnchor = chartView.heightAnchor.constraint(equalToConstant: 100)
-        chartWidthAnchor.priority = UILayoutPriority(rawValue: 998)
-        chartHeightAnchor.isActive = true
+//        var chartWidthAnchor = chartView.widthAnchor.constraint(equalToConstant: 100)
+//        chartWidthAnchor.priority = UILayoutPriority(rawValue: 999)
+//        chartWidthAnchor.isActive = true
+//
+//        var chartHeightAnchor = chartView.heightAnchor.constraint(equalToConstant: 100)
+//        chartWidthAnchor.priority = UILayoutPriority(rawValue: 999)
+//        chartHeightAnchor.isActive = true
         
-//        chartView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-//        chartView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        chartView.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 10).isActive = true
-        chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        chartView.leadingAnchor.constraint(equalTo: userDetailsStackView.trailingAnchor).isActive = true
+        chartView.widthAnchor.constraint(equalToConstant: 226).isActive = true
+        chartView.heightAnchor.constraint(equalToConstant: 226).isActive = true
+        
+        var chartViewTopAnchor = chartView.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 25)
+        chartViewTopAnchor.priority = UILayoutPriority(rawValue: 990)
+        chartViewTopAnchor.isActive = true
+
+        var chartViewTrailingAnchor = chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5)
+        chartViewTrailingAnchor.priority = UILayoutPriority(rawValue: 990)
+        chartViewTrailingAnchor.isActive = true
+
+        var chartViewBottomAnchor = chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+        chartViewBottomAnchor.priority = UILayoutPriority(rawValue: 990)
+        chartViewBottomAnchor.isActive = true
+
+        var chartViewLeadingAnchor = chartView.leadingAnchor.constraint(equalTo: userDetailsStackView.trailingAnchor)
+        chartViewLeadingAnchor.priority = UILayoutPriority(rawValue: 990)
+        chartViewLeadingAnchor.isActive = true
+        
+//        chartView.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 10).isActive = true
+//        chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//        chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+//        chartView.leadingAnchor.constraint(equalTo: userDetailsStackView.trailingAnchor).isActive = true
         
         
 //        let leading = NSLayoutConstraint(item: chartView, attribute: .leading, relatedBy: .equal, toItem: userDetailsStackView, attribute: .trailing, multiplier: 1, constant: 0)
+//        leading.priority = UILayoutPriority.defaultLow
+//        leading.isActive = true
 //         let trailing = NSLayoutConstraint(item: chartView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
+//        trailing.priority = UILayoutPriority.defaultLow
+//        trailing.isActive = true
 //         let top = NSLayoutConstraint(item: chartView, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 0)
+//        top.priority = UILayoutPriority.defaultLow
+//        top.isActive = true
 //         let bottom = NSLayoutConstraint(item: chartView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+//        bottom.priority = UILayoutPriority.defaultLow
+//        bottom.isActive = true
 //
-//        view.addConstraints([leading, trailing, top, bottom])
-        
+////        view.addConstraints([leading, trailing, top, bottom])
+//
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -164,7 +197,7 @@ class ProfileViewController: UIViewController  {
     func proteinCalculator() {
         
         let proteinInG = self.user?.leanBodyMass
-            //save to user value
+        //save to user value
         proteinProfileLabel.text = proteinInG?.description
     }
     
@@ -190,14 +223,66 @@ class ProfileViewController: UIViewController  {
     func calorieCount() {
         guard let proteinInG = self.user?.leanBodyMass else { return }
         let proteinCals = (proteinInG * 4)
+        let carbsInG = Int(Double((self.user?.leanBodyMass)!) * (1.2))
+        let carbCals = (carbsInG * 4)
+        let maitenanceCal = (self.user?.bodyWeight)! * (12)
+        let newMC = (maitenanceCal - 250)
+        let fatInG = (newMC - (proteinCals + carbCals)) / (9)
+        let totalCalories = (proteinInG * 4) + (carbsInG * 4) + (fatInG * 9)
+        totalCaloriesLabel.text = totalCalories.description
+    }
+    
+    
+    var proteinRatio: Int {
+        guard let proteinInG = self.user?.leanBodyMass else { return 0 }
+        let proteinCals = (proteinInG * 4)
         let carbsInG = (self.user?.leanBodyMass)! * (Int(1.2))
         let carbCals = (carbsInG * 4)
         let maitenanceCal = (self.user?.bodyWeight)! * (12)
         let newMC = (maitenanceCal - 250)
         let fatInG = (newMC - (proteinCals + carbCals)) / (9)
-        let totalCalories = (fatInG * 4) + (carbsInG * 4) + (fatInG * 9)
-        totalCaloriesLabel.text = totalCalories.description
+        let totalCalories = (proteinInG * 4) + (carbsInG * 4) + (fatInG * 9)
+        
+        
+        let proteinDecimal = Double(proteinCals) / Double(totalCalories)
+        let proteinPercent = Int(proteinDecimal * 100.0)
+        return proteinPercent
     }
+    
+    var carbsRatio: Int {
+        guard let proteinInG = self.user?.leanBodyMass else { return 0 }
+        let proteinCals = (proteinInG * 4)
+        let carbsInG = Int(Double((self.user?.leanBodyMass)!) * (1.2))
+        let carbCals = (carbsInG * 4)
+        let maitenanceCal = (self.user?.bodyWeight)! * (12)
+        let newMC = (maitenanceCal - 250)
+        let fatInG = (newMC - (proteinCals + carbCals)) / (9)
+        let totalCalories = (proteinInG * 4) + (carbsInG * 4) + (fatInG * 9)
+        
+        
+        let carbsDecimal = Double(carbCals) / Double(totalCalories)
+        let carbsPercent = Int(carbsDecimal * 100.0)
+        return carbsPercent
+    }
+    
+    var fatRatio: Int {
+        guard let proteinInG = self.user?.leanBodyMass else { return 0 }
+        let proteinCals = (proteinInG * 4)
+        let carbsInG = (self.user?.leanBodyMass)! * (Int(1.2))
+        let carbCals = (carbsInG * 4)
+        let maitenanceCal = (self.user?.bodyWeight)! * (12)
+        let newMC = (maitenanceCal - 250)
+        let fatCals = (newMC - (proteinCals + carbCals))
+        let fatInG = (newMC - (proteinCals + carbCals)) / (9)
+        let totalCalories = (proteinInG * 4) + (carbsInG * 4) + (fatInG * 9)
+        
+        
+        let fatDecimal = Double(fatCals) / Double(totalCalories)
+        let fatPercent = Int(fatDecimal * 100.0)
+        return fatPercent
+    }
+    
+    
 
 
     func makeImageCircle(image: UIImageView) {

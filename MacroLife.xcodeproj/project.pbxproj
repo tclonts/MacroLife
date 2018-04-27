@@ -23,6 +23,19 @@
 		BE26F4A72090D5D30084B06C /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26F4A62090D5D30084B06C /* ColorHelper.swift */; };
 		BE26F4A92090E8300084B06C /* UIViewGradientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26F4A82090E8300084B06C /* UIViewGradientHelper.swift */; };
 		BE26F4AB20912A330084B06C /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26F4AA20912A330084B06C /* AppUtility.swift */; };
+		BE26F4C320926DB60084B06C /* SFCompactText-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE26F4AE20926D6F0084B06C /* SFCompactText-LightItalic.otf */; };
+		BE26F4C420926DB60084B06C /* SFCompactText-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE26F4AF20926D710084B06C /* SFCompactText-Bold.otf */; };
+		BE26F4C620926DB60084B06C /* SFCompactText-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE26F4B120926D760084B06C /* SFCompactText-BoldItalic.otf */; };
+		BE26F4C720926DB60084B06C /* SFCompactText-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE26F4B220926D790084B06C /* SFCompactText-RegularItalic.otf */; };
+		BE26F4CA20926DB60084B06C /* SFCompactText-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE26F4B520926D830084B06C /* SFCompactText-Light.otf */; };
+		BE26F4CB20926DB60084B06C /* SFCompactText-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE26F4B620926D860084B06C /* SFCompactText-SemiboldItalic.otf */; };
+		BE26F4CC20926DB60084B06C /* SFCompactText-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE26F4B720926D890084B06C /* SFCompactText-Medium.otf */; };
+		BE26F4CD20926DB60084B06C /* SFCompactText-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE26F4B820926D8C0084B06C /* SFCompactText-MediumItalic.otf */; };
+		BE26F4CE20926DB60084B06C /* SFCompactText-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE26F4B920926D900084B06C /* SFCompactText-Heavy.otf */; };
+		BE26F4D120926DB60084B06C /* SFCompactText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE26F4BC20926D990084B06C /* SFCompactText-Semibold.otf */; };
+		BE26F4D420926DB60084B06C /* SFCompactText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE26F4BF20926DA50084B06C /* SFCompactText-Regular.otf */; };
+		BE26F4D520926DB60084B06C /* SFCompactText-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE26F4C020926DAB0084B06C /* SFCompactText-HeavyItalic.otf */; };
+		BE26F4D920927C0A0084B06C /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26F4D820927C0A0084B06C /* Ingredients.swift */; };
 		BE91D56C20670DF20018928F /* RecipeEditDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE91D56B20670DF20018928F /* RecipeEditDetailViewController.swift */; };
 		BE95244F2061B70300722E51 /* ProfileImagePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE95244E2061B70300722E51 /* ProfileImagePickerHelper.swift */; };
 		BEAE3149208669FE00A180A1 /* LoginViewController+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAE3148208669FE00A180A1 /* LoginViewController+TextField.swift */; };
@@ -56,6 +69,19 @@
 		BE26F4A62090D5D30084B06C /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		BE26F4A82090E8300084B06C /* UIViewGradientHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewGradientHelper.swift; sourceTree = "<group>"; };
 		BE26F4AA20912A330084B06C /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
+		BE26F4AE20926D6F0084B06C /* SFCompactText-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-LightItalic.otf"; sourceTree = "<group>"; };
+		BE26F4AF20926D710084B06C /* SFCompactText-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-Bold.otf"; sourceTree = "<group>"; };
+		BE26F4B120926D760084B06C /* SFCompactText-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-BoldItalic.otf"; sourceTree = "<group>"; };
+		BE26F4B220926D790084B06C /* SFCompactText-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-RegularItalic.otf"; sourceTree = "<group>"; };
+		BE26F4B520926D830084B06C /* SFCompactText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-Light.otf"; sourceTree = "<group>"; };
+		BE26F4B620926D860084B06C /* SFCompactText-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		BE26F4B720926D890084B06C /* SFCompactText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-Medium.otf"; sourceTree = "<group>"; };
+		BE26F4B820926D8C0084B06C /* SFCompactText-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-MediumItalic.otf"; sourceTree = "<group>"; };
+		BE26F4B920926D900084B06C /* SFCompactText-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-Heavy.otf"; sourceTree = "<group>"; };
+		BE26F4BC20926D990084B06C /* SFCompactText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-Semibold.otf"; sourceTree = "<group>"; };
+		BE26F4BF20926DA50084B06C /* SFCompactText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-Regular.otf"; sourceTree = "<group>"; };
+		BE26F4C020926DAB0084B06C /* SFCompactText-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-HeavyItalic.otf"; sourceTree = "<group>"; };
+		BE26F4D820927C0A0084B06C /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 		BE91D56B20670DF20018928F /* RecipeEditDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEditDetailViewController.swift; sourceTree = "<group>"; };
 		BE95244E2061B70300722E51 /* ProfileImagePickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImagePickerHelper.swift; sourceTree = "<group>"; };
 		BEAE3148208669FE00A180A1 /* LoginViewController+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+TextField.swift"; sourceTree = "<group>"; };
@@ -142,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				BE0B341020602120003B026E /* Main.storyboard */,
+				BE26F4D720926DC60084B06C /* Fonts */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -185,6 +212,7 @@
 			children = (
 				BE0B3427206056AF003B026E /* User.swift */,
 				BE0B3429206056DA003B026E /* Recipe.swift */,
+				BE26F4D820927C0A0084B06C /* Ingredients.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,16 +229,35 @@
 			isa = PBXGroup;
 			children = (
 				BE26F4A62090D5D30084B06C /* ColorHelper.swift */,
+				BE26F4A82090E8300084B06C /* UIViewGradientHelper.swift */,
 				BE26F4AA20912A330084B06C /* AppUtility.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		BE26F4D720926DC60084B06C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BE26F4AF20926D710084B06C /* SFCompactText-Bold.otf */,
+				BE26F4B120926D760084B06C /* SFCompactText-BoldItalic.otf */,
+				BE26F4B920926D900084B06C /* SFCompactText-Heavy.otf */,
+				BE26F4C020926DAB0084B06C /* SFCompactText-HeavyItalic.otf */,
+				BE26F4B520926D830084B06C /* SFCompactText-Light.otf */,
+				BE26F4AE20926D6F0084B06C /* SFCompactText-LightItalic.otf */,
+				BE26F4B720926D890084B06C /* SFCompactText-Medium.otf */,
+				BE26F4B820926D8C0084B06C /* SFCompactText-MediumItalic.otf */,
+				BE26F4BF20926DA50084B06C /* SFCompactText-Regular.otf */,
+				BE26F4B220926D790084B06C /* SFCompactText-RegularItalic.otf */,
+				BE26F4BC20926D990084B06C /* SFCompactText-Semibold.otf */,
+				BE26F4B620926D860084B06C /* SFCompactText-SemiboldItalic.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		BEAE314A20866AC500A180A1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				BEAE3148208669FE00A180A1 /* LoginViewController+TextField.swift */,
-				BE26F4A82090E8300084B06C /* UIViewGradientHelper.swift */,
 			);
 			name = Extensions;
 			path = ../Extensions;
@@ -293,9 +340,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE26F4C420926DB60084B06C /* SFCompactText-Bold.otf in Resources */,
 				BE0B341720602120003B026E /* LaunchScreen.storyboard in Resources */,
+				BE26F4C620926DB60084B06C /* SFCompactText-BoldItalic.otf in Resources */,
+				BE26F4D120926DB60084B06C /* SFCompactText-Semibold.otf in Resources */,
+				BE26F4C720926DB60084B06C /* SFCompactText-RegularItalic.otf in Resources */,
+				BE26F4D520926DB60084B06C /* SFCompactText-HeavyItalic.otf in Resources */,
+				BE26F4CC20926DB60084B06C /* SFCompactText-Medium.otf in Resources */,
+				BE26F4CE20926DB60084B06C /* SFCompactText-Heavy.otf in Resources */,
+				BE26F4C320926DB60084B06C /* SFCompactText-LightItalic.otf in Resources */,
+				BE26F4CB20926DB60084B06C /* SFCompactText-SemiboldItalic.otf in Resources */,
 				BE0B341420602120003B026E /* Assets.xcassets in Resources */,
 				BE1DCF002082B7B6003148BE /* Podfile in Resources */,
+				BE26F4D420926DB60084B06C /* SFCompactText-Regular.otf in Resources */,
+				BE26F4CA20926DB60084B06C /* SFCompactText-Light.otf in Resources */,
+				BE26F4CD20926DB60084B06C /* SFCompactText-MediumItalic.otf in Resources */,
 				BE0B341220602120003B026E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +414,7 @@
 				BE13C7B520609C9E004DB4C7 /* CloudKitManager.swift in Sources */,
 				BE0B342C20605771003B026E /* RecipesController.swift in Sources */,
 				BEE176602061AC0900177909 /* RecipeCollectionViewController.swift in Sources */,
+				BE26F4D920927C0A0084B06C /* Ingredients.swift in Sources */,
 				BE91D56C20670DF20018928F /* RecipeEditDetailViewController.swift in Sources */,
 				BEE1765E2061A2F500177909 /* RecipeImagePickerHelper.swift in Sources */,
 				BEAE31542089241600A180A1 /* EditProfileViewController.swift in Sources */,
