@@ -63,7 +63,7 @@ extension RecipeEditDetailViewController: UIImagePickerControllerDelegate, UINav
 //                RecipesController.shared.updateRecipe(recipe: recipe, recipeImage: uploadData) { (true) in
                     DispatchQueue.main.async {
 //                        self.recipes?.recipeImage = uploadData
-                        self.recipeImageView.contentMode = .scaleAspectFill
+//                        self.recipeImageView.contentMode = .scaleAspectFill
                         self.recipeImageView.image = chosenImage
                     }
                 }

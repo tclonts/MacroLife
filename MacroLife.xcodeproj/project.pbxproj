@@ -36,6 +36,7 @@
 		BE26F4D420926DB60084B06C /* SFCompactText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE26F4BF20926DA50084B06C /* SFCompactText-Regular.otf */; };
 		BE26F4D520926DB60084B06C /* SFCompactText-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE26F4C020926DAB0084B06C /* SFCompactText-HeavyItalic.otf */; };
 		BE26F4D920927C0A0084B06C /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26F4D820927C0A0084B06C /* Ingredients.swift */; };
+		BE3AE01F2093C629007C9D94 /* IngredientsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3AE01E2093C629007C9D94 /* IngredientsController.swift */; };
 		BE91D56C20670DF20018928F /* RecipeEditDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE91D56B20670DF20018928F /* RecipeEditDetailViewController.swift */; };
 		BE95244F2061B70300722E51 /* ProfileImagePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE95244E2061B70300722E51 /* ProfileImagePickerHelper.swift */; };
 		BEAE3149208669FE00A180A1 /* LoginViewController+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAE3148208669FE00A180A1 /* LoginViewController+TextField.swift */; };
@@ -82,6 +83,7 @@
 		BE26F4BF20926DA50084B06C /* SFCompactText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-Regular.otf"; sourceTree = "<group>"; };
 		BE26F4C020926DAB0084B06C /* SFCompactText-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-HeavyItalic.otf"; sourceTree = "<group>"; };
 		BE26F4D820927C0A0084B06C /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
+		BE3AE01E2093C629007C9D94 /* IngredientsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsController.swift; sourceTree = "<group>"; };
 		BE91D56B20670DF20018928F /* RecipeEditDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEditDetailViewController.swift; sourceTree = "<group>"; };
 		BE95244E2061B70300722E51 /* ProfileImagePickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImagePickerHelper.swift; sourceTree = "<group>"; };
 		BEAE3148208669FE00A180A1 /* LoginViewController+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+TextField.swift"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				BE0B342D20605784003B026E /* UsersController.swift */,
 				BE0B342B20605771003B026E /* RecipesController.swift */,
+				BE3AE01E2093C629007C9D94 /* IngredientsController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				BEE1765E2061A2F500177909 /* RecipeImagePickerHelper.swift in Sources */,
 				BEAE31542089241600A180A1 /* EditProfileViewController.swift in Sources */,
 				BEE1765A206177FC00177909 /* ProfileViewController.swift in Sources */,
+				BE3AE01F2093C629007C9D94 /* IngredientsController.swift in Sources */,
 				BE0B3428206056AF003B026E /* User.swift in Sources */,
 				BE26F4AB20912A330084B06C /* AppUtility.swift in Sources */,
 				BE0B340D20602120003B026E /* AppDelegate.swift in Sources */,

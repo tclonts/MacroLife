@@ -98,7 +98,6 @@ class LoginViewController: UIViewController {
                         let users = records?.compactMap({User(cloudKitRecord: $0)})
                         UsersController.shared.currentUser = users?.first
                         let email = users?.first?.email
-//                        let email = (record?.value(forKey: "email"))!
                         //add user defaults for logged in
                         UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
 //                        UserDefaults.standard.synchronize()

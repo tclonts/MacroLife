@@ -51,7 +51,7 @@ class User: CloudKitManager {
     // This is the reference to the default Apple 'Users' record ID
     let appleUserRef: CKReference
    
-    init(profileImage: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "DefaultProfile")), firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Int? = Int(), leanBodyMass: Int? = Int(), bodyFatPercentage: Int? = Int(), appleUserRef: CKReference) {
+    init(profileImage: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "DefaultProfile-1")), firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Int? = Int(), leanBodyMass: Int? = Int(), bodyFatPercentage: Int? = Int(), appleUserRef: CKReference) {
         
             self.appleUserRef = appleUserRef
             self.firstName = firstName

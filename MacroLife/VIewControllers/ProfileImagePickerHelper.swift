@@ -64,7 +64,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                 UsersController.shared.updateUserPhoto(user: user!, profileImage: uploadData) { (true) in
                   
                     DispatchQueue.main.async {
-                        //                        self.profileImageView.contentMode = .scaleAspectFill
+                        self.profileImageView.contentMode = .scaleAspectFill
                         self.profileImageView.image = chosenImage
                     }
                     

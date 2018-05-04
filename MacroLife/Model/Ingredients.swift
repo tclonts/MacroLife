@@ -12,17 +12,22 @@ import CloudKit
 class Ingredient {
 
     // CodingKeys
-    static let typeKey = "Recipe"
+    static let typeKey = "Ingredient"
+    private let recipeRefKey = "recipeRef"
     private let ingredientNameKey = "ingredientName"
 
     // Properties
     var ingredientName: String
+    weak var recipe: Recipe?
     var cloudkitRecordID: CKRecordID?
+    
+//    var recipeRef: CKReference
 
     // Initializer
-    init(ingredientName: String) {
+    init(ingredientName: String, recipe: Recipe?) {
         
         self.ingredientName = ingredientName
+        self.recipe = recipe
     }
     
     // Used for Fetching records from CloudKit
@@ -38,10 +43,16 @@ class Ingredient {
     
     var cloudKitRecord: CKRecord {
         let recordID = cloudkitRecordID ?? CKRecordID(recordName: UUID().uuidString)
-        let record = CKRecord(recordType: Recipe.typeKey, recordID: recordID)
+        let record = CKRecord(recordType: Ingredient.typeKey, recordID: recordID)
         
         record.setValue(ingredientName, forKey: ingredientNameKey)
- 
+        
+        if let recipeRecordID = recipe?.cloudkitRecordID {
+            
+            let recipeReference = CKReference(recordID: recipeRecordID, action: .deleteSelf)
+            
+            record.setValue(recipeReference, forKey: recipeRefKey)
+        }
         
         return record
     }

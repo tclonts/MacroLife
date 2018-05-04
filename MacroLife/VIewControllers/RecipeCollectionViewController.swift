@@ -15,10 +15,16 @@ class RecipeCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         navigationController?.navigationBar.tintColor = UIColor.mLBrightPurple
     
 //        collectionView?.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadCVC), name: RecipesController.shared.tableVCReloadNotification, object: nil)
+        self.collectionView?.reloadData()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadCVC), name: RecipesController.shared.tableVCReloadNotification, object: nil)
     }
     

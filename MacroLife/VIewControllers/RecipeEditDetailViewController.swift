@@ -21,7 +21,7 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
         imagePicker.delegate = self
         
         // Make a blank, new recipe so that ingredients can be added to it, and when you hit the save button, you just update this blank recipe with the information the user enters.
-        RecipesController.shared.createRecipe(recipeImage: #imageLiteral(resourceName: "DefaultProfile"), recipeTitle: "", recipeInstructions: "", recipeIngredients: []) { (success, recipe) in
+        RecipesController.shared.createRecipe(recipeImage: #imageLiteral(resourceName: "RecipeDefaultImage"), recipeTitle: "", recipeInstructions: "", recipeIngredients: []) { (success, recipe) in
             
             self.recipe = recipe
         }
@@ -82,10 +82,10 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
                                         let textField = alert.textFields![0] as UITextField
                                         guard let text = textField.text else { return }
                                         guard let recipe = self.recipe else { return }
-                                        let newIngredient = Ingredient(ingredientName: text)
+                                        let newIngredient = Ingredient(ingredientName: text, recipe: recipe)
                                         
                                         self.recipe?.recipeIngredientsList?.append(newIngredient)
-//                                        RecipesController.shared.addIngredientWith(ingredientName: text, recipe: RecipeCrecipe)
+
                                         self.ingredientsTableView.reloadData()
                                         
                                         
@@ -109,14 +109,13 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
             present(alertController, animated: true, completion: nil)
             return }
         
+        guard let recipe = recipe else { return }
         guard let image = recipeImageView.image else { return }
         guard let imageData = UIImageJPEGRepresentation(image, 0.01) else { return }
-        
         guard let recipeTitle = recipeTitleTextField.text else { return }
-        guard let recipeIngredients = recipe?.recipeIngredientsList else { return }
-//        guard let recipeIngredients = recipeIngredientsTextView.text else { return }
+        guard let recipeIngredients = recipe.recipeIngredientsList else { return }
         guard let recipeInstructions = recipeInstructionsTextView.text else { return }
-        guard let recipe = recipe else { return }
+        
         
         RecipesController.shared.updateRecipe(recipe: recipe, recipeImage: imageData, recipeTitle: recipeTitle, recipeIngredients: recipeIngredients, recipeInstructions: recipeInstructions) { (true) in
             
@@ -129,6 +128,7 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
                         alertController.addAction(okAction)
                         self.present(alertController, animated: true, completion: nil)
                         print("Success Saving")
+        
                     }
         }
     
@@ -141,7 +141,6 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
     // MARK: - Table view data source
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        guard let ingredientsList = recipe?.recipeIngredientsList?.compactMap({$0}) else { return 0 }
         guard let ingredientsList = recipe?.recipeIngredientsList else { return 0 }
         return ingredientsList.count /*(ingredientsList.count)*/
     }
@@ -152,8 +151,7 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
         let newCell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
        
         let ingredient = recipe?.recipeIngredientsList![indexPath.row]
-//        let ingredientList = self.recipe?.recipeIngredientsList?.compactMap{$0.ingredientName}
-//        let ingredient = ingredientList?[indexPath.row]
+
         newCell.textLabel?.text = ingredient?.ingredientName
         // return the cell
         
@@ -162,8 +160,6 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
         // get a playlist
     
 }
-
-
 
 
 

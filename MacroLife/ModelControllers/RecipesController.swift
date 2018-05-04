@@ -18,7 +18,8 @@ class RecipesController {
 
     
     init() {
-        loadFromPersistentStore( )
+        loadFromPersistentStore()
+        
     }
     // MARK: - Properites
     var recipes: [Recipe] = []
@@ -30,37 +31,51 @@ class RecipesController {
     }
     }
     
+    
 //     Create New Recipe
     
     func createRecipe(recipeImage: UIImage?, recipeTitle: String, recipeInstructions: String, recipeIngredients: [Ingredient], completion: @escaping(_ success: Bool, _ recipe: Recipe?) -> Void) {
         guard let recipeImage = recipeImage else { return }
         guard let data = UIImageJPEGRepresentation(recipeImage, 0.8) else { return }
-        let newRecipe = Recipe(recipeImage: data, recipeTitle: recipeTitle, recipeInstructions: recipeInstructions, recipeIngredients: recipeIngredients)
-        recipes.append(newRecipe)
+        
+        
+            let newRecipe = Recipe(recipeImage: data, recipeTitle: recipeTitle, recipeInstructions: recipeInstructions, recipeIngredients: recipeIngredients)
+            
         saveToPersistentStore()
         completion(true, newRecipe)
+        }
+    
+    
+    // Add ingredient to recipe
+    func add(ingredient: Ingredient, toRecipe recipe: Recipe) {
+        recipe.recipeIngredientsList?.append(ingredient)
+//        saveToPersistentStore()
     }
     
-    func update(ingredient: Ingredient, ingredientName : String) {
-        ingredient.ingredientName = ingredientName
-    }
-    
-    // Add a recipe to the Recipes array for a certain recipe
-    func addIngredientWith(ingredientName: String, recipe: Recipe) {
-        let newIngredient = Ingredient(ingredientName: ingredientName)
-        recipe.recipeIngredientsList?.append(newIngredient)
-        saveToPersistentStore()
-    }
-    
-
     
     // Update Recipe
     func updateRecipe(recipe: Recipe, recipeImage: Data?, recipeTitle: String, recipeIngredients: [Ingredient], recipeInstructions: String, completion: @escaping(_ success: Bool) -> Void) {
     
         guard let recipeImage = recipeImage else { return }
         
-        let record = recipe.cloudKitRecord
-        CloudKitManager.shared.modifyRecords([record], database: publicDB, perRecordCompletion: nil,  completion: { (_, error) in
+        recipe.recipeImage = recipeImage
+        recipe.recipeTitle = recipeTitle
+        recipe.recipeInstructions = recipeInstructions
+        
+        var recordsToSave = [recipe.cloudKitRecord]
+        
+        let ingredientRecords = recipeIngredients.map({$0.cloudKitRecord})
+        
+        self.recipes.append(recipe)
+        
+        recordsToSave.append(contentsOf: ingredientRecords)
+        
+        CloudKitManager.shared.modifyRecords(recordsToSave, database: publicDB, perRecordCompletion: nil,  completion: { (_, error) in
+            if let error = error {
+                print("error modifying \(error) \(error.localizedDescription)")
+                completion(false); return
+            }
+     
             completion(true)
         })
     }
@@ -100,8 +115,41 @@ class RecipesController {
                 print("Success fetching recipes from cloudkit")
             }
             guard let records = records else { return }
-            var recipes = records.compactMap{Recipe(cloudKitRecord: $0)}
+            let recipes = records.compactMap{Recipe(cloudKitRecord: $0)}
             self.recipes = recipes
+            
         }
     }
-}
+    
+
+    
+    func fetchIngredientsFor(recipe: Recipe, completion: @escaping () -> Void) {
+        
+        
+        let recipeRef = CKReference(record: recipe.cloudKitRecord, action: .deleteSelf)
+        
+        let predicate = NSPredicate(format: "recipeRef == %@", recipeRef)
+        
+        guard let ingredientsRecordIDs = recipe.recipeIngredientsList?.compactMap({$0.cloudKitRecord}) else { return }
+        
+        let predicate2 = NSPredicate(format: "NOT(recordID IN %@)", ingredientsRecordIDs)
+        
+        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, predicate2])
+        
+        CloudKitManager.shared.fetchRecordsOf(type: Ingredient.typeKey, predicate: compoundPredicate, database: RecipesController.shared.publicDB) { (records, error) in
+            if let error = error {
+                print("Error fetching ingredients from cloudkit: \(error.localizedDescription)")
+            } else {
+                print("Success fetching ingredients from cloudkit")
+            }
+            guard let records = records else { completion(); return }
+            
+            let ingredients = records.compactMap({ Ingredient(cloudKitRecord: $0) })
+            
+            recipe.recipeIngredientsList?.append(contentsOf: ingredients)
+            
+            completion()
+            }
+        }
+    }
+
