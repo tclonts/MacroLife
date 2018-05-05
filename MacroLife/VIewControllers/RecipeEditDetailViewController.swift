@@ -66,7 +66,7 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
     
     // MARK: - Actions
     
-    @IBAction func addIngredientButtonTapped(_ sender: UIBarButtonItem) {
+    @IBAction func addIngredientButtonTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: "Add Ingredient",
                                       message: "Please add an ingredient to your recipe",
                                       preferredStyle: .alert)
@@ -85,7 +85,7 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
                                         let newIngredient = Ingredient(ingredientName: text, recipe: recipe)
                                         
                                         self.recipe?.recipeIngredientsList?.append(newIngredient)
-
+                                        
                                         self.ingredientsTableView.reloadData()
                                         
                                         
@@ -96,9 +96,11 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
         }
         alert.addAction(cancelAction)
         alert.addAction(addAction)
-        present(alert, animated: true, completion: nil)
-
+        present(alert, animated: true)
+        
     }
+  
+    
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
 //        guard let recipeImageData = self.recipes?.recipeImage else { return }
 //        let image = UIImage(data: recipeImageData)

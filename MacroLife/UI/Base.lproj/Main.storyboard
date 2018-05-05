@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1027,13 +1026,27 @@
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iZI-CU-7Za">
                                                 <rect key="frame" x="0.0" y="55" width="300" height="191.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add Ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EZS-J3-Zjy">
+                                                <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="TRd-zc-HLX">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SFCompactText-Semibold" family="SF Compact Text" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG8-na-08H">
+                                                            <rect key="frame" x="8" y="12" width="135" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="SFCompactText-Semibold" family="SF Compact Text" pointSize="17"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9F0-ja-Zz0">
+                                                            <rect key="frame" x="266" y="12" width="22" height="22"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="tintColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <connections>
+                                                                <action selector="addIngredientButtonTapped:" destination="BWr-Sf-7TF" eventType="touchUpInside" id="tOW-aW-p96"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ingredientCell" textLabel="col-ZT-Oqz" rowHeight="38" style="IBUITableViewCellStyleDefault" id="eiF-qQ-Mun" customClass="IngredientTableViewCell" customModule="MacroLife" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="72" width="300" height="38"/>
@@ -1097,18 +1110,11 @@
                         <viewLayoutGuide key="safeArea" id="kBO-WX-Ibd"/>
                     </view>
                     <navigationItem key="navigationItem" title="Recipe Details" id="91H-0K-FWY">
-                        <rightBarButtonItems>
-                            <barButtonItem style="plain" systemItem="save" id="OON-Ry-e9F">
-                                <connections>
-                                    <action selector="saveButtonTapped:" destination="BWr-Sf-7TF" id="FE1-nc-61h"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="add" id="X1G-Vu-cv0">
-                                <connections>
-                                    <action selector="addIngredientButtonTapped:" destination="BWr-Sf-7TF" id="rYU-Q2-ePG"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="OON-Ry-e9F">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="BWr-Sf-7TF" id="FE1-nc-61h"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="ingredientsTableView" destination="iZI-CU-7Za" id="9hO-Zv-4R1"/>
@@ -1134,8 +1140,8 @@
         <image name="DefaultRecipe" width="240" height="239"/>
         <image name="ML-fit-1" width="480" height="480"/>
         <image name="RecipeDefaultImage" width="64" height="64"/>
-        <image name="TabBarProfile" width="37" height="37"/>
-        <image name="TabBarRecipe" width="37" height="37"/>
+        <image name="TabBarProfile" width="35" height="35"/>
+        <image name="TabBarRecipe" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dfd-6q-zxu"/>
