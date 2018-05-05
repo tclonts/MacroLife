@@ -27,66 +27,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZyF-FR-1iX">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZyF-FR-1iX">
                                 <rect key="frame" x="122" y="565" width="130" height="30"/>
                                 <state key="normal" title="Save Results"/>
                                 <connections>
                                     <action selector="saveResultsButtonTapped:" destination="aE4-ll-0XW" eventType="touchUpInside" id="qJ8-yg-Ya6"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6hU-2E-Hpi">
-                                <rect key="frame" x="37" y="108" width="300" height="411"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6hU-2E-Hpi">
+                                <rect key="frame" x="37" y="108" width="300" height="430"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P92-KE-XbK">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="11"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P92-KE-XbK">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Vv-eg-2BC">
-                                        <rect key="frame" x="0.0" y="31" width="300" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Vv-eg-2BC">
+                                        <rect key="frame" x="0.0" y="50" width="300" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lxF-ax-7Ta">
-                                        <rect key="frame" x="0.0" y="81" width="300" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lxF-ax-7Ta">
+                                        <rect key="frame" x="0.0" y="100" width="300" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h7j-jN-MUO">
-                                        <rect key="frame" x="0.0" y="131" width="300" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h7j-jN-MUO">
+                                        <rect key="frame" x="0.0" y="150" width="300" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xh4-dq-VJr">
-                                        <rect key="frame" x="0.0" y="181" width="300" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xh4-dq-VJr">
+                                        <rect key="frame" x="0.0" y="200" width="300" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gtX-VI-gix">
-                                        <rect key="frame" x="0.0" y="231" width="300" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gtX-VI-gix">
+                                        <rect key="frame" x="0.0" y="250" width="300" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Body Weight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HhA-mc-2B0">
-                                        <rect key="frame" x="0.0" y="281" width="300" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Body Weight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HhA-mc-2B0">
+                                        <rect key="frame" x="0.0" y="300" width="300" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lean Body Mass" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R20-aE-Nvs">
-                                        <rect key="frame" x="0.0" y="331" width="300" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lean Body Mass" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R20-aE-Nvs">
+                                        <rect key="frame" x="0.0" y="350" width="300" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Body Fat Percentage" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0vh-Ca-fNO">
-                                        <rect key="frame" x="0.0" y="381" width="300" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Body Fat Percentage" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0vh-Ca-fNO">
+                                        <rect key="frame" x="0.0" y="400" width="300" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -398,7 +398,7 @@
         <scene sceneID="KNY-Rl-4VF">
             <objects>
                 <navigationController id="E2X-Nf-4gj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="nu3-p3-bmo">
+                    <tabBarItem key="tabBarItem" title="Profile" image="TabBarProfile" id="nu3-p3-bmo">
                         <color key="badgeColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SCJ-Ij-2FP">
@@ -417,7 +417,7 @@
         <scene sceneID="nKP-IV-mFr">
             <objects>
                 <navigationController id="jeh-0r-gve" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recipes" id="tod-Bv-BZu">
+                    <tabBarItem key="tabBarItem" title="Recipes" image="TabBarRecipe" id="tod-Bv-BZu">
                         <color key="badgeColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Stb-md-OXd">
@@ -512,19 +512,26 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hSV-kS-nuk">
                                 <rect key="frame" x="177" y="298" width="20" height="20"/>
                             </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ML-fit-1" translatesAutoresizingMaskIntoConstraints="NO" id="M2i-af-MDQ">
+                                <rect key="frame" x="77" y="97" width="221" height="193"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ntO-Xr-QYe" firstAttribute="top" secondItem="hSV-kS-nuk" secondAttribute="bottom" constant="22" id="0ud-x0-0nA"/>
+                            <constraint firstItem="M2i-af-MDQ" firstAttribute="leading" secondItem="MJ3-0F-LNp" secondAttribute="leading" constant="77" id="2a0-S1-6pc"/>
+                            <constraint firstItem="MJ3-0F-LNp" firstAttribute="trailing" secondItem="M2i-af-MDQ" secondAttribute="trailing" constant="77" id="8kk-0g-qQN"/>
                             <constraint firstItem="MJ3-0F-LNp" firstAttribute="bottom" secondItem="wZL-Yd-wAe" secondAttribute="bottom" constant="177" id="9Go-Fe-GXA"/>
                             <constraint firstItem="hSV-kS-nuk" firstAttribute="leading" secondItem="MJ3-0F-LNp" secondAttribute="leading" constant="177" id="HJU-4c-twY"/>
                             <constraint firstItem="MJ3-0F-LNp" firstAttribute="trailing" secondItem="wZL-Yd-wAe" secondAttribute="trailing" constant="38" id="Llo-hJ-vM8"/>
                             <constraint firstItem="mmn-tB-NYf" firstAttribute="leading" secondItem="MJ3-0F-LNp" secondAttribute="leading" constant="37" id="cnC-iX-66z"/>
                             <constraint firstItem="MJ3-0F-LNp" firstAttribute="trailing" secondItem="hSV-kS-nuk" secondAttribute="trailing" constant="178" id="dG7-ni-dhI"/>
                             <constraint firstItem="MJ3-0F-LNp" firstAttribute="trailing" secondItem="mmn-tB-NYf" secondAttribute="trailing" constant="38" id="dud-Sm-IZw"/>
+                            <constraint firstItem="M2i-af-MDQ" firstAttribute="top" secondItem="MJ3-0F-LNp" secondAttribute="top" constant="33" id="giG-lX-fbH"/>
                             <constraint firstItem="xqM-hv-2jP" firstAttribute="leading" secondItem="MJ3-0F-LNp" secondAttribute="leading" constant="37" id="gnD-1v-f5B"/>
                             <constraint firstItem="wZL-Yd-wAe" firstAttribute="leading" secondItem="MJ3-0F-LNp" secondAttribute="leading" constant="37" id="j2i-jf-EGB"/>
                             <constraint firstItem="MJ3-0F-LNp" firstAttribute="trailing" secondItem="ntO-Xr-QYe" secondAttribute="trailing" constant="38" id="jsP-Sv-2h5"/>
+                            <constraint firstItem="hSV-kS-nuk" firstAttribute="top" secondItem="M2i-af-MDQ" secondAttribute="bottom" constant="8" id="kLj-Jm-21K"/>
                             <constraint firstItem="wZL-Yd-wAe" firstAttribute="top" secondItem="hSV-kS-nuk" secondAttribute="bottom" constant="22" id="mbu-cH-UhU"/>
                             <constraint firstItem="MJ3-0F-LNp" firstAttribute="trailing" secondItem="xqM-hv-2jP" secondAttribute="trailing" constant="38" id="oS5-fU-KTJ"/>
                             <constraint firstItem="hSV-kS-nuk" firstAttribute="top" secondItem="MJ3-0F-LNp" secondAttribute="top" constant="234" id="oey-UN-RyH"/>
@@ -537,8 +544,10 @@
                     <navigationItem key="navigationItem" title="MacroLife" id="hE5-g8-tAC"/>
                     <connections>
                         <outlet property="activityIndicator" destination="hSV-kS-nuk" id="aQD-Hf-sx0"/>
+                        <outlet property="backgroundView" destination="j6d-wU-ope" id="aqW-Wa-1GL"/>
                         <outlet property="emailTextField" destination="ntO-Xr-QYe" id="wKV-9v-xoV"/>
                         <outlet property="loginButton" destination="mmn-tB-NYf" id="Xf6-6y-saL"/>
+                        <outlet property="logoImageView" destination="M2i-af-MDQ" id="lpb-Yp-9US"/>
                         <outlet property="passwordTextField" destination="xqM-hv-2jP" id="0O9-5A-RbY"/>
                         <outlet property="signUpButton" destination="70p-vR-jmq" id="Rtg-Bx-E9f"/>
                         <segue destination="UpQ-Nv-KS2" kind="showDetail" identifier="toProfileDetail" id="dfd-6q-zxu"/>
@@ -708,7 +717,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
-                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfile-1" translatesAutoresizingMaskIntoConstraints="NO" id="fvJ-Ht-hTq">
+                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="fvJ-Ht-hTq">
                                         <rect key="frame" x="137" y="27" width="101" height="100"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -985,7 +994,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hG0-di-9F7">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="197"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RecipeDefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="et8-YI-T1o">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultRecipe" translatesAutoresizingMaskIntoConstraints="NO" id="et8-YI-T1o">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="197"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <gestureRecognizers/>
@@ -1121,10 +1130,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DefaultProfile-1" width="128" height="128"/>
+        <image name="DefaultProfile" width="240" height="239"/>
+        <image name="DefaultRecipe" width="240" height="239"/>
+        <image name="ML-fit-1" width="480" height="480"/>
         <image name="RecipeDefaultImage" width="64" height="64"/>
+        <image name="TabBarProfile" width="37" height="37"/>
+        <image name="TabBarRecipe" width="37" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vzv-zG-xIh"/>
+        <segue reference="dfd-6q-zxu"/>
     </inferredMetricsTieBreakers>
 </document>

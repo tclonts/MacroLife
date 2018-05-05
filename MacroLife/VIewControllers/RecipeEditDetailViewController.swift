@@ -21,7 +21,7 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
         imagePicker.delegate = self
         
         // Make a blank, new recipe so that ingredients can be added to it, and when you hit the save button, you just update this blank recipe with the information the user enters.
-        RecipesController.shared.createRecipe(recipeImage: #imageLiteral(resourceName: "RecipeDefaultImage"), recipeTitle: "", recipeInstructions: "", recipeIngredients: []) { (success, recipe) in
+        RecipesController.shared.createRecipe(recipeImage: #imageLiteral(resourceName: "DefaultRecipe"), recipeTitle: "", recipeInstructions: "", recipeIngredients: []) { (success, recipe) in
             
             self.recipe = recipe
         }

@@ -18,10 +18,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
-
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet var backgroundView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        applyMotionEffect(toView: backgroundView, magnitude: 20)
+        applyMotionEffect(toView: logoImageView, magnitude: -50)
 
         view.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
         checkLoginButtonActive()
@@ -136,7 +141,21 @@ class LoginViewController: UIViewController {
     }
     
     
-    // MARK: - Background gradient
+    //MARK: - Logo/Background Motion Paralax Effect
+    func applyMotionEffect (toView view: UIView, magnitude: Float) {
+        let xMotion = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+        xMotion.minimumRelativeValue = -magnitude
+        xMotion.maximumRelativeValue = magnitude
+        
+        let yMotion = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        yMotion.minimumRelativeValue = -magnitude
+        yMotion.maximumRelativeValue = magnitude
+        
+        let group = UIMotionEffectGroup()
+        group.motionEffects = [xMotion, yMotion]
+        
+        view.addMotionEffect(group)
+    }
 
 }
     
