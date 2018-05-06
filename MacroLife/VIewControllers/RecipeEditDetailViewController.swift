@@ -156,6 +156,8 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
         let ingredient = recipe?.recipeIngredientsList![indexPath.row]
 
         newCell.textLabel?.text = ingredient?.ingredientName
+        
+//        newCell.detailTextLabel?.text = ingredient?.ingredientName
         // return the cell
         
         return newCell
