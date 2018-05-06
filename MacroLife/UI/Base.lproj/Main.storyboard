@@ -745,79 +745,79 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="y3h-PQ-SLW" userLabel="User Details Stack View">
-                                <rect key="frame" x="32" y="357" width="100" height="244.5"/>
+                                <rect key="frame" x="32" y="357" width="100" height="244"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrg-Ta-aSD">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="16"/>
-                                        <fontDescription key="fontDescription" name="SFCompactText-Semibold" family="SF Compact Text" pointSize="13"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrg-Ta-aSD">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="SFCompactText-Semibold" family="SF Compact Text" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcG-tu-HFW">
-                                        <rect key="frame" x="0.0" y="25" width="100" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcG-tu-HFW">
+                                        <rect key="frame" x="0.0" y="23.5" width="100" height="20.5"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="woj-7O-akX">
-                                        <rect key="frame" x="0.0" y="54.5" width="100" height="1"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="woj-7O-akX">
+                                        <rect key="frame" x="0.0" y="53" width="100" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="5yM-z6-hXl"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Body Weight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebL-4G-Sok">
-                                        <rect key="frame" x="0.0" y="64.5" width="100" height="16"/>
-                                        <fontDescription key="fontDescription" name="SFCompactText-Semibold" family="SF Compact Text" pointSize="13"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body Weight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebL-4G-Sok">
+                                        <rect key="frame" x="0.0" y="63" width="100" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="SFCompactText-Semibold" family="SF Compact Text" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="BodyW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoZ-Nf-5kn">
-                                        <rect key="frame" x="0.0" y="89.5" width="100" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BodyW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoZ-Nf-5kn">
+                                        <rect key="frame" x="0.0" y="86.5" width="100" height="20.5"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rdf-qS-pTG">
-                                        <rect key="frame" x="0.0" y="119" width="100" height="1"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdf-qS-pTG">
+                                        <rect key="frame" x="0.0" y="116" width="100" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="LKO-ij-apk"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Lean Body Mass:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LK5-nH-yZT">
-                                        <rect key="frame" x="0.0" y="129" width="100" height="16"/>
-                                        <fontDescription key="fontDescription" name="SFCompactText-Semibold" family="SF Compact Text" pointSize="13"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lean Body Mass:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LK5-nH-yZT">
+                                        <rect key="frame" x="0.0" y="126" width="100" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="SFCompactText-Semibold" family="SF Compact Text" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="LeanBM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BR3-Nm-tfJ">
-                                        <rect key="frame" x="0.0" y="154" width="100" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LeanBM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BR3-Nm-tfJ">
+                                        <rect key="frame" x="0.0" y="149.5" width="100" height="20.5"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Mn-UN-ohG">
-                                        <rect key="frame" x="0.0" y="183.5" width="100" height="1"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Mn-UN-ohG">
+                                        <rect key="frame" x="0.0" y="179" width="100" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="LGM-4e-fw5"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Body Fat %:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ik-RH-RC7">
-                                        <rect key="frame" x="0.0" y="193.5" width="100" height="16"/>
-                                        <fontDescription key="fontDescription" name="SFCompactText-Semibold" family="SF Compact Text" pointSize="13"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body Fat %:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ik-RH-RC7">
+                                        <rect key="frame" x="0.0" y="189" width="100" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="SFCompactText-Semibold" family="SF Compact Text" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="BodyFat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMg-t9-ChM">
-                                        <rect key="frame" x="0.0" y="218.5" width="100" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BodyFat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMg-t9-ChM">
+                                        <rect key="frame" x="0.0" y="212.5" width="100" height="21.5"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Crj-Wr-Zl3">
-                                        <rect key="frame" x="0.0" y="243.5" width="100" height="1"/>
+                                        <rect key="frame" x="0.0" y="243" width="100" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Upx-94-dR2"/>
@@ -846,7 +846,6 @@
                             <constraint firstItem="y3h-PQ-SLW" firstAttribute="top" secondItem="5Ma-ju-l61" secondAttribute="bottom" constant="8" id="TZB-XB-GSg"/>
                             <constraint firstItem="LJ9-m2-Spb" firstAttribute="bottom" secondItem="5Ma-ju-l61" secondAttribute="bottom" constant="269" id="Xl2-Wr-aHS"/>
                             <constraint firstItem="5Ma-ju-l61" firstAttribute="top" secondItem="LJ9-m2-Spb" secondAttribute="top" id="dyl-E8-g9p"/>
-                            <constraint firstItem="LJ9-m2-Spb" firstAttribute="bottom" secondItem="iMg-t9-ChM" secondAttribute="bottom" constant="26.5" id="hOI-t3-MDI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LJ9-m2-Spb"/>
                     </view>
@@ -993,7 +992,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hG0-di-9F7">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="197"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultRecipe" translatesAutoresizingMaskIntoConstraints="NO" id="et8-YI-T1o">
+                                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultRecipe" translatesAutoresizingMaskIntoConstraints="NO" id="et8-YI-T1o">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="197"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <gestureRecognizers/>

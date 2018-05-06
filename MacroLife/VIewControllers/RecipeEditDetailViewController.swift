@@ -19,6 +19,7 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        recipeImageView.contentMode = .scaleAspectFit
         
         // Make a blank, new recipe so that ingredients can be added to it, and when you hit the save button, you just update this blank recipe with the information the user enters.
         RecipesController.shared.createRecipe(recipeImage: #imageLiteral(resourceName: "DefaultRecipe"), recipeTitle: "", recipeInstructions: "", recipeIngredients: []) { (success, recipe) in
