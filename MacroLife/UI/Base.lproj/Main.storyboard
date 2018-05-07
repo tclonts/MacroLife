@@ -1061,14 +1061,14 @@
                                         <rect key="frame" x="37" y="275" width="300" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="33" id="J23-EN-oG6"/>
-                                            <constraint firstAttribute="width" constant="300" id="l1K-Nj-PpS"/>
+                                            <constraint firstAttribute="height" constant="33" id="1rG-sy-1OF"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="BtQ-gY-Vav" firstAttribute="centerX" secondItem="qps-nh-WV9" secondAttribute="centerX" id="20A-te-xLR"/>
                                     <constraint firstItem="iZI-CU-7Za" firstAttribute="top" secondItem="TcM-8L-Uws" secondAttribute="bottom" constant="8" id="7Jj-Af-ou1"/>
                                     <constraint firstItem="TcM-8L-Uws" firstAttribute="top" secondItem="qps-nh-WV9" secondAttribute="top" constant="37" id="I34-oz-Ump"/>
                                     <constraint firstAttribute="trailing" secondItem="iZI-CU-7Za" secondAttribute="trailing" constant="38" id="IDo-DY-TMQ"/>
