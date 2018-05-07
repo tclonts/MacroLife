@@ -25,13 +25,9 @@ class User: CloudKitManager {
     private let bodyWeightKey = "bodyWeight"
     private let leanBodyMassKey = "leanBodyMass"
     private let bodyFatPercentageKey = "bodyFat"
-    
-//    private let activityLevelKey = "activityLevel"
     private let proteinKey = "protein"
     private let fatKey = "fat"
     private let carbsKey = "carbs"
-    
-    
     
     // Properties
     var profileImage: Data?
@@ -53,7 +49,6 @@ class User: CloudKitManager {
    
     init(profileImage: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "DefaultProfile")), firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Int? = Int(), leanBodyMass: Int? = Int(), bodyFatPercentage: Int? = Int(), appleUserRef: CKReference) {
         
-            self.appleUserRef = appleUserRef
             self.firstName = firstName
             self.lastName = lastName
             self.email = email
@@ -62,8 +57,8 @@ class User: CloudKitManager {
             self.bodyWeight = bodyWeight
             self.leanBodyMass = leanBodyMass
             self.bodyFatPercentage = bodyFatPercentage
-//            self.activityLevel = activityLevel
             self.profileImage = profileImage
+            self.appleUserRef = appleUserRef
     }
     // Used for fetching records from Cloudkit
     init?(cloudKitRecord: CKRecord) {
@@ -73,8 +68,8 @@ class User: CloudKitManager {
             let gender = cloudKitRecord[genderKey] as? String,
             let bodyWeight = cloudKitRecord[bodyWeightKey] as? Int,
             let leanBodyMass = cloudKitRecord[leanBodyMassKey] as? Int,
-            let appleUserRef = cloudKitRecord[User.appleUserRefKey] as? CKReference,
-            let bodyFatPercentage = cloudKitRecord[bodyFatPercentageKey] as? Int else { return nil }
+            let bodyFatPercentage = cloudKitRecord[bodyFatPercentageKey] as? Int,
+            let appleUserRef = cloudKitRecord[User.appleUserRefKey] as? CKReference else { return nil }
 
         self.appleUserRef = appleUserRef
         self.firstName = firstName
@@ -89,7 +84,6 @@ class User: CloudKitManager {
         guard let photoAsset = cloudKitRecord[profileImageKey] as? CKAsset else { return }
         
         self.profileImage = try? Data(contentsOf: photoAsset.fileURL)
-//        self.activityLevel = activityLevel
     }
     
     // Used for Saving to cloudkit

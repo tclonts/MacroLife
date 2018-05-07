@@ -20,6 +20,7 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
         super.viewDidLoad()
         imagePicker.delegate = self
         recipeImageView.contentMode = .scaleAspectFit
+        recipeInstructionsTextView.isScrollEnabled = false
         
         // Make a blank, new recipe so that ingredients can be added to it, and when you hit the save button, you just update this blank recipe with the information the user enters.
         RecipesController.shared.createRecipe(recipeImage: #imageLiteral(resourceName: "DefaultRecipe"), recipeTitle: "", recipeInstructions: "", recipeIngredients: []) { (success, recipe) in
@@ -27,38 +28,24 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
             self.recipe = recipe
         }
         
-        
-        
         view.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
         recipeTitleTextField.delegate = self
         recipeInstructionsTextView.delegate = self
-//        recipeIngredientsTextView.delegate = self
         
         recipeTitleTextField.text = "Recipe title..."
-//        recipeIngredientsTextView.text = "Recipe ingredients..."
         recipeInstructionsTextView.text = "Recipe instructions..."
         recipeTitleTextField.textColor = UIColor.lightGray
-//        recipeIngredientsTextView.textColor = UIColor.lightGray
         recipeInstructionsTextView.textColor = UIColor.lightGray
       
         // Do any additional setup after loading the view.
         textViewDidChange(recipeInstructionsTextView)
-//        textViewDidChange(recipeIngredientsTextView)
-        
+
         textViewDidBeginEditing(recipeInstructionsTextView)
         textViewDidEndEditing(recipeInstructionsTextView)
-        
-//        textViewDidBeginEditing(recipeIngredientsTextView)
-//        textViewDidEndEditing(recipeIngredientsTextView)
         
         textFieldDidBeginEditing(recipeTitleTextField)
         textFieldDidEndEditing(recipeTitleTextField)
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        ingredientsTableView.reloadData()
-//    }
     
     // MARK: - Properties
     var recipe: Recipe?
@@ -88,8 +75,6 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
                                         self.recipe?.recipeIngredientsList?.append(newIngredient)
                                         
                                         self.ingredientsTableView.reloadData()
-                                        
-                                        
         }
         
         alert.addTextField { (textField: UITextField) in
@@ -101,10 +86,8 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
         
     }
   
-    
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-//        guard let recipeImageData = self.recipes?.recipeImage else { return }
-//        let image = UIImage(data: recipeImageData)
+
         guard recipeTitleTextField.text != "",/*, recipeIngredientsTextView.text != "",*/ recipeInstructionsTextView.text != "" else {
             let alertController = UIAlertController(title: "Sorry", message: "Please fill in all of the text fields", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .cancel,handler: nil)
@@ -167,9 +150,6 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
 }
 
 
-
-
-
 extension RecipeEditDetailViewController: UITextViewDelegate, UITextFieldDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
@@ -189,10 +169,7 @@ extension RecipeEditDetailViewController: UITextViewDelegate, UITextFieldDelegat
             recipeInstructionsTextView.text = nil
             recipeInstructionsTextView.textColor = UIColor.black
         }
-//        if recipeIngredientsTextView.textColor == UIColor.lightGray {
-//            recipeIngredientsTextView.text = nil
-//            recipeIngredientsTextView.textColor = UIColor.black
-//        }
+        
         if (textView.text == "Recipe instructions...")   {
             textView.text = ""
         }
@@ -207,10 +184,6 @@ extension RecipeEditDetailViewController: UITextViewDelegate, UITextFieldDelegat
             recipeInstructionsTextView.text = "Recipe instructions..."
             recipeInstructionsTextView.textColor = UIColor.lightGray
         }
-//        if recipeIngredientsTextView.text.isEmpty {
-//            recipeIngredientsTextView.text = "Recipe ingredients..."
-//            recipeIngredientsTextView.textColor = UIColor.lightGray
-//        }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -231,4 +204,5 @@ extension RecipeEditDetailViewController: UITextViewDelegate, UITextFieldDelegat
     }
     
 }
+
 

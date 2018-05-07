@@ -15,6 +15,7 @@ class UsersController {
     // MARK: - Properties
     static let shared = UsersController()
     let publicDB = CKContainer.default().publicCloudDatabase
+    
     let currentUserWasSetNotification = Notification.Name("currentUserWasSet")
     
     var currentUser: User? {
@@ -35,6 +36,11 @@ class UsersController {
     func createNewUserForCurrentUser(firstName: String?, lastName: String?, email: String?, password: String?, gender: String?, bodyWeight: Int?, leanBodyMass: Int?, bodyFatPercentage: Int?, completion: @escaping(_ success: Bool) -> Void) {
         
         CKContainer.default().fetchUserRecordID { (appleUsersRecordID, error) in
+            if let error = error {
+                print("Error fetching UserRecordID from cloudKit: \(error.localizedDescription)")
+            } else {
+                print("Success fetching UserRecordID from cloudKit")
+            }
             guard let appleUsersRecordID = appleUsersRecordID else { return }
             
             let appleUserRef = CKReference(recordID: appleUsersRecordID, action: .deleteSelf)

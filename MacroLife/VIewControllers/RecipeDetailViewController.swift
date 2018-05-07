@@ -21,6 +21,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         recipeInstructionsTextView.delegate = self
         recipeImageView.contentMode = .scaleAspectFill
+        textViewDidChange(recipeInstructionsTextView)
         contentView.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
         updateViews()
         guard let recipe = recipes else { return }
@@ -74,7 +75,17 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         
         return newCell
     }
-    
+    func textViewDidChange(_ textView: UITextView) {
+        print(textView.text)
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+        
+        textView.constraints.forEach { (constraint) in
+            if constraint.firstAttribute == .height {
+                constraint.constant = estimatedSize.height
+            }
+        }
+    }
     //    func resizeRecipeIngredientsTextView() {
     //
     //        recipeIngredientsTextView.delegate = self
@@ -86,5 +97,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     //        recipeIngredientsTextView.frame = newFrame
     //    }
     //
-
 }
+
+

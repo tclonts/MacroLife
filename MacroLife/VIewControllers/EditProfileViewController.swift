@@ -33,17 +33,6 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
     
     var user: User?
     
-    
-//    func updateViews() {
-//        guard let user = user else { return }
-//        firstNameTextField.text = user.firstName
-//        lastNameTextField.text = user.lastName
-//        genderTextField.text = user.gender
-//        bodyWeightTextField.text = user.bodyWeight?.description
-//        leanBodyMassTextField.text = user.leanBodyMass?.description
-//        bodyFatPercentageTextField.text = user.bodyFatPercentage?.description
-//    }
-    
     // MARK: - Actions
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
@@ -76,7 +65,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Functions
     
-    // Texfields can only be numbers for the number ones
+    // Texfields can only be numbers for the number sections
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
         return string.rangeOfCharacter(from: invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
