@@ -116,6 +116,7 @@ class User: CloudKitManager {
         
         return record
     }
+    
    
     
     fileprivate var temporaryPhotoURL: URL {
@@ -139,3 +140,5 @@ class User: CloudKitManager {
 //            lhs.email == rhs.email
 //    }
 }
+
+

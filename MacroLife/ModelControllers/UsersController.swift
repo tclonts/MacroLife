@@ -50,12 +50,9 @@ class UsersController {
     }
 
     // Update User
-    func updateUserPhoto(user: User, profileImage: Data? /*,  gender: String, bodyWeight: Double, leanBodyMass: Double, bodyFatPercentage: Double ,*/, completion: @escaping(_ success: Bool) -> Void) {
+    func updateUserPhoto(user: User, profileImage: Data?, completion: @escaping(_ success: Bool) -> Void) {
       
-//        user.gender = gender
-//        user.bodyWeight = bodyWeight
-//        user.leanBodyMass = leanBodyMass
-//        user.bodyFatPercentage = bodyFatPercentage
+
         guard let profileImage = profileImage else { return }
         user.profileImage = profileImage
 

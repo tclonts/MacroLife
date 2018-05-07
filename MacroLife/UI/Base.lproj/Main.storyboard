@@ -572,7 +572,7 @@
                                 <rect key="frame" x="0.0" y="64" width="376" height="285"/>
                                 <subviews>
                                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZc-a6-5s4">
-                                        <rect key="frame" x="0.0" y="205" width="376" height="70"/>
+                                        <rect key="frame" x="0.0" y="205" width="375" height="70"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.26011344178082191" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vAv-gA-vQp" userLabel="Name Stack View">
@@ -719,11 +719,12 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
-                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="fvJ-Ht-hTq">
-                                        <rect key="frame" x="137" y="27" width="101" height="100"/>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="fvJ-Ht-hTq">
+                                        <rect key="frame" x="142" y="25" width="90" height="90"/>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="cFr-fY-194"/>
+                                            <constraint firstAttribute="height" constant="90" id="fY3-R4-95s"/>
+                                            <constraint firstAttribute="width" constant="90" id="rYf-Ei-FjD"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="uK0-R4-YQQ" appends="YES" id="5bg-HR-pCJ"/>
@@ -732,18 +733,17 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="fvJ-Ht-hTq" secondAttribute="trailing" constant="138" id="1WL-IL-cxd"/>
                                     <constraint firstItem="CZc-a6-5s4" firstAttribute="top" secondItem="vAv-gA-vQp" secondAttribute="bottom" constant="14" id="1fJ-3E-s6I"/>
                                     <constraint firstAttribute="bottom" secondItem="djF-8J-utd" secondAttribute="bottom" constant="17" id="5CP-zZ-DN6"/>
                                     <constraint firstItem="CZc-a6-5s4" firstAttribute="centerY" secondItem="djF-8J-utd" secondAttribute="centerY" id="9eH-I1-8Tg"/>
                                     <constraint firstItem="vAv-gA-vQp" firstAttribute="leading" secondItem="5Ma-ju-l61" secondAttribute="leading" constant="37" id="DMz-4O-3G6"/>
-                                    <constraint firstItem="fvJ-Ht-hTq" firstAttribute="centerX" secondItem="CZc-a6-5s4" secondAttribute="centerX" id="RiO-zH-33l"/>
+                                    <constraint firstAttribute="trailing" secondItem="CZc-a6-5s4" secondAttribute="trailing" constant="1" id="FTl-r0-7Ix"/>
+                                    <constraint firstItem="fvJ-Ht-hTq" firstAttribute="centerX" secondItem="5Ma-ju-l61" secondAttribute="centerX" constant="-1" id="Q4S-yZ-KI8"/>
                                     <constraint firstItem="djF-8J-utd" firstAttribute="top" secondItem="vAv-gA-vQp" secondAttribute="bottom" constant="22" id="TNo-UK-MVV"/>
                                     <constraint firstItem="djF-8J-utd" firstAttribute="leading" secondItem="5Ma-ju-l61" secondAttribute="leading" constant="21" id="Ueu-G5-ZbH"/>
                                     <constraint firstAttribute="trailing" secondItem="djF-8J-utd" secondAttribute="trailing" constant="22" id="Wck-K9-SVx"/>
-                                    <constraint firstItem="fvJ-Ht-hTq" firstAttribute="leading" secondItem="5Ma-ju-l61" secondAttribute="leading" constant="137" id="agb-P5-pZL"/>
                                     <constraint firstAttribute="trailing" secondItem="vAv-gA-vQp" secondAttribute="trailing" constant="39" id="gaZ-lH-fg6"/>
-                                    <constraint firstItem="fvJ-Ht-hTq" firstAttribute="top" secondItem="5Ma-ju-l61" secondAttribute="top" constant="27" id="vdK-TW-Oe5"/>
+                                    <constraint firstItem="vAv-gA-vQp" firstAttribute="top" secondItem="fvJ-Ht-hTq" secondAttribute="bottom" constant="20" id="t5n-z7-bc5"/>
                                     <constraint firstItem="CZc-a6-5s4" firstAttribute="leading" secondItem="5Ma-ju-l61" secondAttribute="leading" id="zjI-kc-mUa"/>
                                 </constraints>
                             </view>
@@ -847,8 +847,9 @@
                             <constraint firstItem="LJ9-m2-Spb" firstAttribute="trailing" secondItem="y3h-PQ-SLW" secondAttribute="trailing" constant="243" id="P9c-Uh-dpU"/>
                             <constraint firstItem="5Ma-ju-l61" firstAttribute="leading" secondItem="LJ9-m2-Spb" secondAttribute="leading" id="RnO-Dq-mFA"/>
                             <constraint firstItem="y3h-PQ-SLW" firstAttribute="top" secondItem="5Ma-ju-l61" secondAttribute="bottom" constant="8" id="TZB-XB-GSg"/>
-                            <constraint firstItem="LJ9-m2-Spb" firstAttribute="bottom" secondItem="5Ma-ju-l61" secondAttribute="bottom" constant="269" id="Xl2-Wr-aHS"/>
                             <constraint firstItem="5Ma-ju-l61" firstAttribute="top" secondItem="LJ9-m2-Spb" secondAttribute="top" id="dyl-E8-g9p"/>
+                            <constraint firstItem="5Ma-ju-l61" firstAttribute="centerX" secondItem="qN1-K9-VFw" secondAttribute="centerX" id="ejy-aQ-b6D"/>
+                            <constraint firstItem="LJ9-m2-Spb" firstAttribute="bottom" secondItem="5Ma-ju-l61" secondAttribute="bottom" constant="269" id="fuW-2L-igY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LJ9-m2-Spb"/>
                     </view>

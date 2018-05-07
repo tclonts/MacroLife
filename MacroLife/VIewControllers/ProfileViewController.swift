@@ -39,6 +39,7 @@ class ProfileViewController: UIViewController  {
         super.viewDidLoad()
         imagePicker.delegate = self
         self.user = UsersController.shared.currentUser
+        profileImageView.contentMode = .scaleAspectFill
         
         firstNameLabel.textColor = UIColor.mLoffWhite
         emailLabel.textColor = UIColor.mLoffWhite
@@ -58,7 +59,6 @@ class ProfileViewController: UIViewController  {
         profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
         profileImageView.clipsToBounds = true
         
-        contentView.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
         fatCalculator()
         carbCalculator()
         proteinCalculator()
@@ -82,14 +82,6 @@ class ProfileViewController: UIViewController  {
 
         
         // Pie Chart Constraints
-//        var chartWidthAnchor = chartView.widthAnchor.constraint(equalToConstant: 100)
-//        chartWidthAnchor.priority = UILayoutPriority(rawValue: 999)
-//        chartWidthAnchor.isActive = true
-//
-//        var chartHeightAnchor = chartView.heightAnchor.constraint(equalToConstant: 100)
-//        chartWidthAnchor.priority = UILayoutPriority(rawValue: 999)
-//        chartHeightAnchor.isActive = true
-        
         chartView.widthAnchor.constraint(equalToConstant: 226).isActive = true
         chartView.heightAnchor.constraint(equalToConstant: 226).isActive = true
         
@@ -109,32 +101,16 @@ class ProfileViewController: UIViewController  {
         chartViewLeadingAnchor.priority = UILayoutPriority(rawValue: 990)
         chartViewLeadingAnchor.isActive = true
         
-//        chartView.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 10).isActive = true
-//        chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-//        chartView.leadingAnchor.constraint(equalTo: userDetailsStackView.trailingAnchor).isActive = true
-        
-        
-//        let leading = NSLayoutConstraint(item: chartView, attribute: .leading, relatedBy: .equal, toItem: userDetailsStackView, attribute: .trailing, multiplier: 1, constant: 0)
-//        leading.priority = UILayoutPriority.defaultLow
-//        leading.isActive = true
-//         let trailing = NSLayoutConstraint(item: chartView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
-//        trailing.priority = UILayoutPriority.defaultLow
-//        trailing.isActive = true
-//         let top = NSLayoutConstraint(item: chartView, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 0)
-//        top.priority = UILayoutPriority.defaultLow
-//        top.isActive = true
-//         let bottom = NSLayoutConstraint(item: chartView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
-//        bottom.priority = UILayoutPriority.defaultLow
-//        bottom.isActive = true
-//
-////        view.addConstraints([leading, trailing, top, bottom])
-//
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateForCurrentUser {}
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        contentView.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
+
     }
     
     
@@ -282,19 +258,6 @@ class ProfileViewController: UIViewController  {
         return fatPercent
     }
     
-    
-
-
-    func makeImageCircle(image: UIImageView) {
-//        var image = UIImage(image)
-//        image.layer.borderWidth = 1
-//        image.layer.masksToBounds = false
-//        image.layer.borderColor = UIColor.black.cgColor
-//        image.layer.cornerRadius = image.frame.height/2
-//        image.clipsToBounds = true
-//        image.addSubview(image)
-        
-    }
 
 
     
@@ -309,16 +272,3 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         }
     }
 }
-
-//func addLines(stackView: UIStackView){
-//    if stackView.arrangedSubviews.count > 0 {
-//        let separator = UIView()
-//        separator.widthAnchor.constraint(equalToConstant: 1).isActive = true
-//        separator.backgroundColor = .black
-//        stackView.addArrangedSubview(separator)
-//        separator.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.6).isActive = true
-//    }
-//    if let firstLabel = stackView.arrangedSubviews.first as? UILabel {
-//        proteinLabel.widthAnchor.constraint(equalTo: firstLabel.widthAnchor).isActive = true
-//    }
-//}
