@@ -37,12 +37,6 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = loginButton.frame.size.height/2
         loginButton.layer.masksToBounds = true
         
-        signUpButton.setButtonGradientBackground(colorTop: UIColor.mLBrightPurple, colorBottom: UIColor.mLBrightPurple)
-        signUpButton.setTitleColor(UIColor.mLoffWhite, for: .normal)
-        signUpButton.layer.cornerRadius = signUpButton.frame.size.height/2
-        signUpButton.layer.masksToBounds = true
-        
-        
         
         emailTextField.delegate = self
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
@@ -51,6 +45,17 @@ class LoginViewController: UIViewController {
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
         
         NotificationCenter.default.addObserver(self, selector: #selector(segueToProfileDetail), name: UsersController.shared.currentUserWasSetNotification, object: nil)
+    }
+    override func viewDidLayoutSubviews() {
+        signUpButton.setButtonGradientBackground(colorTop: UIColor.mLBrightPurple, colorBottom: UIColor.mLBrightPurple)
+        signUpButton.setTitleColor(UIColor.mLoffWhite, for: .normal)
+        signUpButton.layer.cornerRadius = signUpButton.frame.size.height/2
+        signUpButton.layer.masksToBounds = true
+        
+        loginButton.setButtonGradientBackground(colorTop: UIColor.mLBrightPurple, colorBottom: UIColor.mLBrightPurple)
+        loginButton.setTitleColor(UIColor.mLoffWhite, for: .normal)
+        loginButton.layer.cornerRadius = loginButton.frame.size.height/2
+        loginButton.layer.masksToBounds = true
     }
     
     @objc func segueToProfileDetail() {
