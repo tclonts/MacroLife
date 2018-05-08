@@ -21,6 +21,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var leanBodyMassTextField: UITextField!
     @IBOutlet weak var bodyFatPercentageTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
@@ -29,6 +30,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         bodyWeightTextField.delegate = self
         leanBodyMassTextField.delegate = self
         bodyFatPercentageTextField.delegate = self
+        activityIndicator.hidesWhenStopped = true
         
         saveButton.setButtonGradientBackground(colorTop: UIColor.mLBrightPurple, colorBottom: UIColor.mLBrightPurple)
         saveButton.setTitleColor(UIColor.mLoffWhite, for: .normal)
@@ -44,35 +46,38 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Actions
     
     @IBAction func saveResultsButtonTapped(_ sender: UIButton) {
-
-        
-        guard let gender = genderTextField.text,
-        let firstName = firstNameTextField.text,
-        let lastName = lastNameTextField.text,
-        let bodyWeight = Int(bodyWeightTextField.text!),
-        let leanBodyMass = Int(leanBodyMassTextField.text!),
-        let bodyFatPercentage = Int(bodyFatPercentageTextField.text!),
-        let userEmail = emailTextField.text,
-        let userPassword = passwordTextField.text,
-        let repeatPassword = repeatPasswordTextField.text else { return }
-        
         
         //check empty fields
-        if userEmail.isEmpty || userPassword.isEmpty || repeatPassword.isEmpty || gender.isEmpty || firstName.isEmpty || lastName.isEmpty || (bodyWeightTextField.text?.isEmpty)! || (leanBodyMassTextField.text?.isEmpty)! || (bodyFatPercentageTextField.text?.isEmpty)! {
+        if (emailTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! || (repeatPasswordTextField.text?.isEmpty)! || (genderTextField.text?.isEmpty)! || (firstNameTextField.text?.isEmpty)! || (lastNameTextField.text?.isEmpty)! || (bodyWeightTextField.text?.isEmpty)! || (leanBodyMassTextField.text?.isEmpty)! || (bodyFatPercentageTextField.text?.isEmpty)! {
             
             //display alert message
             presentSimpleAlert(title: "oops", message: "all textfields required")
             return
         }
+        guard let firstName = firstNameTextField.text,
+        let lastName = lastNameTextField.text,
+        let userEmail = emailTextField.text,
+        let userPassword = passwordTextField.text,
+        let repeatPassword = repeatPasswordTextField.text,
+        let gender = genderTextField.text,
+        let bodyWeight = Int(bodyWeightTextField.text!),
+        let leanBodyMass = Int(leanBodyMassTextField.text!),
+        let bodyFatPercentage = Int(bodyFatPercentageTextField.text!) else { return }
+        
+
         //check if passwords match
         if (userPassword != repeatPassword) {
             //display alert message
             presentSimpleAlert(title: "oops", message: "you messed up the password")
+            self.activityIndicator.stopAnimating()
+
         } else {
             
             //save data
             UsersController.shared.createNewUserForCurrentUser(firstName: firstName, lastName: lastName, email: userEmail, password: userPassword, gender: gender, bodyWeight: (bodyWeight), leanBodyMass: (leanBodyMass), bodyFatPercentage: (bodyFatPercentage)) { (success) in
                 print(success)
+                self.activityIndicator.stopAnimating()
+
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "toProfileDetail", sender: self)
                 }
