@@ -27,16 +27,11 @@ class LoginViewController: UIViewController {
         
         applyMotionEffect(toView: backgroundView, magnitude: 20)
         applyMotionEffect(toView: logoImageView, magnitude: -50)
-
+        
+        // Main View BackGround Color
         view.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
         checkLoginButtonActive()
-        activityIndicator.isHidden = true
-        
-        loginButton.setGradientBackground(colorTop: UIColor.mLBrightPurple, colorBottom: UIColor.mLBrightPurple)
-        loginButton.setTitleColor(UIColor.mLlightGray, for: .normal)
-        loginButton.layer.cornerRadius = loginButton.frame.size.height/2
-        loginButton.layer.masksToBounds = true
-        
+        activityIndicator.hidesWhenStopped = true
         
         emailTextField.delegate = self
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
@@ -53,7 +48,7 @@ class LoginViewController: UIViewController {
         signUpButton.layer.masksToBounds = true
         
         loginButton.setButtonGradientBackground(colorTop: UIColor.mLBrightPurple, colorBottom: UIColor.mLBrightPurple)
-        loginButton.setTitleColor(UIColor.mLoffWhite, for: .normal)
+//        loginButton.setTitleColor(UIColor.mLpurpleGray, for: .normal)
         loginButton.layer.cornerRadius = loginButton.frame.size.height/2
         loginButton.layer.masksToBounds = true
     }
@@ -67,7 +62,7 @@ class LoginViewController: UIViewController {
     func checkLoginButtonActive() {
         if (emailTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! {
             loginButton.isEnabled = false
-            loginButton.setTitleColor(UIColor.mLlightGray, for: .normal)
+            loginButton.setTitleColor(UIColor.mLpurpleGray, for: .normal)
         } else {
             loginButton.isEnabled = true
             loginButton.setTitleColor(UIColor.mLoffWhite, for: .normal)
@@ -83,20 +78,27 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         
-        let userEmail = emailTextField.text!;
-        let userPassword = passwordTextField.text!;
+        self.activityIndicator.startAnimating()
         
-        //check for empty fields
-        if ((userEmail.isEmpty) || (userPassword.isEmpty)){
-            //display alert
-            let myAlert = UIAlertController(title:"Uh-oh!", message: "All fields are required.", preferredStyle: UIAlertControllerStyle.alert);
-            let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil);
-            
-            myAlert.addAction(okAction);
-            
-            self.present(myAlert, animated: true, completion: nil);
-        }
-        else {
+        let userEmail = emailTextField.text!
+        let userPassword = passwordTextField.text!
+        
+//        //check for empty fields
+//        if ((userEmail.isEmpty) || (userPassword.isEmpty)){
+//            //display alert
+//            let myAlert = UIAlertController(title:"Uh-oh!", message: "All fields are required.", preferredStyle: UIAlertControllerStyle.alert)
+//
+//            let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil)
+//
+//            myAlert.addAction(okAction)
+//
+//            self.present(myAlert, animated: true, completion: nil)
+//            DispatchQueue.main.async {
+//                self.activityIndicator.stopAnimating()
+//            }
+//
+//        }
+//        else {
             //check if correct
             let predicate = NSPredicate(format: "email == %@ AND password == %@", argumentArray: [userEmail, userPassword])
             
@@ -112,7 +114,7 @@ class LoginViewController: UIViewController {
                         UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
 //                        UserDefaults.standard.synchronize()
                         print("Found user: \(email)")
-                        
+                        self.activityIndicator.stopAnimating()
                         
                         //redirect to Profile View
                         DispatchQueue.main.async {
@@ -123,6 +125,8 @@ class LoginViewController: UIViewController {
                         DispatchQueue.main.async {
                             self.presentSimpleAlert(title: "User Not Found!", message: "Try again")
                             print("no such user found. Don't give up.")
+                            self.activityIndicator.stopAnimating()
+
                         }
                     }
                 } else
@@ -130,7 +134,6 @@ class LoginViewController: UIViewController {
                     print(error?.localizedDescription)
                 }
             }
-        }
     }
     
     // MARK: - Simple Alert

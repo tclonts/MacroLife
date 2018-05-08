@@ -14,7 +14,7 @@ class CloudKitManager {
     
     static let shared = CloudKitManager()
     let publicDB = CKContainer.default().publicCloudDatabase
-
+    
     
     // Save one file at a time
     func saveRecordToCloudKit(record: CKRecord, database: CKDatabase, completion: @escaping (CKRecord?, Error?) -> Void) {

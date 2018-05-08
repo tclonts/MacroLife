@@ -106,20 +106,50 @@ class UsersController {
     }
 }
     // Fetching Function
-    
     func loadFromPersistentStore() {
         
-        CloudKitManager.shared.fetchRecordsOf(type: User.typeKey, database: publicDB) { (records, error) in
-            if let error = error {
-                print("Error fetching records from cloudKit: \(error.localizedDescription)")
-            } else {
-                print("Success fetching records from cloudKit")
-            }
-            guard let records = records else { return }
-            let users = records.compactMap{User(cloudKitRecord:$0)}
-            self.currentUser = users.first
+        // Fetch default Apple 'Users' recordID
+        
+        CKContainer.default().fetchUserRecordID { (appleUserRecordID, error) in
+            
+            if let error = error { print(error.localizedDescription) }
+            
+            guard let appleUserRecordID = appleUserRecordID else { return }
+            
+            // Create a CKReference with the Apple 'Users' recordID so that we can fetch OUR custom User record
+            
+            let appleUserReference = CKReference(recordID: appleUserRecordID, action: .deleteSelf)
+            
+            // Create a predicate with that reference that will go through all of the Users and filter through them and return us the one that has the matching reference.
+            
+            let predicate = NSPredicate(format: "appleUserRef == %@", appleUserReference)
+            
+            // Fetch our custom User record
+            
+            CloudKitManager.shared.fetchRecordsOf(type: User.typeKey, predicate: predicate, database: CloudKitManager.shared.publicDB, completion: { (records, error) in
+                guard let currentUserRecord = records?.first else { return }
+                
+                let currentUser = User(cloudKitRecord: currentUserRecord)
+                
+                self.currentUser = currentUser
+            })
         }
     }
+//    func loadFromPersistentStore() {
+//
+//        CloudKitManager.shared.fetchRecordsOf(type: User.typeKey, database: publicDB) { (records, error) in
+//            if let error = error {
+//                print("Error fetching records from cloudKit: \(error.localizedDescription)")
+//            } else {
+//                print("Success fetching records from cloudKit")
+//            }
+//            guard let records = records else { return }
+//            let users = records.compactMap{User(cloudKitRecord:$0)}
+//            self.currentUser = users.first
+//        }
+//    }
 }
+
+
 
 

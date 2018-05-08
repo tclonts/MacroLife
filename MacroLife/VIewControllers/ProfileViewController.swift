@@ -139,24 +139,10 @@ class ProfileViewController: UIViewController  {
     
     func updateForCurrentUser(completion: @escaping () -> Void) {
 
-//        CloudKitManager.shared.fetchRecordsOf(type: User.typeKey, database: UsersController.shared.publicDB) { (records, error) in
-//            if let error = error {
-//                print("Error fetching records from cloudKit: \(error.localizedDescription)")
-//            } else {
-//                print("Success fetching records from cloudKit")
-//            }
-//
-//            guard let records = records else { return }
-//            var users = records.compactMap{User(cloudKitRecord:$0)}
-//            self.user = users.first
-//            print(users)
-        
-            
             DispatchQueue.main.async {
                 guard let firstName = self.user?.firstName else { return }
                 guard let lastName = self.user?.lastName else { return }
                 self.firstNameLabel.text = (firstName + " " + lastName)
-//                self.lastNameLabel.text = self.user?.lastName
                 self.emailLabel.text = self.user?.email
                 self.genderLabel.text = self.user?.gender
                 self.bodyWeightLabel.text = self.user?.bodyWeight?.description
