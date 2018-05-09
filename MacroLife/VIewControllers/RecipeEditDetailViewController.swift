@@ -15,6 +15,7 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
     @IBOutlet weak var recipeInstructionsTextView: UITextView!
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var ingredientsTableView: UITableView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,15 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
         
         textFieldDidBeginEditing(recipeTitleTextField)
         textFieldDidEndEditing(recipeTitleTextField)
+        
+        scrollViewDidScroll(scrollView)
+        scrollView.isDirectionalLockEnabled = true
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x != 0 {
+            scrollView.contentOffset.x = 0
+        }
     }
     
     // MARK: - Properties

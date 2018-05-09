@@ -12,17 +12,18 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeTitleLabel: UILabel!
-//    @IBOutlet weak var recipeIngredientsTextView: UITextView!
     @IBOutlet weak var recipeInstructionsTextView: UITextView!
-    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var ingredientsTableView: UITableView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollViewDidScroll(scrollView)
+        scrollView.isDirectionalLockEnabled = true
+        
         recipeInstructionsTextView.delegate = self
         recipeImageView.contentMode = .scaleAspectFill
-        textViewDidChange(recipeInstructionsTextView)
-        contentView.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
         updateViews()
         guard let recipe = recipes else { return }
         
@@ -31,7 +32,47 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
                 self.ingredientsTableView.reloadData()
             }
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textViewDidChange(recipeInstructionsTextView)
+
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x != 0 {
+            scrollView.contentOffset.x = 0
+        }
+    }
+
+    
+    
+//    override func viewDidLayoutSubviews(){
+//        ingredientsTableView.frame = CGRect(x: ingredientsTableView.frame.origin.x, y: ingredientsTableView.frame.origin.y, width: ingredientsTableView.frame.size.width, height: ingredientsTableView.contentSize.height)
+//        ingredientsTableView.reloadData()
+//    }
+    //    override func viewDidLayoutSubviews(){
+    //        let size = CGSize(width: view.frame.width, height: .infinity)
+    //        let estimatedSize = ingredientsTableView.sizeThatFits(size)
+    //
+    //        ingredientsTableView.constraints.forEach { (constraint) in
+    //            if constraint.firstAttribute == .height {
+    //                constraint.constant = estimatedSize.height
+    //            }
+    //        }
+    //    }
+
+    
+   func textViewDidChange(_ textView: UITextView) {
+        print(textView.text)
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
         
+        textView.constraints.forEach { (constraint) in
+            if constraint.firstAttribute == .height {
+                constraint.constant = estimatedSize.height
+            }
+        }
     }
     
     // MARK: - Properties
@@ -56,12 +97,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //        guard let ingredientsList = recipe?.recipeIngredientsList?.compactMap({$0}) else { return 0 }
         guard let ingredientsList = recipes?.recipeIngredientsList else { return 0 }
-        return ingredientsList.count /*(ingredientsList.count)*/
+        return ingredientsList.count 
     }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return "Ingredients"
-//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -74,17 +111,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         // return the cell
         
         return newCell
-    }
-    func textViewDidChange(_ textView: UITextView) {
-        print(textView.text)
-        let size = CGSize(width: view.frame.width, height: .infinity)
-        let estimatedSize = textView.sizeThatFits(size)
-        
-        textView.constraints.forEach { (constraint) in
-            if constraint.firstAttribute == .height {
-                constraint.constant = estimatedSize.height
-            }
-        }
     }
     //    func resizeRecipeIngredientsTextView() {
     //

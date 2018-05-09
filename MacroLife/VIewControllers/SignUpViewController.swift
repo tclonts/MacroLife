@@ -31,12 +31,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         leanBodyMassTextField.delegate = self
         bodyFatPercentageTextField.delegate = self
         activityIndicator.hidesWhenStopped = true
-        
+    }
+    override func viewDidLayoutSubviews() {
         saveButton.setButtonGradientBackground(colorTop: UIColor.mLBrightPurple, colorBottom: UIColor.mLBrightPurple)
         saveButton.setTitleColor(UIColor.mLoffWhite, for: .normal)
         saveButton.layer.cornerRadius = saveButton.frame.size.height/2
         saveButton.layer.masksToBounds = true
-
     }
 
     // MARK: - Properties
