@@ -292,13 +292,13 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vjq-wz-5Wd">
-                                        <rect key="frame" x="37" y="212" width="300" height="21"/>
-                                        <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
+                                        <rect key="frame" x="37" y="212" width="300" height="30"/>
+                                        <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="2" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KTD-Dt-vau">
-                                        <rect key="frame" x="37" y="241" width="300" height="192"/>
+                                        <rect key="frame" x="37" y="250" width="300" height="192"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="192" id="fdF-Sh-pdb"/>
@@ -306,7 +306,7 @@
                                         <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kv2-CY-Dha">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="SFCompactText-Semibold" family="SF Compact Text" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -321,7 +321,7 @@
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MhH-Yd-NBf">
                                                             <rect key="frame" x="15" y="0.0" width="270" height="37.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -335,7 +335,7 @@
                                         </connections>
                                     </tableView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QMZ-3Z-Vlm">
-                                        <rect key="frame" x="37" y="441" width="300" height="30"/>
+                                        <rect key="frame" x="37" y="450" width="300" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="T3S-4j-NOS"/>
@@ -1003,7 +1003,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TcM-8L-Uws">
                                         <rect key="frame" x="37" y="212" width="300" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iZI-CU-7Za">
@@ -1025,7 +1025,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9F0-ja-Zz0">
-                                                    <rect key="frame" x="270" y="14" width="22" height="22"/>
+                                                    <rect key="frame" x="261" y="11" width="22" height="22"/>
                                                     <color key="tintColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="addIngredientButtonTapped:" destination="BWr-Sf-7TF" eventType="touchUpInside" id="tOW-aW-p96"/>
@@ -1035,8 +1035,8 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="bG8-na-08H" firstAttribute="leading" secondItem="TRd-zc-HLX" secondAttribute="leading" constant="15" id="7Gf-70-f2F"/>
-                                                <constraint firstAttribute="trailing" secondItem="9F0-ja-Zz0" secondAttribute="trailing" constant="8" id="f9m-2s-sD6"/>
-                                                <constraint firstItem="bG8-na-08H" firstAttribute="top" secondItem="9F0-ja-Zz0" secondAttribute="top" constant="-2" id="oBz-di-2PD"/>
+                                                <constraint firstAttribute="trailing" secondItem="9F0-ja-Zz0" secondAttribute="trailing" constant="17" id="f9m-2s-sD6"/>
+                                                <constraint firstItem="bG8-na-08H" firstAttribute="top" secondItem="9F0-ja-Zz0" secondAttribute="top" constant="1" id="oBz-di-2PD"/>
                                                 <constraint firstItem="bG8-na-08H" firstAttribute="centerY" secondItem="TRd-zc-HLX" secondAttribute="centerY" id="zv2-af-skL"/>
                                             </constraints>
                                         </view>
@@ -1051,7 +1051,7 @@
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="375" id="o38-fQ-G3K">
                                                             <rect key="frame" x="15" y="0.0" width="270" height="37.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
