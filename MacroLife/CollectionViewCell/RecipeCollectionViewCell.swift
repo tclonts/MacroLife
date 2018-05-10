@@ -27,11 +27,11 @@ class RecipeCollectionViewCell: UICollectionViewCell {
                 let recipeImage = UIImage(data: recipeImageData)
                 recipeImageView.image = recipeImage
                 recipeTitleLabel.text = recipe.recipeTitle
-                
-                
             }
             recipeTitleLabel.backgroundColor = UIColor.mLdarkGray.withAlphaComponent(0.8)
             recipeTitleLabel.textColor = UIColor.mLoffWhite
+            recipeTitleLabel.layer.borderWidth = 1.0
+            recipeTitleLabel.layer.borderColor = UIColor.mLoffWhite.cgColor
             recipeImageView.contentMode = .scaleAspectFill
         }
     }

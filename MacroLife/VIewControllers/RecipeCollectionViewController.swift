@@ -79,10 +79,11 @@ class RecipeCollectionViewController: UICollectionViewController, UICollectionVi
             return cell
     }
     
+//     Constraints to line up two collection view cells next to each other.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let yourWidth = collectionView.bounds.width/2
         let yourHeight = yourWidth
-        
+
         return CGSize(width: yourWidth, height: yourHeight)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

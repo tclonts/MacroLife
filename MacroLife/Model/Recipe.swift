@@ -23,7 +23,7 @@ class Recipe: CloudKitManager {
     
     // Properties
     var recipeImage: Data?
-    var recipeTitle: String
+    var recipeTitle: String?
     var recipeIngredientsList: [Ingredient]?
     var recipeInstructions: String
     var cloudkitRecordID: CKRecordID?
@@ -32,7 +32,7 @@ class Recipe: CloudKitManager {
         return UIImage(data: recipeImage)
     }
     
-    init(recipeImage: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "DefaultProfile")),recipeTitle: String, recipeInstructions: String, recipeIngredients: [Ingredient]) {
+    init(recipeImage: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "DefaultProfile")),recipeTitle: String?, recipeInstructions: String, recipeIngredients: [Ingredient]) {
     
         
         self.recipeImage = recipeImage
@@ -46,15 +46,9 @@ class Recipe: CloudKitManager {
     init?(cloudKitRecord: CKRecord) {
         guard let recipeInstructions = cloudKitRecord[recipeInstructionsKey] as? String,
             let recipeTitle = cloudKitRecord[recipeTitleKey] as? String,
-//            let recipeIngredientsList = cloudKitRecord[recipeIngredientsListKey] as? [Ingredient],
             let photoAsset = cloudKitRecord[recipeImageKey] as? CKAsset else { return nil}
             let recipeImage = try? Data(contentsOf: photoAsset.fileURL)
         
-//        if let recipeDictionary = cloudKitRecord[recipeIngredientsKey] as? [String : [String : String]] {
-//            let ingredients = recipeDictionary.compactMap{ Ingredients(dictionary: $0.value) }
-//            self.recipeIngredients = ingredients
-//        }
-            
             self.recipeImage = recipeImage
             self.recipeTitle = recipeTitle
             self.recipeIngredientsList = []
@@ -70,12 +64,11 @@ class Recipe: CloudKitManager {
         
         record.setValue(recipeTitle, forKey: recipeTitleKey)
         record.setValue(recipeInstructions, forKey: recipeInstructionsKey)
-//        record.setValue(recipeIngredientsList, forKey: recipeIngredientsListKey)
-        
         
         if let recipeIamge = recipeImage{
          record[recipeImageKey] = CKAsset(fileURL: temporaryPhotoURL)
         }
+        
         
         cloudkitRecordID = recordID
         
