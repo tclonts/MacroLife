@@ -39,7 +39,7 @@ class RKChartTitleView: UIView, Configurable {
         let titleLabel = UILabel(frame: .zero)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = item.title
-        titleLabel.font = UIFont(name: "HelveticaNeue", size: 12.0)
+        titleLabel.font = UIFont(name: "SFCompactText-Regular", size: 11.0)
         titleLabel.numberOfLines = 1
         addSubview(titleLabel)
         

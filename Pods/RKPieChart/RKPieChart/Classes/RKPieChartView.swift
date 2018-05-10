@@ -189,7 +189,7 @@ public class RKPieChartView: UIView {
             if(centerLabel == nil && centerTitle != nil) {
                 centerLabel = UILabel(frame: .zero)
                 centerLabel?.translatesAutoresizingMaskIntoConstraints = false
-                centerLabel?.font = UIFont(name: "HelveticaNeue", size: 14.0)
+                centerLabel?.font = UIFont(name: "SFCompactText-Regular", size: 11.0)
                 centerLabel?.minimumScaleFactor = 0.7
                 centerLabel?.numberOfLines = 2
                 centerLabel?.textAlignment = .center

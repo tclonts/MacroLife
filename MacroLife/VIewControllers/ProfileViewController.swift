@@ -53,12 +53,6 @@ class ProfileViewController: UIViewController  {
         totalCaloriesLabel.textColor = UIColor.mLoffWhite
         navigationController?.navigationBar.tintColor = UIColor.mLBrightPurple
 //        navigationController?.navigationBar.barTintColor = UIColor.mLBrightPurple
-
-        
-
-        profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
-        profileImageView.clipsToBounds = true
-        
         fatCalculator()
         carbCalculator()
         proteinCalculator()
@@ -73,7 +67,7 @@ class ProfileViewController: UIViewController  {
         
         chartView.circleColor = .clear
         chartView.translatesAutoresizingMaskIntoConstraints = false
-        chartView.arcWidth = 23
+        chartView.arcWidth = 20
         chartView.isIntensityActivated = false
         chartView.style = .butt
         chartView.isTitleViewHidden = false
@@ -82,14 +76,14 @@ class ProfileViewController: UIViewController  {
 
         
         // Pie Chart Constraints
-        chartView.widthAnchor.constraint(equalToConstant: 226).isActive = true
-        chartView.heightAnchor.constraint(equalToConstant: 226).isActive = true
+        chartView.widthAnchor.constraint(equalToConstant: 201).isActive = true
+        chartView.heightAnchor.constraint(equalToConstant: 201).isActive = true
         
-        var chartViewTopAnchor = chartView.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 25)
+        var chartViewTopAnchor = chartView.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 50)
         chartViewTopAnchor.priority = UILayoutPriority(rawValue: 990)
         chartViewTopAnchor.isActive = true
 
-        var chartViewTrailingAnchor = chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5)
+        var chartViewTrailingAnchor = chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         chartViewTrailingAnchor.priority = UILayoutPriority(rawValue: 990)
         chartViewTrailingAnchor.isActive = true
 
@@ -97,7 +91,7 @@ class ProfileViewController: UIViewController  {
         chartViewBottomAnchor.priority = UILayoutPriority(rawValue: 990)
         chartViewBottomAnchor.isActive = true
 
-        var chartViewLeadingAnchor = chartView.leadingAnchor.constraint(equalTo: userDetailsStackView.trailingAnchor)
+        var chartViewLeadingAnchor = chartView.leadingAnchor.constraint(equalTo: userDetailsStackView.trailingAnchor, constant: 0)
         chartViewLeadingAnchor.priority = UILayoutPriority(rawValue: 990)
         chartViewLeadingAnchor.isActive = true
         
@@ -110,6 +104,8 @@ class ProfileViewController: UIViewController  {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         contentView.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
+        profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
+        profileImageView.clipsToBounds = true
 
     }
     
