@@ -79,7 +79,7 @@ class ProfileViewController: UIViewController  {
         chartView.widthAnchor.constraint(equalToConstant: 201).isActive = true
         chartView.heightAnchor.constraint(equalToConstant: 201).isActive = true
         
-        var chartViewTopAnchor = chartView.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 50)
+        var chartViewTopAnchor = chartView.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 30)
         chartViewTopAnchor.priority = UILayoutPriority(rawValue: 990)
         chartViewTopAnchor.isActive = true
 
@@ -94,7 +94,6 @@ class ProfileViewController: UIViewController  {
         var chartViewLeadingAnchor = chartView.leadingAnchor.constraint(equalTo: userDetailsStackView.trailingAnchor, constant: 0)
         chartViewLeadingAnchor.priority = UILayoutPriority(rawValue: 990)
         chartViewLeadingAnchor.isActive = true
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

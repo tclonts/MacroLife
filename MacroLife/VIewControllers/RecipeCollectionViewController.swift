@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecipeCollectionViewController: UICollectionViewController {
+class RecipeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var barButtonItem: UIBarButtonItem!
     
@@ -17,16 +17,18 @@ class RecipeCollectionViewController: UICollectionViewController {
         
         
         navigationController?.navigationBar.tintColor = UIColor.mLBrightPurple
-    
+        
 //        collectionView?.setGradientBackground(colorTop: UIColor.mLoffWhite, colorBottom: UIColor.mLpurpleGray)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadCVC), name: RecipesController.shared.tableVCReloadNotification, object: nil)
         self.collectionView?.reloadData()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadCVC), name: RecipesController.shared.tableVCReloadNotification, object: nil)
     }
+
     
  
     // Function for reloading tableview
@@ -76,6 +78,25 @@ class RecipeCollectionViewController: UICollectionViewController {
         
             return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let yourWidth = collectionView.bounds.width/2
+        let yourHeight = yourWidth
+        
+        return CGSize(width: yourWidth, height: yourHeight)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
 
     // MARK: -Functions
     

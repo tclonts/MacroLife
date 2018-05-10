@@ -202,41 +202,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UNl-ex-gg8">
-                            <size key="itemSize" width="182" height="183"/>
+                            <size key="itemSize" width="375" height="183"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recipeCell" id="cbc-ER-da7" customClass="RecipeCollectionViewCell" customModule="MacroLife" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="182" height="183"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="183"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="182" height="183"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="183"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KzD-U6-pak">
-                                            <rect key="frame" x="0.0" y="0.0" width="182" height="183"/>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SkF-2E-QJ5">
-                                            <rect key="frame" x="0.0" y="142" width="182" height="41"/>
+                                            <rect key="frame" x="0.0" y="142" width="375" height="41"/>
                                             <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KzD-U6-pak">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="183"/>
+                                        </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="KzD-U6-pak" secondAttribute="bottom" id="Apa-Jm-MQy"/>
-                                    <constraint firstItem="KzD-U6-pak" firstAttribute="leading" secondItem="cbc-ER-da7" secondAttribute="leading" id="IA6-FY-PrB"/>
-                                    <constraint firstItem="SkF-2E-QJ5" firstAttribute="top" secondItem="cbc-ER-da7" secondAttribute="top" constant="142" id="Wrh-CA-4Qd"/>
-                                    <constraint firstAttribute="bottom" secondItem="SkF-2E-QJ5" secondAttribute="bottom" id="ZYN-hd-cuN"/>
-                                    <constraint firstItem="SkF-2E-QJ5" firstAttribute="leading" secondItem="cbc-ER-da7" secondAttribute="leading" id="aPI-6d-26x"/>
-                                    <constraint firstAttribute="trailing" secondItem="SkF-2E-QJ5" secondAttribute="trailing" id="nOW-is-AIO"/>
-                                    <constraint firstAttribute="trailing" secondItem="KzD-U6-pak" secondAttribute="trailing" id="t7D-0F-mBb"/>
-                                    <constraint firstItem="KzD-U6-pak" firstAttribute="top" secondItem="cbc-ER-da7" secondAttribute="top" id="zsF-Yu-K6O"/>
+                                    <constraint firstAttribute="trailing" secondItem="SkF-2E-QJ5" secondAttribute="trailing" id="AgR-pK-9fv"/>
+                                    <constraint firstItem="KzD-U6-pak" firstAttribute="top" secondItem="cbc-ER-da7" secondAttribute="top" id="JVx-sq-4CE"/>
+                                    <constraint firstItem="SkF-2E-QJ5" firstAttribute="top" secondItem="cbc-ER-da7" secondAttribute="top" constant="142" id="KZv-IS-8Di"/>
+                                    <constraint firstItem="KzD-U6-pak" firstAttribute="leading" secondItem="cbc-ER-da7" secondAttribute="leading" id="eyb-x8-buO"/>
+                                    <constraint firstItem="SkF-2E-QJ5" firstAttribute="leading" secondItem="cbc-ER-da7" secondAttribute="leading" id="rxs-OE-s5e"/>
+                                    <constraint firstAttribute="bottom" secondItem="KzD-U6-pak" secondAttribute="bottom" id="v5s-VD-dNx"/>
+                                    <constraint firstAttribute="bottom" secondItem="SkF-2E-QJ5" secondAttribute="bottom" id="xjr-wR-qxT"/>
+                                    <constraint firstAttribute="trailing" secondItem="KzD-U6-pak" secondAttribute="trailing" id="yNQ-RB-Yhg"/>
                                 </constraints>
-                                <size key="customSize" width="182" height="183"/>
+                                <size key="customSize" width="375" height="183"/>
                                 <connections>
                                     <outlet property="recipeImageView" destination="KzD-U6-pak" id="Ddk-de-MLk"/>
                                     <outlet property="recipeTitleLabel" destination="SkF-2E-QJ5" id="WLg-NX-1Ju"/>
@@ -262,7 +262,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="riy-uP-xcr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2240.5" y="2103.5"/>
+            <point key="canvasLocation" x="2239.1999999999998" y="2102.698650674663"/>
         </scene>
         <!--Recipe Detail View Controller-->
         <scene sceneID="XIu-bf-UTw">
@@ -727,7 +727,7 @@
                                         </constraints>
                                     </stackView>
                                     <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="fvJ-Ht-hTq">
-                                        <rect key="frame" x="137" y="14" width="120" height="120"/>
+                                        <rect key="frame" x="127" y="14" width="120" height="120"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="vTS-jo-CG2"/>
@@ -746,9 +746,9 @@
                                     <constraint firstAttribute="bottom" secondItem="fvJ-Ht-hTq" secondAttribute="bottom" constant="151" id="K9w-it-Uu0"/>
                                     <constraint firstAttribute="bottom" secondItem="CZc-a6-5s4" secondAttribute="bottom" constant="10" id="KSK-AL-3eU"/>
                                     <constraint firstItem="vAv-gA-vQp" firstAttribute="top" secondItem="fvJ-Ht-hTq" secondAttribute="bottom" constant="8" id="LYh-Q8-Izz"/>
-                                    <constraint firstAttribute="trailing" secondItem="fvJ-Ht-hTq" secondAttribute="trailing" constant="118" id="SQl-Pn-fbl"/>
+                                    <constraint firstAttribute="trailing" secondItem="fvJ-Ht-hTq" secondAttribute="trailing" constant="128" id="SQl-Pn-fbl"/>
                                     <constraint firstAttribute="trailing" secondItem="CZc-a6-5s4" secondAttribute="trailing" id="e1G-Z9-dgj"/>
-                                    <constraint firstItem="fvJ-Ht-hTq" firstAttribute="leading" secondItem="5Ma-ju-l61" secondAttribute="leading" constant="137" id="iSD-9a-lHh"/>
+                                    <constraint firstItem="fvJ-Ht-hTq" firstAttribute="leading" secondItem="5Ma-ju-l61" secondAttribute="leading" constant="127" id="iSD-9a-lHh"/>
                                     <constraint firstItem="vAv-gA-vQp" firstAttribute="centerX" secondItem="CZc-a6-5s4" secondAttribute="centerX" id="k2D-fG-9r5"/>
                                     <constraint firstItem="fvJ-Ht-hTq" firstAttribute="top" secondItem="5Ma-ju-l61" secondAttribute="top" constant="14" id="m8o-xI-TEp"/>
                                 </constraints>
