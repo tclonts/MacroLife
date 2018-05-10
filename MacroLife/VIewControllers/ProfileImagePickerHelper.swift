@@ -24,6 +24,12 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                 self.imagePicker.sourceType = .photoLibrary
                 self.imagePicker.allowsEditing = true
 
+                if let popoverController = alert.popoverPresentationController {
+                    popoverController.sourceView = self.view
+                    popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+                    popoverController.permittedArrowDirections = []
+                }
+                
                 self.present(self.imagePicker, animated: true, completion: nil)
             }))
         }
@@ -33,12 +39,24 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                 self.imagePicker.sourceType = .camera
                 self.imagePicker.allowsEditing = true
 
+                if let popoverController = alert.popoverPresentationController {
+                    popoverController.sourceView = self.view
+                    popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+                    popoverController.permittedArrowDirections = []
+                }
+                
                 self.present(self.imagePicker, animated: true, completion: nil)
             }))
         }
 
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        
         present(alert, animated: true, completion: nil)
 
     }

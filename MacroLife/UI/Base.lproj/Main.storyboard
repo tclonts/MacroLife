@@ -474,18 +474,27 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ntO-Xr-QYe">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="ykC-AB-ucw"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xqM-hv-2jP">
                                         <rect key="frame" x="0.0" y="41" width="300" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="bVV-Ib-PQX"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmn-tB-NYf">
                                         <rect key="frame" x="0.0" y="82" width="300" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="s9K-I7-AcV"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
@@ -494,6 +503,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70p-vR-jmq">
                                         <rect key="frame" x="0.0" y="123" width="300" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="2IY-MK-p7Y"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
@@ -522,6 +534,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="MJ3-0F-LNp" firstAttribute="bottom" secondItem="wZL-Yd-wAe" secondAttribute="bottom" constant="135" id="1Hm-TK-rPa"/>
                             <constraint firstItem="wZL-Yd-wAe" firstAttribute="top" secondItem="M2i-af-MDQ" secondAttribute="bottom" constant="72" id="1M5-LO-5Is"/>
                             <constraint firstItem="hSV-kS-nuk" firstAttribute="top" secondItem="MJ3-0F-LNp" secondAttribute="top" constant="273" id="2uq-ky-7zz"/>
                             <constraint firstItem="MJ3-0F-LNp" firstAttribute="trailing" secondItem="M2i-af-MDQ" secondAttribute="trailing" constant="74" id="4eO-pG-FZF"/>
@@ -1193,6 +1206,6 @@
         <image name="TabBarRecipe" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KHP-5B-QyI"/>
+        <segue reference="dfd-6q-zxu"/>
     </inferredMetricsTieBreakers>
 </document>
