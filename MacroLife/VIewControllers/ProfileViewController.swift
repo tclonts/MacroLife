@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController  {
     @IBOutlet weak var userDetailsStackView: UIStackView!
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var contentViewTwo: UIView!
     
     
     override func viewDidLoad() {
@@ -52,7 +53,6 @@ class ProfileViewController: UIViewController  {
         caloriesTextLabel.textColor = UIColor.mLoffWhite
         totalCaloriesLabel.textColor = UIColor.mLoffWhite
         navigationController?.navigationBar.tintColor = UIColor.mLBrightPurple
-//        navigationController?.navigationBar.barTintColor = UIColor.mLBrightPurple
         fatCalculator()
         carbCalculator()
         proteinCalculator()
@@ -67,27 +67,27 @@ class ProfileViewController: UIViewController  {
         
         chartView.circleColor = .clear
         chartView.translatesAutoresizingMaskIntoConstraints = false
-        chartView.arcWidth = 20
+        chartView.arcWidth = 40
         chartView.isIntensityActivated = false
         chartView.style = .butt
         chartView.isTitleViewHidden = false
         chartView.isAnimationActivated = true
-        self.view.addSubview(chartView)
+        self.contentViewTwo.addSubview(chartView)
 
         
         // Pie Chart Constraints
-        chartView.widthAnchor.constraint(equalToConstant: 201).isActive = true
-        chartView.heightAnchor.constraint(equalToConstant: 201).isActive = true
+//        chartView.widthAnchor.constraint(equalToConstant: 201).isActive = true
+//        chartView.heightAnchor.constraint(equalToConstant: 201).isActive = true
         
-        var chartViewTopAnchor = chartView.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 30)
+        var chartViewTopAnchor = chartView.topAnchor.constraint(equalTo: contentViewTwo.topAnchor, constant: 30)
         chartViewTopAnchor.priority = UILayoutPriority(rawValue: 990)
         chartViewTopAnchor.isActive = true
 
-        var chartViewTrailingAnchor = chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
+        var chartViewTrailingAnchor = chartView.trailingAnchor.constraint(equalTo: contentViewTwo.trailingAnchor, constant: 0)
         chartViewTrailingAnchor.priority = UILayoutPriority(rawValue: 990)
         chartViewTrailingAnchor.isActive = true
 
-        var chartViewBottomAnchor = chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+        var chartViewBottomAnchor = chartView.bottomAnchor.constraint(equalTo: contentViewTwo.bottomAnchor, constant: 0)
         chartViewBottomAnchor.priority = UILayoutPriority(rawValue: 990)
         chartViewBottomAnchor.isActive = true
 
