@@ -22,10 +22,13 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
         imagePicker.delegate = self
         recipeImageView.contentMode = .scaleAspectFit
         recipeInstructionsTextView.isScrollEnabled = false
+        recipeInstructionsTextView.layer.cornerRadius = 5
+        ingredientsTableView.layer.cornerRadius = 5
         
         // Make a blank, new recipe so that ingredients can be added to it, and when you hit the save button, you just update this blank recipe with the information the user enters.
+        
         RecipesController.shared.createRecipe(recipeImage: #imageLiteral(resourceName: "DefaultRecipe"), recipeTitle: "", recipeInstructions: "", recipeIngredients: []) { (success, recipe) in
-            
+
             self.recipe = recipe
         }
         
@@ -39,7 +42,7 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
         recipeInstructionsTextView.textColor = UIColor.lightGray
       
         // Do any additional setup after loading the view.
-        textViewDidChange(recipeInstructionsTextView)
+//        textViewDidChange(recipeInstructionsTextView)
 
         textViewDidBeginEditing(recipeInstructionsTextView)
         textViewDidEndEditing(recipeInstructionsTextView)
@@ -50,6 +53,8 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
         scrollViewDidScroll(scrollView)
         scrollView.isDirectionalLockEnabled = true
     }
+    
+   
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.x != 0 {
@@ -82,6 +87,7 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
                                         guard let recipe = self.recipe else { return }
                                         let newIngredient = Ingredient(ingredientName: text, recipe: recipe)
                                         
+                                        RecipesController.shared.add(ingredient: newIngredient, toRecipe: recipe)
                                         self.recipe?.recipeIngredientsList?.append(newIngredient)
                                         
                                         self.ingredientsTableView.reloadData()
@@ -98,12 +104,12 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
   
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
 
-        guard recipeTitleTextField.text != "",/*, recipeIngredientsTextView.text != "",*/ recipeInstructionsTextView.text != "" else {
+        if (recipeTitleTextField.text?.isEmpty)! || (recipeInstructionsTextView.text?.isEmpty)! {
             let alertController = UIAlertController(title: "Sorry", message: "Please fill in all of the text fields", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .cancel,handler: nil)
             alertController.addAction(okAction)
             present(alertController, animated: true, completion: nil)
-            return }
+        }
         
         guard let recipe = recipe else { return }
         guard let image = recipeImageView.image else { return }
@@ -138,7 +144,7 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let ingredientsList = recipe?.recipeIngredientsList else { return 0 }
-        return ingredientsList.count /*(ingredientsList.count)*/
+        return ingredientsList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -149,14 +155,9 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
         let ingredient = recipe?.recipeIngredientsList![indexPath.row]
 
         newCell.textLabel?.text = ingredient?.ingredientName
-        
-//        newCell.detailTextLabel?.text = ingredient?.ingredientName
-        // return the cell
-        
+    
         return newCell
     }
-        // get a playlist
-    
 }
 
 
@@ -166,7 +167,7 @@ extension RecipeEditDetailViewController: UITextViewDelegate, UITextFieldDelegat
         print(textView.text)
         let size = CGSize(width: view.frame.width, height: .infinity)
         let estimatedSize = textView.sizeThatFits(size)
-        
+
         textView.constraints.forEach { (constraint) in
             if constraint.firstAttribute == .height {
                 constraint.constant = estimatedSize.height
@@ -175,6 +176,7 @@ extension RecipeEditDetailViewController: UITextViewDelegate, UITextFieldDelegat
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
+      
         if recipeInstructionsTextView.textColor == UIColor.lightGray {
             recipeInstructionsTextView.text = nil
             recipeInstructionsTextView.textColor = UIColor.black
@@ -186,6 +188,7 @@ extension RecipeEditDetailViewController: UITextViewDelegate, UITextFieldDelegat
         if (textView.text == "Recipe ingredients..."){
             textView.text = ""
         }
+        
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

@@ -88,9 +88,7 @@ class UsersController {
     
     // Saving Function
     func saveToPersistentStore(completion: (() -> Void)? = nil) {
-        
-//        let userRecords = users.map({$0.cloudKitRecord})
-        
+                
         guard let user = currentUser else { completion?(); return }
         
         CloudKitManager.shared.saveRecordsToCloudKit(record: [user.cloudKitRecord], database: publicDB, perRecordCompletion: nil) { (_, _, error) in

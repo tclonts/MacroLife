@@ -26,7 +26,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         recipeImageView.contentMode = .scaleAspectFill
         updateViews()
         guard let recipe = recipes else { return }
-        
+
         RecipesController.shared.fetchIngredientsFor(recipe: recipe) {
             DispatchQueue.main.async {
                 self.ingredientsTableView.reloadData()
@@ -89,15 +89,14 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         recipeTitleLabel.text = recipe.recipeTitle
         recipeInstructionsTextView.text = recipe.recipeInstructions
         
-//        contentView.layoutIfNeeded()
     }
     
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        guard let ingredientsList = recipe?.recipeIngredientsList?.compactMap({$0}) else { return 0 }
+//        guard let ingredientsList = recipes?.recipeIngredientsList?.compactMap({$0}) else { return 0 }
         guard let ingredientsList = recipes?.recipeIngredientsList else { return 0 }
-        return ingredientsList.count 
+        return ingredientsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
