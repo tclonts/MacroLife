@@ -13,7 +13,7 @@ import UIKit
 class CloudKitManager {
     
     static let shared = CloudKitManager()
-    let publicDB = CKContainer.default().publicCloudDatabase
+    let privateDB = CKContainer.default().privateCloudDatabase
     
     
     // Save one file at a time
@@ -106,7 +106,7 @@ class CloudKitManager {
             completion?(records, error)
         }
         
-        publicDB.add(operation)
+        privateDB.add(operation)
     }
     
     // MARK: - Sharing

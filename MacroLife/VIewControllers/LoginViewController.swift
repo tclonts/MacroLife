@@ -103,7 +103,7 @@ class LoginViewController: UIViewController {
             let predicate = NSPredicate(format: "email == %@ AND password == %@", argumentArray: [userEmail, userPassword])
             
             let query = CKQuery(recordType: "User", predicate: predicate)
-            CloudKitManager.shared.publicDB.perform(query, inZoneWith: nil) { (records:[CKRecord]?, error:Error?) in
+            CloudKitManager.shared.privateDB.perform(query, inZoneWith: nil) { (records:[CKRecord]?, error:Error?) in
                 if error == nil {
                     if (records?.count)! > 0 {
                         let record = records?[0]

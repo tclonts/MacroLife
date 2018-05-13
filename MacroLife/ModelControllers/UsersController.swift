@@ -14,7 +14,7 @@ class UsersController {
     
     // MARK: - Properties
     static let shared = UsersController()
-    let publicDB = CKContainer.default().publicCloudDatabase
+    let privateDB = CKContainer.default().privateCloudDatabase
     
     let currentUserWasSetNotification = Notification.Name("currentUserWasSet")
     
@@ -64,7 +64,7 @@ class UsersController {
 
         
         let record = user.cloudKitRecord
-        CloudKitManager.shared.modifyRecords([record], database: publicDB, perRecordCompletion: nil, completion: { (_, error) in
+        CloudKitManager.shared.modifyRecords([record], database: privateDB, perRecordCompletion: nil, completion: { (_, error) in
             completion(true)
         })
     }
@@ -80,7 +80,7 @@ class UsersController {
     
         
         let record = user.cloudKitRecord
-        CloudKitManager.shared.modifyRecords([record], database: publicDB, perRecordCompletion: nil, completion: { (_, error) in
+        CloudKitManager.shared.modifyRecords([record], database: privateDB, perRecordCompletion: nil, completion: { (_, error) in
             completion(true)
             self.saveToPersistentStore()
         })
@@ -91,7 +91,7 @@ class UsersController {
                 
         guard let user = currentUser else { completion?(); return }
         
-        CloudKitManager.shared.saveRecordsToCloudKit(record: [user.cloudKitRecord], database: publicDB, perRecordCompletion: nil) { (_, _, error) in
+        CloudKitManager.shared.saveRecordsToCloudKit(record: [user.cloudKitRecord], database: privateDB, perRecordCompletion: nil) { (_, _, error) in
             if let error = error {
                 print("Error saving records to CloudKit: \(error.localizedDescription)")
             } else {
@@ -124,7 +124,7 @@ class UsersController {
             
             // Fetch our custom User record
             
-            CloudKitManager.shared.fetchRecordsOf(type: User.typeKey, predicate: predicate, database: CloudKitManager.shared.publicDB, completion: { (records, error) in
+            CloudKitManager.shared.fetchRecordsOf(type: User.typeKey, predicate: predicate, database: CloudKitManager.shared.privateDB, completion: { (records, error) in
                 guard let currentUserRecord = records?.first else { return }
                 
                 let currentUser = User(cloudKitRecord: currentUserRecord)

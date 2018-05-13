@@ -88,7 +88,7 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
                                         let newIngredient = Ingredient(ingredientName: text, recipe: recipe)
                                         
                                         RecipesController.shared.add(ingredient: newIngredient, toRecipe: recipe)
-                                        self.recipe?.recipeIngredientsList?.append(newIngredient)
+//                                        self.recipe?.recipeIngredientsList?.append(newIngredient)
                                         
                                         self.ingredientsTableView.reloadData()
         }
@@ -104,11 +104,12 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
   
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
 
-        if (recipeTitleTextField.text?.isEmpty)! || (recipeInstructionsTextView.text?.isEmpty)! {
-            let alertController = UIAlertController(title: "Sorry", message: "Please fill in all of the text fields", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .cancel,handler: nil)
-            alertController.addAction(okAction)
-            present(alertController, animated: true, completion: nil)
+        if (recipeTitleTextField.text?.isEmpty)! || (recipeInstructionsTextView.text?.isEmpty)! || (recipeTitleTextField.text == "Recipe title...") || (recipeInstructionsTextView.text == "Recipe instructions...") {
+            //display alert message
+            DispatchQueue.main.async {
+                self.presentSimpleAlert(title: "oops", message: "all textfields required")
+            }
+            return
         }
         
         guard let recipe = recipe else { return }
@@ -120,23 +121,31 @@ class RecipeEditDetailViewController: UIViewController, UITableViewDataSource, U
         
         
         RecipesController.shared.updateRecipe(recipe: recipe, recipeImage: imageData, recipeTitle: recipeTitle, recipeIngredients: recipeIngredients, recipeInstructions: recipeInstructions) { (true) in
-            
-            let alertController = UIAlertController(title: "Success", message: "Recipe Updated!", preferredStyle: .alert)
-            
-                        let okAction = UIAlertAction(title: "Ok", style: .cancel) { (action) in
-                            self.performSegue(withIdentifier: "trp", sender: self)
-                        }
-            
-                        alertController.addAction(okAction)
-                        self.present(alertController, animated: true, completion: nil)
-                        print("Success Saving")
-        
-                    }
+            DispatchQueue.main.async {
+                let alertController = UIAlertController(title: "Success", message: "Recipe Updated!", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "Ok", style: .cancel) { (action) in
+                    self.performSegue(withIdentifier: "trp", sender: self)
+                }
+                
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+                print("Success Saving")
+            }
         }
+    }
     
     
     @IBAction func recipeImagePickerTapped(_ sender: UITapGestureRecognizer) {
         addRecipeImage()
+    }
+    
+    // Simple Alert
+    func presentSimpleAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Dismisss", style: .cancel, handler: nil)
+        alert.addAction(dismissAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     
