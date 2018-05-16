@@ -78,8 +78,10 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         
-        self.activityIndicator.startAnimating()
-        
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+
         let userEmail = emailTextField.text!
         let userPassword = passwordTextField.text!
         
@@ -114,7 +116,9 @@ class LoginViewController: UIViewController {
                         UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
 //                        UserDefaults.standard.synchronize()
                         print("Found user: \(email)")
-                        self.activityIndicator.stopAnimating()
+                        DispatchQueue.main.async {
+                            self.activityIndicator.stopAnimating()
+                        }
                         
                         //redirect to Profile View
                         DispatchQueue.main.async {

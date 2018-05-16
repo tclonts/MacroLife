@@ -192,7 +192,7 @@ class CloudKitManager {
         
         guard let zoneIDDictionaries = UserDefaults.standard.value(forKey: "sharedRecordUserRecordIDs") as? [[String: String]], zoneIDDictionaries.count > 0 else { completion([]); return }
         
-        let zoneIDs = zoneIDDictionaries.flatMap({ CKRecordZoneID(dictionary: $0) })
+        let zoneIDs = zoneIDDictionaries.compactMap({ CKRecordZoneID(dictionary: $0) })
         
         let group = DispatchGroup()
         

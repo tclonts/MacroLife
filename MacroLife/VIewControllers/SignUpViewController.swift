@@ -16,12 +16,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
-    @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var bodyWeightTextField: UITextField!
     @IBOutlet weak var leanBodyMassTextField: UITextField!
     @IBOutlet weak var bodyFatPercentageTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var outletCollection: [UIButton]!
+    @IBOutlet weak var genderButton: UIButton!
+    @IBOutlet weak var genderStackView: UIStackView!
+    @IBOutlet weak var maleButton: UIButton!
+    @IBOutlet weak var femaleButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -31,12 +35,22 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         leanBodyMassTextField.delegate = self
         bodyFatPercentageTextField.delegate = self
         activityIndicator.hidesWhenStopped = true
+
+        genderButton.titleLabel?.textColor = UIColor.mLlightGray
     }
+  
     override func viewDidLayoutSubviews() {
         saveButton.setButtonGradientBackground(colorTop: UIColor.mLBrightPurple, colorBottom: UIColor.mLBrightPurple)
         saveButton.setTitleColor(UIColor.mLoffWhite, for: .normal)
         saveButton.layer.cornerRadius = saveButton.frame.size.height/2
         saveButton.layer.masksToBounds = true
+        
+        femaleButton.clipsToBounds = true
+        femaleButton.layer.cornerRadius = 5
+        femaleButton.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
+        genderButton.layer.cornerRadius = 5
+
     }
 
     // MARK: - Properties
@@ -45,10 +59,69 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Actions
     
+    @IBAction func genderSelection(_ sender: UIButton) {
+//        genderButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        genderButton.setTitle("Select Gender", for: .normal)
+        genderButton.setTitleColor(UIColor.lightGray, for: .normal)
+        outletCollection.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = !button.isHidden
+                if button.isHidden {
+                    self.genderButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+
+                } else if !button.isHidden{
+                    self.genderButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+                }
+                self.view.layoutIfNeeded()
+            })
+        }
+        
+    }
+    
+    enum Gender: String {
+        case male = "Male"
+        case female = "Female"
+    }
+    
+    @IBAction func genderTypeTapped(_ sender: UIButton) {
+        guard let title = sender.currentTitle, let gender = Gender(rawValue: title) else {
+            return
+        }
+        
+        switch gender {
+            
+        case .male:
+            genderButton.setTitle("Male", for: .normal)
+            genderButton.setTitleColor(UIColor.mLblack, for: .normal)
+            genderButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+            outletCollection.forEach { (button) in
+                UIView.animate(withDuration: 0.3, animations: {
+                    button.isHidden = true
+                    self.view.layoutIfNeeded()
+                })
+
+            }
+            
+        case .female:
+            print("female")
+            genderButton.setTitle("Female", for: .normal)
+            genderButton.setTitleColor(UIColor.mLblack, for: .normal)
+            genderButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+            outletCollection.forEach { (button) in
+                UIView.animate(withDuration: 0.3, animations: {
+                    button.isHidden = true
+                    self.view.layoutIfNeeded()
+                })
+            }
+
+        }
+    }
+    
+    
     @IBAction func saveResultsButtonTapped(_ sender: UIButton) {
         
         //check empty fields
-        if (emailTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! || (repeatPasswordTextField.text?.isEmpty)! || (genderTextField.text?.isEmpty)! || (firstNameTextField.text?.isEmpty)! || (lastNameTextField.text?.isEmpty)! || (bodyWeightTextField.text?.isEmpty)! || (leanBodyMassTextField.text?.isEmpty)! || (bodyFatPercentageTextField.text?.isEmpty)! {
+        if (emailTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! || (repeatPasswordTextField.text?.isEmpty)! ||/* (genderTextField.text?.isEmpty)! ||*/ (firstNameTextField.text?.isEmpty)! || (lastNameTextField.text?.isEmpty)! || (bodyWeightTextField.text?.isEmpty)! || (leanBodyMassTextField.text?.isEmpty)! || (bodyFatPercentageTextField.text?.isEmpty)! {
             
             //display alert message
             presentSimpleAlert(title: "oops", message: "all textfields required")
@@ -59,7 +132,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         let userEmail = emailTextField.text,
         let userPassword = passwordTextField.text,
         let repeatPassword = repeatPasswordTextField.text,
-        let gender = genderTextField.text,
+        let gender = genderButton.titleLabel?.text,
         let bodyWeight = Int(bodyWeightTextField.text!),
         let leanBodyMass = Int(leanBodyMassTextField.text!),
         let bodyFatPercentage = Int(bodyFatPercentageTextField.text!) else { return }
@@ -76,7 +149,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             //save data
             UsersController.shared.createNewUserForCurrentUser(firstName: firstName, lastName: lastName, email: userEmail, password: userPassword, gender: gender, bodyWeight: (bodyWeight), leanBodyMass: (leanBodyMass), bodyFatPercentage: (bodyFatPercentage)) { (success) in
                 print(success)
-                self.activityIndicator.stopAnimating()
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
 
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "toProfileDetail", sender: self)
@@ -113,5 +188,24 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
+}
+extension UIButton {
+    func roundedButtonBottom(){
+        let maskPAth1 = UIBezierPath(roundedRect: self.bounds,
+                                     byRoundingCorners: [.bottomLeft , .bottomRight],
+                                     cornerRadii:CGSize(width:5.0, height:5.0))
+        let maskLayer1 = CAShapeLayer()
+        maskLayer1.frame = self.bounds
+        maskLayer1.path = maskPAth1.cgPath
+        self.layer.mask = maskLayer1
+    }
+    func roundedButtonTop(){
+        let maskPAth1 = UIBezierPath(roundedRect: self.bounds,
+                                     byRoundingCorners: [.topLeft , .topRight],
+                                     cornerRadii:CGSize(width:5.0, height:5.0))
+        let maskLayer1 = CAShapeLayer()
+        maskLayer1.frame = self.bounds
+        maskLayer1.path = maskPAth1.cgPath
+        self.layer.mask = maskLayer1
+    }
 }
