@@ -37,6 +37,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         activityIndicator.hidesWhenStopped = true
 
         genderButton.titleLabel?.textColor = UIColor.mLlightGray
+        genderButton.setTitle("Select Gender \u{2304}", for: .normal)
     }
   
     override func viewDidLayoutSubviews() {
@@ -56,12 +57,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
     
     var user: User?
-    
+
     // MARK: - Actions
     
     @IBAction func genderSelection(_ sender: UIButton) {
 //        genderButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        genderButton.setTitle("Select Gender", for: .normal)
+        genderButton.setTitle("Select Gender \u{2304}", for: .normal)
         genderButton.setTitleColor(UIColor.lightGray, for: .normal)
         outletCollection.forEach { (button) in
             UIView.animate(withDuration: 0.3, animations: {
@@ -164,10 +165,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Functions
 
     // Texfields can only be numbers for the number ones
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
-        return string.rangeOfCharacter(from: invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
-    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
+//        return string.rangeOfCharacter(from: invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
+//    }
+  
+    
+    
     // Simple Alert
     func presentSimpleAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -188,6 +192,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    
 }
 extension UIButton {
     func roundedButtonBottom(){
