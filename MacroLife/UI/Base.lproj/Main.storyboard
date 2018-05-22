@@ -856,7 +856,7 @@
                                         <rect key="frame" x="14" y="14" width="100" height="242"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrg-Ta-aSD">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="14.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="14" id="UrU-cg-z7k"/>
                                                 </constraints>
@@ -865,7 +865,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcG-tu-HFW">
-                                                <rect key="frame" x="0.0" y="23.5" width="100" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="23" width="100" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="vEY-nd-dxQ"/>
                                                 </constraints>
@@ -874,14 +874,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="woj-7O-akX">
-                                                <rect key="frame" x="0.0" y="53" width="100" height="1"/>
+                                                <rect key="frame" x="0.0" y="52" width="100" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="5yM-z6-hXl"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body Weight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebL-4G-Sok">
-                                                <rect key="frame" x="0.0" y="63" width="100" height="14.5"/>
+                                                <rect key="frame" x="0.0" y="62.5" width="100" height="14.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="14" id="vrd-vf-Jju"/>
                                                 </constraints>
@@ -890,7 +890,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BodyW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoZ-Nf-5kn">
-                                                <rect key="frame" x="0.0" y="86.5" width="100" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="86" width="100" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="XLt-GJ-aCS"/>
                                                 </constraints>
@@ -899,14 +899,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdf-qS-pTG">
-                                                <rect key="frame" x="0.0" y="116" width="100" height="1"/>
+                                                <rect key="frame" x="0.0" y="115.5" width="100" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="LKO-ij-apk"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lean Body Mass:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LK5-nH-yZT">
-                                                <rect key="frame" x="0.0" y="125.5" width="100" height="14.5"/>
+                                                <rect key="frame" x="0.0" y="125.5" width="100" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="14" id="Lkp-3m-xFr"/>
                                                 </constraints>
@@ -915,7 +915,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LeanBM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BR3-Nm-tfJ">
-                                                <rect key="frame" x="0.0" y="149" width="100" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="148.5" width="100" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="exa-aZ-LWl"/>
                                                 </constraints>
@@ -924,7 +924,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Mn-UN-ohG">
-                                                <rect key="frame" x="0.0" y="178.5" width="100" height="1"/>
+                                                <rect key="frame" x="0.0" y="178" width="100" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="LGM-4e-fw5"/>
@@ -1050,72 +1050,132 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HCb-Sf-gMs">
-                                <rect key="frame" x="37.5" y="193.5" width="300" height="280"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Q88-qz-HKX">
+                                <rect key="frame" x="37.5" y="201" width="300" height="280"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fYf-Xx-EUm">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e5C-Ay-S2y">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="RUx-BK-0fx"/>
+                                            <constraint firstAttribute="height" constant="40" id="CPO-Od-jp6"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9TE-Wg-G8d">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DYf-JO-ybf">
                                         <rect key="frame" x="0.0" y="48" width="300" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="S2g-jh-h1D"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gender..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SSH-Hw-tPF">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="CFS-ke-I2P">
                                         <rect key="frame" x="0.0" y="96" width="300" height="40"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Body Weight..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ge-fJ-eje">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyz-El-A9e" userLabel="Gender">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="pqA-uy-Rkw"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
+                                                <inset key="titleEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Select Gender">
+                                                    <color key="titleColor" red="0.73529374869999997" green="0.73529374869999997" blue="0.73529374869999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="genderSelection:" destination="aE4-ll-0XW" eventType="touchUpInside" id="VD1-dr-k9i"/>
+                                                    <action selector="genderSelection:" destination="x9T-WL-2E4" eventType="touchUpInside" id="qyS-EH-szn"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwJ-f6-cVu">
+                                                <rect key="frame" x="0.0" y="-297" width="300" height="0.0"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="titleEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Male">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="genderTypeTapped:" destination="x9T-WL-2E4" eventType="touchUpInside" id="BPs-mb-mf2"/>
+                                                    <action selector="genderTypeTapped:" destination="aE4-ll-0XW" eventType="touchUpInside" id="pFV-JX-Yez"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bW3-43-d2F">
+                                                <rect key="frame" x="0.0" y="-297" width="300" height="0.0"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <inset key="titleEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Female">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="genderTypeTapped:" destination="x9T-WL-2E4" eventType="touchUpInside" id="7dH-i4-zr1"/>
+                                                    <action selector="genderTypeTapped:" destination="aE4-ll-0XW" eventType="touchUpInside" id="NdA-VH-mmB"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="bW3-43-d2F" firstAttribute="width" secondItem="CFS-ke-I2P" secondAttribute="width" id="0Yq-ny-L7m"/>
+                                            <constraint firstItem="eyz-El-A9e" firstAttribute="width" secondItem="CFS-ke-I2P" secondAttribute="width" id="3Xy-HC-kJx"/>
+                                            <constraint firstItem="GwJ-f6-cVu" firstAttribute="width" secondItem="CFS-ke-I2P" secondAttribute="width" id="3qd-am-N1e"/>
+                                        </constraints>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Body Weight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wab-fs-2TU">
                                         <rect key="frame" x="0.0" y="144" width="300" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="zsq-4i-Vri"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lean Body Mass" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q2R-Zn-lXG">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lean Body Mass" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Us-2W-Rgy">
                                         <rect key="frame" x="0.0" y="192" width="300" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="9ut-Tm-Wf1"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Body Fat Percentage" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bh1-9M-7nh">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Body Fat Percentage" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P7X-IJ-ksI">
                                         <rect key="frame" x="0.0" y="240" width="300" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="J10-9Z-LPz"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="2ge-fJ-eje" secondAttribute="trailing" id="8xP-fp-FD6"/>
-                                    <constraint firstItem="fYf-Xx-EUm" firstAttribute="leading" secondItem="HCb-Sf-gMs" secondAttribute="leading" id="DSd-U2-BNS"/>
-                                    <constraint firstItem="q2R-Zn-lXG" firstAttribute="leading" secondItem="HCb-Sf-gMs" secondAttribute="leading" id="GBQ-1A-Chq"/>
-                                    <constraint firstAttribute="trailing" secondItem="SSH-Hw-tPF" secondAttribute="trailing" id="Kbc-16-bhX"/>
-                                    <constraint firstAttribute="trailing" secondItem="q2R-Zn-lXG" secondAttribute="trailing" id="PsS-Az-zU8"/>
-                                    <constraint firstItem="9TE-Wg-G8d" firstAttribute="leading" secondItem="HCb-Sf-gMs" secondAttribute="leading" id="Sqr-cv-csT"/>
-                                    <constraint firstAttribute="trailing" secondItem="fYf-Xx-EUm" secondAttribute="trailing" id="T47-bh-93E"/>
-                                    <constraint firstAttribute="trailing" secondItem="9TE-Wg-G8d" secondAttribute="trailing" id="U5k-F3-y0f"/>
-                                    <constraint firstItem="SSH-Hw-tPF" firstAttribute="leading" secondItem="HCb-Sf-gMs" secondAttribute="leading" id="Uhi-sf-LvA"/>
-                                    <constraint firstItem="2ge-fJ-eje" firstAttribute="leading" secondItem="HCb-Sf-gMs" secondAttribute="leading" id="Zsb-bG-zff"/>
-                                    <constraint firstItem="Bh1-9M-7nh" firstAttribute="leading" secondItem="HCb-Sf-gMs" secondAttribute="leading" id="b3e-FU-50L"/>
-                                    <constraint firstItem="fYf-Xx-EUm" firstAttribute="top" secondItem="HCb-Sf-gMs" secondAttribute="top" id="qsQ-ii-HZP"/>
-                                    <constraint firstAttribute="bottom" secondItem="Bh1-9M-7nh" secondAttribute="bottom" id="tdH-II-fkH"/>
-                                    <constraint firstAttribute="trailing" secondItem="Bh1-9M-7nh" secondAttribute="trailing" id="x1v-A8-gfD"/>
+                                    <constraint firstAttribute="trailing" secondItem="e5C-Ay-S2y" secondAttribute="trailing" id="9SQ-Bf-Odh"/>
+                                    <constraint firstItem="Wab-fs-2TU" firstAttribute="leading" secondItem="Q88-qz-HKX" secondAttribute="leading" id="DBK-mh-Zfe"/>
+                                    <constraint firstItem="DYf-JO-ybf" firstAttribute="leading" secondItem="Q88-qz-HKX" secondAttribute="leading" id="JbM-cg-tD3"/>
+                                    <constraint firstAttribute="width" constant="300" id="LYg-0k-2dn"/>
+                                    <constraint firstItem="e5C-Ay-S2y" firstAttribute="leading" secondItem="Q88-qz-HKX" secondAttribute="leading" id="M2d-CP-hNY"/>
+                                    <constraint firstItem="7Us-2W-Rgy" firstAttribute="width" secondItem="Q88-qz-HKX" secondAttribute="width" id="P9N-mb-jNa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wab-fs-2TU" secondAttribute="trailing" id="QSR-XL-TEr"/>
+                                    <constraint firstAttribute="bottom" secondItem="P7X-IJ-ksI" secondAttribute="bottom" id="fkE-bq-qsO"/>
+                                    <constraint firstItem="P7X-IJ-ksI" firstAttribute="width" secondItem="Q88-qz-HKX" secondAttribute="width" id="iqB-RH-zlZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="P7X-IJ-ksI" secondAttribute="trailing" id="njs-ge-Ozz"/>
+                                    <constraint firstItem="7Us-2W-Rgy" firstAttribute="leading" secondItem="Q88-qz-HKX" secondAttribute="leading" id="oIp-FK-Udy"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Us-2W-Rgy" secondAttribute="trailing" id="oQH-pG-3Tv"/>
+                                    <constraint firstItem="Wab-fs-2TU" firstAttribute="width" secondItem="Q88-qz-HKX" secondAttribute="width" id="oUL-MD-BdZ"/>
+                                    <constraint firstItem="e5C-Ay-S2y" firstAttribute="width" secondItem="Q88-qz-HKX" secondAttribute="width" id="olR-pY-zoa"/>
+                                    <constraint firstItem="P7X-IJ-ksI" firstAttribute="leading" secondItem="Q88-qz-HKX" secondAttribute="leading" id="plR-eP-f7K"/>
+                                    <constraint firstItem="e5C-Ay-S2y" firstAttribute="top" secondItem="Q88-qz-HKX" secondAttribute="top" id="sET-71-ubQ"/>
+                                    <constraint firstItem="DYf-JO-ybf" firstAttribute="width" secondItem="Q88-qz-HKX" secondAttribute="width" id="xPf-Xu-ruv"/>
+                                    <constraint firstAttribute="trailing" secondItem="DYf-JO-ybf" secondAttribute="trailing" id="ykG-26-pfe"/>
                                 </constraints>
+                                <viewLayoutGuide key="safeArea" id="2eU-ib-b6h"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="HCb-Sf-gMs" firstAttribute="width" secondItem="VOB-in-e3H" secondAttribute="width" multiplier="0.8" id="GV8-JT-Uih"/>
-                            <constraint firstItem="HCb-Sf-gMs" firstAttribute="centerY" secondItem="VOB-in-e3H" secondAttribute="centerY" id="RHg-bV-OWv"/>
-                            <constraint firstItem="HCb-Sf-gMs" firstAttribute="centerX" secondItem="VOB-in-e3H" secondAttribute="centerX" id="jhq-7Z-Mh1"/>
+                            <constraint firstItem="Q88-qz-HKX" firstAttribute="centerX" secondItem="Bf5-0K-O0j" secondAttribute="centerX" id="cFR-9V-GXv"/>
+                            <constraint firstItem="Q88-qz-HKX" firstAttribute="centerY" secondItem="Bf5-0K-O0j" secondAttribute="centerY" id="um1-dV-lqY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bf5-0K-O0j"/>
                     </view>
@@ -1127,12 +1187,17 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bodyFatPercentageTextField" destination="Bh1-9M-7nh" id="8Ok-Xc-ruI"/>
-                        <outlet property="bodyWeightTextField" destination="2ge-fJ-eje" id="TYq-e2-4Ts"/>
-                        <outlet property="firstNameTextField" destination="fYf-Xx-EUm" id="Xfs-tL-6qi"/>
-                        <outlet property="genderTextField" destination="SSH-Hw-tPF" id="6et-bB-n6V"/>
-                        <outlet property="lastNameTextField" destination="9TE-Wg-G8d" id="tJH-bx-eYg"/>
-                        <outlet property="leanBodyMassTextField" destination="q2R-Zn-lXG" id="rmd-jW-Tr5"/>
+                        <outlet property="bodyFatPercentageTextField" destination="P7X-IJ-ksI" id="Js1-Tf-6yk"/>
+                        <outlet property="bodyWeightTextField" destination="Wab-fs-2TU" id="Czv-eX-gmq"/>
+                        <outlet property="femaleButton" destination="bW3-43-d2F" id="AfS-gq-NCt"/>
+                        <outlet property="firstNameTextField" destination="e5C-Ay-S2y" id="sOe-yp-uXn"/>
+                        <outlet property="genderButton" destination="eyz-El-A9e" id="Y3d-3v-zlY"/>
+                        <outlet property="genderStackView" destination="CFS-ke-I2P" id="VJT-mX-m33"/>
+                        <outlet property="lastNameTextField" destination="DYf-JO-ybf" id="xMn-TS-4Qy"/>
+                        <outlet property="leanBodyMassTextField" destination="7Us-2W-Rgy" id="jHL-5Y-OR4"/>
+                        <outlet property="maleButton" destination="GwJ-f6-cVu" id="gg8-Hd-oY3"/>
+                        <outletCollection property="genderButtons" destination="GwJ-f6-cVu" collectionClass="NSMutableArray" id="jtB-DR-Yk6"/>
+                        <outletCollection property="genderButtons" destination="bW3-43-d2F" collectionClass="NSMutableArray" id="Lj4-W6-yf1"/>
                         <segue destination="UpQ-Nv-KS2" kind="presentation" identifier="tpd" id="Vzv-zG-xIh"/>
                     </connections>
                 </viewController>

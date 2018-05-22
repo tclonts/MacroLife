@@ -36,7 +36,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         bodyFatPercentageTextField.delegate = self
         activityIndicator.hidesWhenStopped = true
 
-        genderButton.titleLabel?.textColor = UIColor.mLlightGray
+        genderButton.titleLabel?.textColor = UIColor.lightGray
         genderButton.setTitle("Select Gender \u{2304}", for: .normal)
     }
   
